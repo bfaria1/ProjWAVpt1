@@ -1,0 +1,100 @@
+\documentclass[12pt]{extarticle}
+\usepackage[brazil]{babel}
+\usepackage{graphicx, hyperref}
+\usepackage{framed}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage[top=1 in,bottom=1in, left=1 in, right=1 in]{geometry}
+\usepackage{graphicx}
+\usepackage[skip=2pt]{caption}
+\usepackage{blindtext}
+\usepackage[fixlanguage]{babelbib}
+\usepackage[alf]{abntex2cite}
+\bibliographystyle{abntex2-alf}
+\captionsetup{font={small}} 
+\graphicspath{{Figuras/}}
+\usepackage{appendix}
+\newcommand{\asp}[1]{``#1"}
+\usepackage[colorinlistoftodos]{todonotes}
+\newcommand{\nota}[1]{\todo[color=black!10, bordercolor=white!100, linecolor = black!20, size =\scriptsize]{#1} }
+\definecolor{mypink1}{rgb}{0.858, 0.188, 0.478}
+\definecolor{mypink2}{RGB}{219, 48, 122}
+\definecolor{mypink3}{cmyk}{0, 0.7808, 0.4429, 0.1412}
+\definecolor{mygray}{gray}{0.6}
+\newcommand{\arb}{um elemento arbitrário }
+\newenvironment{resposta}{ \color{mygray}}{}
+\newcommand{\true}{\textcolor{red}{\textbf{\textit{V}}}}
+\newcommand{\false}{\textcolor{red}{\textbf{\textit{F}}}}
+\newcommand{\keys}[1]{\{#1\}}
+\newenvironment{direta}{}{
+\begin{flushright}
+    Q.E.D
+\end{flushright}
+}
+\newenvironment{contradicao}{A prova é por contradição.}{
+\begin{flushright}
+    Q.E.D
+\end{flushright}
+}
+\newenvironment{contrapositiva}{A prova é pela contrapositiva.}{
+\begin{flushright}
+    Q.E.D
+\end{flushright}
+}
+\newcommand{\definition}[3][x]{\{#1|#1 \in \mathbb{#2},#3\}}
+\newcommand{\natura}{\mathbb{N}}
+\newcommand{\integer}{\mathbb{Z}}
+\newcommand{\real}{\mathbb{R}}
+\newenvironment{pif}[3][1]{
+Tomando $n = #1$ então $#2$ e $#3$
+
+Agora vamos assumir que a expressão é valida para $#1 > n \leq k$ e vamos provar que funciona para $n=k+1$.
+}{}
+\newcommand{\arranjo}[2]{A_{#1,#2}=\frac{#1!}{(#1-#2)!}}
+\newcommand{\arranjoform}[2]{\frac{#1!}{(#1-#2)!}}
+\newcommand{\conbination}[2]{C_{#1,#2}=\frac{#1!}{#2!(#1-#2)!}}
+\newcommand{\conbinationform}[2]{\frac{#1!}{#2!(#1-#2)!}}
+\newcommand{\rconbination}[2]{CR_{#1,#2}=\frac{(#1+#2-1)!}{#2!(#1-1)!}}
+\newcommand{\clinear}[1]{\foreach \i in {1,...,#1}{x_\i+}}
+\newcommand{\fatorial}[2]{\foreach \i in {#1,...,#2}{\i.}}
+\newcommand{\soma}[2]{\sum_{n=#1}^{\infty}#2}
+\newcommand{\texto}{\color{mygray}\blindtext\color{black}}
+
+
+
+%--------------%--------------%----------------------%-----------%--------------
+
+\title{Projeto Wikiaves (WAV) x SpeciesLink (SLI)}
+\author{Universidade Federal do ABC}
+\date{Dezembro, 2020}
+
+\begin{document}
+
+
+\maketitle
+
+%\input{Considerações}
+
+\input{Sections/01}
+
+\input{Sections/02}
+
+\input{Sections/03}
+
+\input{Sections/04}
+
+\input{Sections/05}
+
+\input{Sections/06}
+
+\input{Sections/07}
+
+%\bibliography{REF}
+
+
+\end{document}
