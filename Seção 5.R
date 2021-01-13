@@ -1,38 +1,11 @@
-
-library("openxlsx")
-library(geobr)
-library(ggplot2)
-library(esquisse)
-library(sf)
-library(RColorBrewer)
-library(ggpubr)
-
 Dados <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S5/Mapas.xlsx")
 FE <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S5/Mapas2.xlsx")
 mc <- read_municipality(code_muni= "SP")
+
+
+
 FAT <- merge(mc,FE)
 cid <- merge(mc,Dados)
-
-
-ggplot(FAT) + 
-  geom_sf(aes(fill=Altitude), color = NA) + 
-  scale_fill_distiller (palette = "RdYlGn", name="Altitude (m)")+
-  theme_void()
-
-ggplot(FAT) + 
-  geom_sf(aes(fill=Latitude), color = NA) + 
-  scale_fill_distiller (palette = "Reds", name="Latitude")+
-  theme_void()
-
-ggplot(FAT) + 
-  geom_sf(aes(fill=Longitude), color = NA) + 
-  scale_fill_distiller (palette = "Reds", name="Longitude")+
-  theme_void()
-
-ggplot(FAT) + 
-  geom_sf(aes(fill=AreaL), color = NA) + 
-  scale_fill_distiller (palette = "Spectral", name="Área (Log10)")+
-  theme_void()
 
 
 
@@ -57,6 +30,10 @@ FAT$LAR <- cut(FAT$AreaL, breaks = c(0,0.5,1,1.5,2,2.5,3,3.5,4),
 FAT$LPOP <- cut (FAT$PopulacaoL, breaks = c(2,3,4,5,6,7,8), 
                  labels = c("2 - 3", "3 - 4", "4 - 5", "5 - 6", "6 - 7", "7+"))
 
+
+## Altitude
+
+
 ggplot(FAT) +  
   geom_sf(aes(fill=AL), color = NA) + 
   labs(subtitle="", size=8)+ 
@@ -64,19 +41,8 @@ ggplot(FAT) +
   labs(fill = "Altitude (m) ")+  
   theme_minimal()
 
-ggplot(FAT) + 
-  geom_sf(aes(fill=LAT), color = NA) + 
-  labs(subtitle="", size=8)+  
-  scale_fill_manual (values = brewer.pal(7,'OrRd'))+ 
-  labs(fill = "Latitude (°) ")+ 
-  theme_minimal()
 
-ggplot(FAT) + 
-  geom_sf(aes(fill=LOG), color = NA) + 
-  labs(subtitle="", size=8)+  
-  scale_fill_manual (values = brewer.pal(6,'OrRd'))+ 
-  labs(fill = "Longitude  (°)")+ 
-  theme_minimal()
+## Área
 
 
 ggplot(FAT) +
@@ -86,11 +52,38 @@ ggplot(FAT) +
   labs(fill = "Área (Log10(km^2))")+  
   theme_minimal()
 
+
+## População
+
+
 ggplot(FAT) + 
   geom_sf(aes(fill=LPOP), color = NA) + 
   labs(subtitle="", size=8)+   
   scale_fill_manual (values = brewer.pal(9,'OrRd'))+  
   labs(fill = "População (Log10)")+ 
+  theme_minimal()
+
+
+##Latitude
+
+
+ggplot(FAT) + 
+  geom_sf(aes(fill=LAT), color = NA) + 
+  labs(subtitle="", size=8)+  
+  scale_fill_manual (values = brewer.pal(7,'OrRd'))+ 
+  labs(fill = "Latitude (°) ")+ 
+  theme_minimal()
+
+
+
+##Longitude
+
+
+ggplot(FAT) + 
+  geom_sf(aes(fill=LOG), color = NA) + 
+  labs(subtitle="", size=8)+  
+  scale_fill_manual (values = brewer.pal(6,'OrRd'))+ 
+  labs(fill = "Longitude  (°)")+ 
   theme_minimal()
 
 cid$WEI <- cut(cid$WAVE, breaks = c(-1,0,100,200,300,400,Inf), 
@@ -145,43 +138,28 @@ C <- ggplot(cid) +
   labs(fill = "Espécies (Log10) ")+
   theme_minimal()
 
-text <- paste("
-              
-              
-              Figura 25: Distribuição de espécies no estado de São Paulo em cada bando de dados.",
-              sep = " ")
-D <- ggparagraph(text, size = 12)
 
-ggarrange(B,A,C,D, ncol = 2, nrow = 2)
-
-A <- ggplot(cid) +
+D <- ggplot(cid) +
   geom_sf(aes(fill=LSRI), color = NA) +
   labs(subtitle="SpeciesLink", size=8)+ 
   scale_fill_manual (values = c('#f0f0f0','#fdd49e','#fdbb84','#feb24c','#fc8d59','#ef6548','#d7301f','#b30000','#7f0000'))+
   labs(fill = "Registros (Log10) ")+
   theme_minimal()
 
-B <- ggplot(cid) +
+E <- ggplot(cid) +
   geom_sf(aes(fill=LWRI), color = NA) +
   labs(subtitle="Wikiaves", size=8)+
   scale_fill_manual (values = c('#f0f0f0','#fdd49e','#fdbb84','#feb24c','#fc8d59','#ef6548','#d7301f','#b30000','#7f0000'))+
   labs(fill = "Registros (Log10) ")+
   theme_minimal()
 
-C <- ggplot(cid) +
+G <- ggplot(cid) +
   geom_sf(aes(fill=LW2RI), color = NA) +
   labs(subtitle="Wikiaves 2", size=8)+
   scale_fill_manual (values = c('#f0f0f0','#fdd49e','#fdbb84','#feb24c','#fc8d59','#ef6548','#d7301f','#b30000','#7f0000'))+
   labs(fill = "Registros (Log10) ")+
   theme_minimal()
 
-text <- paste("
-              
-              
-              Figura 24: Distribuição de registros no estado de São Paulo em cada banco de dados.",
-              sep = " ")
-D <- ggparagraph(text, size = 12)
-
-ggarrange(A,B,C,D, ncol = 2, nrow = 2)
+ggarrange(E,A,D,C,G,B, ncol = 2, nrow = 3)
 
 rm(list = ls())
