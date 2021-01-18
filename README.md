@@ -1,7 +1,7 @@
 ### Janeiro, 2021
 # Lista de Figuras do Projeto
 
-As figuras foram listadas do seguinte modo (considere x, y e z algarismos arbitrário):
+As figuras foram listadas do seguinte modo (considere x, y e z algarismos arbitrários):
 
 * **Por seção**: Cada figura encontra-se em sua respectiva seção, o número da seção corresponde ao primeiro número da pesquisa, isto é, para pesquisar algo na seção 1, digite: 1xyz;
 * **Por subseção**: O número da seção corresponde ao segundo número da pesquisa, isto é, para pesquisar algo em alguma subseção 1, digite: x1yz (O mesmo é válido para subsubseções);
