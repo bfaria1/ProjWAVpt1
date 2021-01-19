@@ -3074,6 +3074,998 @@ resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
 ```
 
+## Representação 3.1.
+
+### Altitude
+
+#### Registros
+
+```{r}
+gráfico <- ggplot(AL, aes(x = FR, y = R, colour = L1, shape = L1))+
+  geom_point()+
+  scale_colour_manual(values = c("red", "blue", "green"))) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Altitude (m)",
+        y =  "Número de Registros (Log10)",
+        colour = " ",
+        shape = " ")+
+  #guides(colour=FALSE)+
+  theme_classic()
+
+REW <- lm(WAVRAL~ALWAVR, data = dados)
+RES <- lm(SPLRAL~ALSPLR, data = dados)
+RE <- lm(WAV2RAL~ALWAV2R, data = dados)
+
+R1 <- resid(REW)
+R2 <- resid(RES)
+R3 <- resid(RE)
+
+
+resíduos <- ggplot()+
+  geom_histogram(aes (x = R1,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("blue"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  geom_histogram(aes (x = R2,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("red"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  geom_histogram(aes (x = R3,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("green"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  labs(y = "Frequência Relativa (%)",
+       x = "Resíduos") +
+  theme_classic()
+
+ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+#### Espécies
+
+```{r}
+gráfico <- ggplot(AL, aes(x = FE, y = E, color = L2, shape = L2))+
+  geom_point()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x = "Altitude (m)",
+        y = "Número de Espécies (Log10)",
+        colour = " ",
+        shape = " ")+
+  theme_classic()
+
+REW <- lm(WAVEAL~ALWAVE, data = dados)
+RES <- lm(SPLEAL~ALSPLE, data = dados)
+RE <- lm(WAV2EAL~ALWAV2E, data = dados)
+
+R1 <- resid(REW)
+R2 <- resid(RES)
+R3 <- resid(RE)
+
+resíduos <- ggplot()+
+  geom_histogram(aes (x = R1,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("blue"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  geom_histogram(aes (x = R2,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("red"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  geom_histogram(aes (x = R3,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("green"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  labs(y = "Frequência Relativa (%)",
+       x = "Resíduos") +
+  theme_classic()
+
+ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+### Área
+
+#### Registros
+
+```{r}
+gráfico <- ggplot(AR, aes(x = FR, y = R, color = L1, shape = L1))+
+  geom_point()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Área (Log10(Km^2))",
+        y =  "Número de Registros (Log10)",
+        colour = " ",
+        shape = " ")+
+  theme_classic()
+
+REW <- lm(WAVRAR~ARWAVR, data = dados)
+RES <- lm(SPLRAR~ARSPLR, data = dados)
+RE <- lm(WAV2RAR~ARWAV2R, data = dados)
+
+R1 <- resid(REW)
+R2 <- resid(RES)
+R3 <- resid(RE)
+
+resíduos <- ggplot()+
+  geom_histogram(aes (x = R1,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("blue"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  geom_histogram(aes (x = R2,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("red"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  geom_histogram(aes (x = R3,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("green"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  labs(y = "Frequência Relativa (%)",
+       x = "Resíduos") +
+  theme_classic()
+
+ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+#### Espécies
+
+```{r}
+gráfico <- ggplot(AR, aes(x = FE, y = E, color = L2, shape = L2))+
+  geom_point()+
+  scale_colour_manual(values = c("red","blue" , "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x = "Área (Log10(Km^2))",
+        y = "Número de Espécies (Log10)",
+        colour = " ",
+        shape = " ")+
+  theme_classic()
+
+REW <- lm(WAVEAR~ARWAVE, data = dados)
+RES <- lm(SPLEAR~ARSPLE, data = dados)
+RE <- lm(WAV2EAR~ARWAV2E, data = dados)
+
+R1 <- resid(REW)
+R2 <- resid(RES)
+R3 <- resid(RE)
+
+resíduos <- ggplot()+
+  geom_histogram(aes (x = R1,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("blue"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  geom_histogram(aes (x = R2,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("red"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  geom_histogram(aes (x = R3,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("green"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  labs(y = "Frequência Relativa (%)",
+       x = "Resíduos") +
+  theme_classic()
+
+ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+### População
+
+#### Registros
+
+```{r}
+gráfico <- ggplot(POP, aes(x = FR, y = R, color = L1, shape = L1))+
+  geom_point()+
+  scale_colour_manual(values = c("red","blue" , "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="População (Log10)",
+        y =  "Número de Registros (Log10)",
+        colour = " ",
+        shape = " ")+
+  theme_classic()
+
+REW <- lm(WAVRP~PWAVR, data = dados)
+RES <- lm(SPLRP~PSPLR, data = dados)
+RE <- lm(WAV2RP~PWAV2R, data = dados)
+
+R1 <- resid(REW)
+R2 <- resid(RES)
+R3 <- resid(RE)
+
+resíduos <- ggplot()+
+  geom_histogram(aes (x = R1,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("blue"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  geom_histogram(aes (x = R2,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("red"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  geom_histogram(aes (x = R3,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("green"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  labs(y = "Frequência Relativa (%)",
+       x = "Resíduos",
+       colour = " ") +
+  theme_classic()
+
+ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+#### Espécies
+
+```{r}
+gráfico <- ggplot(POP, aes(x = FE, y = E, color = L2, shape = L2))+
+  geom_point()+
+  scale_colour_manual(values = c("red","blue" , "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x = "População (Log10)",
+        y = "Número de Espécies (Log10)",
+        color = " ",
+        shape = " ")+
+  theme_classic()
+
+REW <- lm(WAVRE~PWAVE, data = dados)
+RES <- lm(SPLEP~PSPLE, data = dados)
+RE <- lm(WAV2EP~PWAV2E, data = dados)
+
+R1 <- resid(REW)
+R2 <- resid(RES)
+R3 <- resid(RE)
+
+resíduos <- ggplot()+
+  geom_histogram(aes (x = R1,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("blue"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  geom_histogram(aes (x = R2,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("red"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  geom_histogram(aes (x = R3,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("green"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  labs(y = "Frequência Relativa (%)",
+       x = "Resíduos") +
+  theme_classic()
+
+ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+### Latitude
+
+#### Registros
+
+```{r}
+gráfico <- ggplot(LA, aes(x = FR, y = R, color = L1, shape = L1))+
+  geom_point()+
+  scale_colour_manual(values = c("red","blue", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Latitude (º)",
+        y =  "Número de Registros (Log10)",
+        colour = " ",
+        shape = " ")+
+  theme_classic()
+
+REW <- lm(WAVRLA~LAWAVR, data = dados)
+RES <- lm(SPLRLA~LASPLR, data = dados)
+RE <- lm(WAV2RLA~LAWAV2R, data = dados)
+
+R1 <- resid(REW)
+R2 <- resid(RES)
+R3 <- resid(RE)
+
+resíduos <- ggplot()+
+  geom_histogram(aes (x = R1,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("blue"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  geom_histogram(aes (x = R2,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("red"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  geom_histogram(aes (x = R3,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("green"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  labs(y = "Frequência Relativa (%)",
+       x = "Resíduos") +
+  theme_classic()
+
+ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+#### Espécies
+
+```{r}
+gráfico <- ggplot(LA, aes(x = FE, y = E, color = L2, shape = L2))+
+  geom_point()+
+  scale_colour_manual(values = c("red","blue", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Latitude (º)",
+        y = "Número de Espécies (Log10)",
+        colour = " ",
+        shape = " ")+
+  theme_classic()
+
+REW <- lm(WAVELA~LAWAVE, data = dados)
+RES <- lm(SPLELA~LASPLE, data = dados)
+RE <- lm(WAV2ELA~LAWAV2E, data = dados)
+
+R1 <- resid(REW)
+R2 <- resid(RES)
+R3 <- resid(RE)
+
+resíduos <- ggplot()+
+  geom_histogram(aes (x = R1,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("blue"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  geom_histogram(aes (x = R2,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("red"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  geom_histogram(aes (x = R3,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("green"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  labs(y = "Frequência Relativa (%)",
+       x = "Resíduos") +
+  theme_classic()
+
+ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+### Longitude
+
+#### Registros
+
+```{r}
+gráfico <- ggplot(LO, aes(x = FR, y = R, color = L1, shape = L1))+
+  geom_point()+
+  scale_colour_manual(values = c("red","blue", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Longitude (º)",
+        y =  "Número de Registros (Log10)",
+        colour = " ",
+        shape = " ")+
+  theme_classic()
+
+REW <- lm(WAVRLO~LOWAVR, data = dados)
+RES <- lm(SPLRLO~LOSPLR, data = dados)
+RE <- lm(WAV2RLO~LOWAV2R, data = dados)
+
+R1 <- resid(REW)
+R2 <- resid(RES)
+R3 <- resid(RE)
+
+resíduos <- ggplot()+
+  geom_histogram(aes (x = R1,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("blue"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  geom_histogram(aes (x = R2,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("red"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  geom_histogram(aes (x = R3,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("green"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  labs(y = "Frequência Relativa (%)",
+       x = "Resíduos") +
+  theme_classic()
+
+ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+#### Espécies
+
+```{r}
+gráfico <- ggplot(LO, aes(x = FE, y = E, color = L2, shape = L2))+
+  geom_point()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Longitude (º)",
+        y = "Número de Espécies (Log10)",
+        colour = " ",
+        shape = " ")+
+  theme_classic()
+
+REW <- lm(WAVELO~LOWAVE, data = dados)
+RES <- lm(SPLELO~LOSPLE, data = dados)
+RE <- lm(WAV2ELO~LOWAV2E, data = dados)
+
+R1 <- resid(REW)
+R2 <- resid(RES)
+R3 <- resid(RE)
+
+resíduos <- ggplot()+
+  geom_histogram(aes (x = R1,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("blue"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  geom_histogram(aes (x = R2,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("red"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  geom_histogram(aes (x = R3,
+                      y = stat(count) / sum(count)*100, 
+                      fill = I("green"),
+                      col = I("black"),
+                      alpha = I(.5)),
+                 bins = 25)+
+  labs(y = "Frequência Relativa (%)",
+       x = "Resíduos") +
+  theme_classic()
+
+ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+## Representação 3.2.
+
+### Altitude
+
+#### Registros
+
+```{r}
+gráfico <- ggplot(AL, aes(x = FR, y = R, colour = L1, shape = L1))+
+  geom_point()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Altitude (m)",
+        y =  "Número de Registros (Log10)",
+        colour = " ",
+        shape = " ")+
+  theme_classic()
+
+REW <- lm(WAVRAL~ALWAVR, data = dados)
+RES <- lm(SPLRAL~ALSPLR, data = dados)
+RE <- lm(WAV2RAL~ALWAV2R, data = dados)
+
+a <- qplot(fitted(REW), resid(REW))+ 
+  geom_point(col = "blue")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+b <- qplot(fitted(RES), resid(RES))+ 
+  geom_point(col = "Red")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+c <- qplot(fitted(RE), resid(RE))+ 
+  geom_point(col = "Green")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
+
+
+  
+ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+#### Espécies
+
+```{r}
+gráfico <- ggplot(AL, aes(x = FE, y = E, color = L2, shape = L2))+
+  geom_point()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x = "Altitude (m)",
+        y = "Número de Espécies (Log10)",
+        colour = " ",         
+        shape = " ")+
+  theme_classic()
+
+REW <- lm(WAVEAL~ALWAVE, data = dados)
+RES <- lm(SPLEAL~ALSPLE, data = dados)
+RE <- lm(WAV2EAL~ALWAV2E, data = dados)
+
+
+a <- qplot(fitted(REW), resid(REW))+ 
+  geom_point(col = "blue")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+b <- qplot(fitted(RES), resid(RES))+ 
+  geom_point(col = "Red")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+c <- qplot(fitted(RE), resid(RE))+ 
+  geom_point(col = "Green")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
+
+
+ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+### Área
+
+#### Registros
+
+```{r}
+
+gráfico <- ggplot(AR, aes(x = FR, y = R, color = L1, shape = L1))+
+  geom_point()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Área (Log10(Km^2))",
+        y =  "Número de Registros (Log10)",
+        colour = " ",  
+        shape = " ")+
+  theme_classic()
+
+REW <- lm(WAVRAR~ARWAVR, data = dados)
+RES <- lm(SPLRAR~ARSPLR, data = dados)
+RE <- lm(WAV2RAR~ARWAV2R, data = dados)
+
+a <- qplot(fitted(REW), resid(REW))+ 
+  geom_point(col = "blue")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+b <- qplot(fitted(RES), resid(RES))+ 
+  geom_point(col = "Red")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+c <- qplot(fitted(RE), resid(RE))+ 
+  geom_point(col = "Green")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
+
+ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+#### Espécies
+
+```{r}
+gráfico <- ggplot(AR, aes(x = FE, y = E, color = L2, shape = L2))+
+  geom_point()+
+  scale_colour_manual(values = c("red","blue" , "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x = "Área (Log10(Km^2))",
+        y = "Número de Espécies (Log10)",
+        colour = " ",
+        shape = " ")+
+  theme_classic()
+
+REW <- lm(WAVEAR~ARWAVE, data = dados)
+RES <- lm(SPLEAR~ARSPLE, data = dados)
+RE <- lm(WAV2EAR~ARWAV2E, data = dados)
+
+a <- qplot(fitted(REW), resid(REW))+ 
+  geom_point(col = "blue")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+b <- qplot(fitted(RES), resid(RES))+ 
+  geom_point(col = "Red")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+c <- qplot(fitted(RE), resid(RE))+ 
+  geom_point(col = "Green")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
+
+ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+### População
+
+#### Registros
+
+```{r}
+gráfico <- ggplot(POP, aes(x = FR, y = R, color = L1, shape = L1))+
+  geom_point()+
+  scale_colour_manual(values = c("red","blue" , "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="População (Log10)",
+        y =  "Número de Registros (Log10)",
+        colour = " ", 
+        shape = " ")+
+  theme_classic()
+
+REW <- lm(WAVRP~PWAVR, data = dados)
+RES <- lm(SPLRP~PSPLR, data = dados)
+RE <- lm(WAV2RP~PWAV2R, data = dados)
+
+a <- qplot(fitted(REW), resid(REW))+ 
+  geom_point(col = "blue")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+b <- qplot(fitted(RES), resid(RES))+ 
+  geom_point(col = "Red")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+c <- qplot(fitted(RE), resid(RE))+ 
+  geom_point(col = "Green")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
+
+ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+#### Espécies
+
+```{r}
+gráfico <- ggplot(POP, aes(x = FE, y = E, color = L2, shape = L2))+
+  geom_point()+
+  scale_colour_manual(values = c("red","blue" , "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x = "População (Log10)",
+        y = "Número de Espécies (Log10)",
+        colour = " ",
+        shape = " ")+
+  theme_classic()
+
+REW <- lm(WAVRE~PWAVE, data = dados)
+RES <- lm(SPLEP~PSPLE, data = dados)
+RE <- lm(WAV2EP~PWAV2E, data = dados)
+
+a <- qplot(fitted(REW), resid(REW))+ 
+  geom_point(col = "blue")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+b <- qplot(fitted(RES), resid(RES))+ 
+  geom_point(col = "Red")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+c <- qplot(fitted(RE), resid(RE))+ 
+  geom_point(col = "Green")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
+
+ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+### Latitude
+
+#### Registros
+
+```{r}
+gráfico <- ggplot(LA, aes(x = FR, y = R, color = L1, shape = L1))+
+  geom_point()+
+  scale_colour_manual(values = c("red","blue", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Latitude (º)",
+        y =  "Número de Registros (Log10)",
+        colour = " ", 
+        shape = " ")+
+  theme_classic()
+
+REW <- lm(WAVRLA~LAWAVR, data = dados)
+RES <- lm(SPLRLA~LASPLR, data = dados)
+RE <- lm(WAV2RLA~LAWAV2R, data = dados)
+
+a <- qplot(fitted(REW), resid(REW))+ 
+  geom_point(col = "blue")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+b <- qplot(fitted(RES), resid(RES))+ 
+  geom_point(col = "Red")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+c <- qplot(fitted(RE), resid(RE))+ 
+  geom_point(col = "Green")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
+
+ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+#### Espécies
+
+```{r}
+gráfico <- ggplot(LA, aes(x = FE, y = E, color = L2, shape = L2))+
+  geom_point()+
+  scale_colour_manual(values = c("red","blue", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Latitude (º)",
+        y = "Número de Espécies (Log10)",
+        colour = " ", 
+        shape = " ")+
+  theme_classic()
+
+REW <- lm(WAVELA~LAWAVE, data = dados)
+RES <- lm(SPLELA~LASPLE, data = dados)
+RE <- lm(WAV2ELA~LAWAV2E, data = dados)
+
+a <- qplot(fitted(REW), resid(REW))+ 
+  geom_point(col = "blue")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+b <- qplot(fitted(RES), resid(RES))+ 
+  geom_point(col = "Red")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+c <- qplot(fitted(RE), resid(RE))+ 
+  geom_point(col = "Green")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
+
+ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+### Longitude
+
+#### Registros
+
+```{r}
+gráfico <- ggplot(LO, aes(x = FR, y = R, color = L1, shape = L1))+
+  geom_point()+
+  scale_colour_manual(values = c("red","blue", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Longitude (º)",
+        y =  "Número de Registros (Log10)",
+        colour = " ", 
+        shape = " ")+
+  theme_classic()
+
+REW <- lm(WAVRLO~LOWAVR, data = dados)
+RES <- lm(SPLRLO~LOSPLR, data = dados)
+RE <- lm(WAV2RLO~LOWAV2R, data = dados)
+
+a <- qplot(fitted(REW), resid(REW))+ 
+  geom_point(col = "blue")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+b <- qplot(fitted(RES), resid(RES))+ 
+  geom_point(col = "Red")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+c <- qplot(fitted(RE), resid(RE))+ 
+  geom_point(col = "Green")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
+
+ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+#### Espécies
+
+```{r}
+gráfico <- ggplot(LO, aes(x = FE, y = E, color = L2, shape = L2))+
+  geom_point()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Longitude (º)",
+        y = "Número de Espécies (Log10)",
+        colour = " ",     
+        shape = " ")+
+  theme_classic()
+
+REW <- lm(WAVELO~LOWAVE, data = dados)
+RES <- lm(SPLELO~LOSPLE, data = dados)
+RE <- lm(WAV2ELO~LOWAV2E, data = dados)
+
+a <- qplot(fitted(REW), resid(REW))+ 
+  geom_point(col = "blue")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+b <- qplot(fitted(RES), resid(RES))+ 
+  geom_point(col = "Red")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+c <- qplot(fitted(RE), resid(RE))+ 
+  geom_point(col = "Green")+
+  geom_hline(yintercept=0) + 
+  labs(y = "Residuals",
+       x = " ")+
+  theme_classic()
+
+resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
+
+ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
 ```{r}
 rm(list=ls())
 ```
