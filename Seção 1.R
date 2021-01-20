@@ -129,4 +129,226 @@ ggplot(dados, aes(x = RE, fill = L2, colour = L2))+
        y = "Densidade")+
   theme_classic()
 
+# Gráficos de Linha
+
+# Registros
+
+y1 <- A1$density
+x1 <- c()
+x1[1] <- 0.1
+for (i in 1:24){
+  x1[i+1] = x1[i]+0.2
+}
+
+
+y2 <- B1$density
+x2 <- c()
+x2[1] <- 0.1
+for (i in 1:24){
+  x2[i+1] = x2[i]+0.2
+}
+
+
+y3 <- C1$density
+x3 <- c()
+x3[1] <- 0.1
+for (i in 1:24){
+  x3[i+1] = x3[i]+0.2
+}
+
+A <- c()
+
+for (i in 1:25){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 26:50){
+  A[i] = "SLI (N = 174)"
+}
+for (i in 51:75){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:25){
+  B[i] = x1[i]
+}
+
+for(i in 26:50){
+  B[i] = x2[i-25]
+}
+for(i  in 51:75){
+  B[i] = x3[i-50]
+}
+
+C<- c()
+
+for (i in 1:25){
+  C[i] = y1[i]
+}
+
+for(i in 26:50){
+  C[i] = y2[i-25]
+}
+for(i  in 51:75){
+  C[i] = y3[i-50]
+}
+
+dados <- data.frame(L = A, x = B, y = C)
+dados$L <- factor(dados$L, levels = c("WAV (N = 631)", "SLI (N = 174)", "WAV 2 (N = 173)"))
+
+ggplot(dados, aes(x = x, y = C, group = L, colour = L))+
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  stat_smooth(method = lm, formula = y ~ poly(x, 15),se = FALSE, fullrange = TRUE)+
+  labs(x = "Número de Registros (Log10)",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+#Espécies
+
+y1 <- A2$density
+x1 <- c()
+x1[1] <- 0.1
+for (i in 1:24){
+  x1[i+1] = x1[i]+0.12
+}
+
+y2 <- B2$density
+x2 <- c()
+x2[1] <- 0.1
+for (i in 1:24){
+  x2[i+1] = x2[i]+0.12
+}
+
+y3 <- C2$density
+x3 <- c()
+x3[1] <- 0.1
+for (i in 1:24){
+  x3[i+1] = x3[i]+0.12
+}
+
+A <- c()
+
+for (i in 1:25){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 26:50){
+  A[i] = "SLI (N = 174)"
+}
+for (i in 51:75){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:25){
+  B[i] = x1[i]
+}
+
+for(i in 26:50){
+  B[i] = x2[i-25]
+}
+for(i  in 51:75){
+  B[i] = x3[i-50]
+}
+
+C<- c()
+
+for (i in 1:25){
+  C[i] = y1[i]
+}
+
+for(i in 26:50){
+  C[i] = y2[i-25]
+}
+for(i  in 51:75){
+  C[i] = y3[i-50]
+}
+
+dados <- data.frame(L = A, x = B, y = C)
+dados$L <- factor(dados$L, levels = c("WAV (N = 631)", "SLI (N = 174)", "WAV 2 (N = 173)"))
+
+ggplot(dados, aes(x = x, y = C, group = L, colour = L))+
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  stat_smooth(method = lm, formula = y ~ poly(x, 15),se = FALSE, fullrange = TRUE)+
+  labs(x = "Número de Espécies (Log10)",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+# Registros por Espécies
+
+y1 <- A3$density
+x1 <- c()
+x1[1] <- 0.1
+for (i in 1:24){
+  x1[i+1] = x1[i]+0.16
+}
+
+y2 <- B3$density
+x2 <- c()
+x2[1] <- 0.1
+for (i in 1:24){
+  x2[i+1] = x2[i]+0.16
+}
+
+y3 <- C3$density
+x3 <- c()
+x3[1] <- 0.1
+for (i in 1:24){
+  x3[i+1] = x3[i]+0.16
+}
+
+
+A <- c()
+
+for (i in 1:25){
+  A[i] = "WAV (S = 790)"
+}
+for (i in 26:50){
+  A[i] = "SLI (S = 661)"
+}
+for (i in 51:75){
+  A[i] = "WAV 2 (S = 779)"
+}
+
+B <- c()
+
+for (i in 1:25){
+  B[i] = x1[i]
+}
+
+for(i in 26:50){
+  B[i] = x2[i-25]
+}
+for(i  in 51:75){
+  B[i] = x3[i-50]
+}
+
+C<- c()
+
+for (i in 1:25){
+  C[i] = y1[i]
+}
+
+for(i in 26:50){
+  C[i] = y2[i-25]
+}
+for(i  in 51:75){
+  C[i] = y3[i-50]
+}
+
+dados <- data.frame(L = A, x = B, y = C)
+dados$L <- factor(dados$L, levels = c("WAV (S = 790)", "SLI (S = 661)", "WAV 2 (S = 779)"))
+
+ggplot(dados, aes(x = x, y = C, group = L, colour = L))+
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  stat_smooth(method = lm, formula = y ~ poly(x, 15),se = FALSE, fullrange = TRUE)+
+  labs(x = "Número de Registros por Espécie (Log10)",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
 rm(list=ls())
