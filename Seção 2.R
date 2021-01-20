@@ -59,7 +59,10 @@ SLO <- hist(FE$SPLLO,
             breaks = c(-55,-54.48,-53.96,-53.44,-52.92,-52.4,-51.88,-51.36,-50.84,-50.32,-49.8,-49.28,-48.76,-48.24,-47.72,-47.2,-46.68,-46.16,-45.64,-45.12,-44.6,-44.08,-43.56,-43.04,-42.52,-42))
 SLO$density = SLO$counts/sum(SLO$counts)*100
 
-#Altitude
+## Representação 1
+
+### Altitude
+
 
 plot(WAL, col=rgb(0,0,1,1/2),
      main = " ",
@@ -71,7 +74,9 @@ plot(WAL, col=rgb(0,0,1,1/2),
 plot(SAL, col=rgb(1,0,0,1/2), freq = FALSE, add=T) 
 legend("topright", c("Wikiaves", "SpeciesLink"), col=c(rgb(0,0,1,1/2),col=rgb(1,0,0,1/2) ), lwd=5, box.col = "white")
 
-#Area
+
+### Área
+
 
 plot(WAR, col=rgb(0,0,1,1/2),
      main = " ",
@@ -83,7 +88,9 @@ plot(WAR, col=rgb(0,0,1,1/2),
 plot(SAR, col=rgb(1,0,0,1/2), freq = FALSE, add=T) 
 legend("topright", c("Wikiaves", "SpeciesLink"), col=c(rgb(0,0,1,1/2),col=rgb(1,0,0,1/2) ), lwd=5, box.col = "white")
 
-#População
+
+### População
+
 
 plot(WPOP, col=rgb(0,0,1,1/2),
      main = " ",
@@ -95,7 +102,9 @@ plot(WPOP, col=rgb(0,0,1,1/2),
 plot(SPOP, col=rgb(1,0,0,1/2), freq = FALSE, add=T)
 legend("topright", c("Wikiaves", "SpeciesLink"), col=c(rgb(0,0,1,1/2),col=rgb(1,0,0,1/2) ), lwd=5, box.col = "white")
 
-#Latitude
+
+### Latitude
+
 
 plot(WLA, col=rgb(0,0,1,1/2),
      main = " ",
@@ -107,7 +116,9 @@ plot(WLA, col=rgb(0,0,1,1/2),
 plot(SLA, col=rgb(1,0,0,1/2), freq = FALSE, add=T)
 legend("topright", c("Wikiaves", "SpeciesLink"), col=c(rgb(0,0,1,1/2),col=rgb(1,0,0,1/2) ), lwd=5, box.col = "white")
 
-#Longitude
+
+### Longitude
+
 
 plot(WLO, col=rgb(0,0,1,1/2),
      main = " ",
@@ -119,47 +130,371 @@ plot(WLO, col=rgb(0,0,1,1/2),
 plot(SLO, col=rgb(1,0,0,1/2), freq = FALSE, add=T)
 legend("topright", c("Wikiaves", "SpeciesLink"), col=c(rgb(0,0,1,1/2),col=rgb(1,0,0,1/2) ), lwd=5, box.col = "white")
 
-#Density plots
+
+## Representação 2
+
+### Altitude
+
+
+dados$L <- factor(dados$L, levels = c("WAV", "SPL"), labels = c("WAV (N = 631)", "SLI (N = 174)"))
 
 ggplot(dados, aes(x = Altitude, fill = L, colour = L))+
-  scale_colour_manual(values = c("red", "blue", "green")) +
-  scale_fill_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red")) +
+  scale_fill_manual(values = c("blue", "red")) +
   geom_density(alpha = 0.2)+
   labs(x = "Altitude (m)",
-       y = "Densidade")+
+       y = "Densidade",
+       colour  = "",
+       fill = "")+
   theme_classic()
+
+
+### Área
+
 
 ggplot(dados, aes(x = Área, fill = L, colour = L))+
-  scale_colour_manual(values = c("red", "blue", "green")) +
-  scale_fill_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red")) +
+  scale_fill_manual(values = c("blue", "red")) +
   geom_density(alpha = 0.2)+
   labs(x = "Área (Log10(km^2))",
-       y = "Densidade")+
+       y = "Densidade",
+       colour  = "",
+       fill = "")+
   theme_classic()
+
+
+### População
+
 
 ggplot(dados, aes(x = População, fill = L, colour = L))+
-  scale_colour_manual(values = c("red", "blue", "green")) +
-  scale_fill_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red")) +
+  scale_fill_manual(values = c("blue", "red")) +
   geom_density(alpha = 0.2)+
   labs(x = "População (log10)",
-       y = "Densidade")+
+       y = "Densidade",
+       colour  = "",
+       fill = "")+
   theme_classic()
+
+
+### Latitude
+
 
 ggplot(dados, aes(x = Latitude, fill = L, colour = L))+
-  scale_colour_manual(values = c("red", "blue", "green")) +
-  scale_fill_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red")) +
+  scale_fill_manual(values = c("blue", "red")) +
   geom_density(alpha = 0.2)+
   labs(x = "Latitude (º)",
-       y = "Densidade")+
+       y = "Densidade",
+       colour  = "",
+       fill = "")+
   theme_classic()
+
+
+### Longitude
+
 
 ggplot(dados, aes(x = Longitude, fill = L, colour = L))+
-  scale_colour_manual(values = c("red", "blue", "green")) +
-  scale_fill_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red")) +
+  scale_fill_manual(values = c("blue", "red")) +
   geom_density(alpha = 0.2)+
   labs(x = "Longitude (º)",
-       y = "Densidade")+
+       y = "Densidade",
+       colour  = "",
+       fill = "")+
   theme_classic()
 
+
+
+## Representação 3
+
+### Altitude
+
+
+y1 <- WAL$density
+x1 <- c()
+x1[1] <- 36
+for (i in 1:24){
+  x1[i+1] = x1[i]+72
+}
+
+y2 <- SAL$density
+x2 <- c()
+x2[1] <- 36
+for (i in 1:24){
+  x2[i+1] = x2[i]+72
+}
+
+A <- c()
+
+for (i in 1:25){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 26:50){
+  A[i] = "SPL (N = 174)"
+}
+
+B <- c()
+
+for (i in 1:25){
+  B[i] = x1[i]
+}
+
+for(i in 26:50){
+  B[i] = x2[i-25]
+}
+
+C<- c()
+
+for (i in 1:25){
+  C[i] = y1[i]
+}
+
+for(i in 26:50){
+  C[i] = y2[i-25]
+}
+
+dados <- data.frame(Legenda = A, x = B, y = C)
+dados$Legenda <- factor(dados$Legenda, levels = c("WAV (N = 631)", "SPL (N = 174)"))
+
+ggplot(dados, aes(x = x, y = C, group = Legenda, colour = Legenda))+
+  scale_colour_manual(values = c("blue", "red")) +
+  stat_smooth(method = lm, formula = y ~ poly(x, 15),se = FALSE, fullrange = TRUE)+
+  labs(x = "Altitude (m)",
+       y = "Frequência Relativa %",
+       colour = " ")+
+  theme_classic()
+
+
+### Área
+
+
+y1 <- WAR$density
+x1 <- c()
+x1[1] <- 0.08
+for (i in 1:24){
+  x1[i+1] = x1[i]+0.16
+}
+
+y2 <- SAR$density
+x2 <- c()
+x2[1] <- 0.08
+for (i in 1:24){
+  x2[i+1] = x2[i]+0.16
+}
+
+A <- c()
+
+for (i in 1:25){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 26:50){
+  A[i] = "SPL (N = 174)"
+}
+
+B <- c()
+
+for (i in 1:25){
+  B[i] = x1[i]
+}
+
+for(i in 26:50){
+  B[i] = x2[i-25]
+}
+
+C<- c()
+
+for (i in 1:25){
+  C[i] = y1[i]
+}
+
+for(i in 26:50){
+  C[i] = y2[i-25]
+}
+
+dados <- data.frame(Legenda = A, x = B, y = C)
+dados$Legenda <- factor(dados$Legenda, levels = c("WAV (N = 631)", "SPL (N = 174)"))
+
+ggplot(dados, aes(x = x, y = C, group = Legenda, colour = Legenda))+
+  scale_colour_manual(values = c("blue", "red")) +
+  stat_smooth(method = lm, formula = y ~ poly(x, 15),se = FALSE, fullrange = TRUE)+
+  labs(x = "Área (Log10(km^2))",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+### População
+
+
+y1 <- WPOP$density
+x1 <- c()
+x1[1] <- 2.11
+for (i in 1:24){
+  x1[i+1] = x1[i]+0.22
+}
+
+y2 <- SPOP$density
+x2 <- c()
+x2[1] <- 2.11
+for (i in 1:24){
+  x2[i+1] = x2[i]+0.22
+}
+
+A <- c()
+
+for (i in 1:25){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 26:50){
+  A[i] = "SPL (N = 174)"
+}
+
+B <- c()
+
+for (i in 1:25){
+  B[i] = x1[i]
+}
+
+for(i in 26:50){
+  B[i] = x2[i-25]
+}
+
+C<- c()
+
+for (i in 1:25){
+  C[i] = y1[i]
+}
+
+for(i in 26:50){
+  C[i] = y2[i-25]
+}
+
+dados <- data.frame(Legenda = A, x = B, y = C)
+dados$Legenda <- factor(dados$Legenda, levels = c("WAV (N = 631)", "SPL (N = 174)"))
+
+ggplot(dados, aes(x = x, y = C, group = Legenda, colour = Legenda))+
+  scale_colour_manual(values = c("blue", "red")) +
+  stat_smooth(method = lm, formula = y ~ poly(x, 15),se = FALSE, fullrange = TRUE)+
+  labs(x = "Número de habitantes (Log10)",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+### Latitude
+
+
+y1 <- WLA$density
+x1 <- c()
+x1[1] <- -25.38
+for (i in 1:24){
+  x1[i+1] = x1[i]+0.24
+}
+
+y2 <- SLA$density
+x2 <- c()
+x2[1] <- -25.38
+for (i in 1:24){
+  x2[i+1] = x2[i]+0.24
+}
+
+A <- c()
+
+for (i in 1:25){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 26:50){
+  A[i] = "SPL (N = 174)"
+}
+
+B <- c()
+
+for (i in 1:25){
+  B[i] = x1[i]
+}
+
+for(i in 26:50){
+  B[i] = x2[i-25]
+}
+
+C<- c()
+
+for (i in 1:25){
+  C[i] = y1[i]
+}
+
+for(i in 26:50){
+  C[i] = y2[i-25]
+}
+
+dados <- data.frame(Legenda = A, x = B, y = C)
+dados$Legenda <- factor(dados$Legenda, levels = c("WAV (N = 631)", "SPL (N = 174)"))
+
+ggplot(dados, aes(x = x, y = C, group = Legenda, colour = Legenda))+
+  scale_colour_manual(values = c("blue", "red")) +
+  stat_smooth(method = lm, formula = y ~ poly(x, 15),se = FALSE, fullrange = TRUE)+
+  labs(x = "Latitude (º)",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+### Longitude
+
+
+y1 <- WLO$density
+x1 <- c()
+x1[1] <- -54.64
+for (i in 1:24){
+  x1[i+1] = x1[i]+0.72
+}
+
+y2 <- SLO$density
+x2 <- c()
+x2[1] <- -54.64
+for (i in 1:24){
+  x2[i+1] = x2[i]+0.72
+}
+
+A <- c()
+
+for (i in 1:25){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 26:50){
+  A[i] = "SPL (N = 174)"
+}
+
+B <- c()
+
+for (i in 1:25){
+  B[i] = x1[i]
+}
+
+for(i in 26:50){
+  B[i] = x2[i-25]
+}
+
+C<- c()
+
+for (i in 1:25){
+  C[i] = y1[i]
+}
+
+for(i in 26:50){
+  C[i] = y2[i-25]
+}
+
+dados <- data.frame(Legenda = A, x = B, y = C)
+dados$Legenda <- factor(dados$Legenda, levels = c("WAV (N = 631)", "SPL (N = 174)"))
+
+ggplot(dados, aes(x = x, y = C, group = Legenda, colour = Legenda))+
+  scale_colour_manual(values = c("blue", "red")) +
+  stat_smooth(method = lm, formula = y ~ poly(x, 15),se = FALSE)+
+  labs(x = "Longitude (º)",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
 
 rm(list=ls())
