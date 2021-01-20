@@ -2132,7 +2132,6 @@ R1 <- resid(REW)
 R2 <- resid(RES)
 R3 <- resid(RE)
 
-
 resíduos <- ggplot()+
   geom_histogram(aes (x = R1,
                       y = stat(count) / sum(count)*100, 
@@ -4384,6 +4383,105 @@ resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
 
+```
+
+## Representação 2.3
+
+```{r}
+grafico <- ggplot(dados, aes(x = C1, y = C2, color = L1, alpha =I(.5)))+
+  geom_point()+
+  scale_colour_manual(values = c("red", "blue","green")) +
+  stat_smooth(method = "lm",
+              formula = y~poly(x,2),
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Número de Registros (Log10)",
+        y =  "Número de Espécies (Log10)",
+        colour = " ")+
+  theme_classic()
+
+A <- lm(WE~poly(WR,2), data = RW)
+B <- lm(SE~poly(SR,2), data = RS)
+C <- lm(W2E~poly(W2R,2), data = RW2)
+
+R1 <- resid (A)
+R2 <- resid (B)
+R3 <- resid (C)
+
+A1 <- hist(R1, 
+           plot = FALSE, 
+           breaks = c(-0.4,-0.275,-0.25,-0.225,-0.2,-0.175,-0.15,-0.125,-0.1,-0.075,-0.05,-0.025,0,0.025,0.05,0.075,0.1,0.125,0.15,0.172,0.2))
+A1$density = A1$counts/sum(A1$counts)*100
+
+B1 <- hist(R2, 
+           plot = FALSE, 
+           breaks = c(-0.4,-0.275,-0.25,-0.225,-0.2,-0.175,-0.15,-0.125,-0.1,-0.075,-0.05,-0.025,0,0.025,0.05,0.075,0.1,0.125,0.15,0.172,0.2))
+B1$density = B1$counts/sum(B1$counts)*100
+
+C1 <- hist(R3, 
+           plot = FALSE, 
+           breaks = c(-0.4,-0.275,-0.25,-0.225,-0.2,-0.175,-0.15,-0.125,-0.1,-0.075,-0.05,-0.025,0,0.025,0.05,0.075,0.1,0.125,0.15,0.172,0.2))
+C1$density = C1$counts/sum(C1$counts)*100
+
+y1 <- A1$density
+x1 <- c()
+x1[1] <- -0.3
+for (i in 1:19){
+  x1[i+1] = x1[i]+0.025
+}
+
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+dados <- data.frame(L = A, x = B, y = C)
+
+ ggplot(dados, aes(x = x, y = C, group = L, colour = L))+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  stat_smooth(method = lm, formula = y ~ poly(x, 10),se = FALSE, fullrange = TRUE)+
+  labs(x = "Número de Espécies (Log10)",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+#ggarrange(grafico, tatu,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
 ```
 
 # Seção 5
