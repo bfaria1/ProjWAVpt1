@@ -5,13 +5,16 @@ library(ggplot2)
 library(RColorBrewer)
 library(esquisse)
 
+
 WS <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S1/WAVxSPL.xlsx") 
 WAV <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S1/WAV.xlsx") 
 SPL <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S1/SPL.xlsx")
 ESP <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S1/Espécies.xlsx")
 dados <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S1/dados.xlsx")
 
-#Histogramas individuais:
+
+
+
 
 A1 <- hist(WAV$WAVR, 
            plot = FALSE, 
@@ -58,7 +61,7 @@ C3 <- hist(ESP$WAV2,
            breaks = c(0,0.16,0.32,0.48,0.64,0.8,0.96,1.12,1.28,1.44,1.60,1.76,1.92,2.08,2.24,2.40,2.56,2.72,2.88,3.04,3.20,3.36,3.52,3.68,3.84,4.00))
 C3$density = C3$counts/sum(C3$counts)*100
 
-#Registros por Muicipio:
+## Representação 1
 
 plot(A1, col=rgb(0,0,1,1/2),
      main = " ",
@@ -71,7 +74,7 @@ plot(B1, col=rgb(1,0,0,1/2), freq = FALSE, add=T)
 plot(C1, col=rgb(0,1,0,1/2), freq = FALSE, add=T)
 legend("topright", c("Wikiaves", "SpeciesLink","Wikiaves 2"), col=c(rgb(0,0,1,1/2),col=rgb(1,0,0,1/2) ,rgb(0,1,0,1/2) ), lwd=5, box.col = "white")
 
-#Espécies por Municipio:
+
 
 plot(A2, col=rgb(0,0,1,1/2),
      main = " ",
@@ -84,7 +87,7 @@ plot(B2, col=rgb(1,0,0,1/2), freq = FALSE, add=T)
 plot(C2, col=rgb(0,1,0,1/2), freq = FALSE, add=T)
 legend("top", c("Wikiaves", "SpeciesLink","Wikiaves 2"), col=c(rgb(0,0,1,1/2),col=rgb(1,0,0,1/2) ,rgb(0,1,0,1/2) ), lwd=5, box.col = "white")
 
-#Registros por espécies:
+
 
 plot(A3, col=rgb(0,0,1,1/2),
      main = " ",
@@ -97,41 +100,51 @@ plot(B3, col=rgb(1,0,0,1/2), freq = FALSE, add=T)
 plot(C3, col=rgb(0,1,0,1/2), freq = FALSE, add=T)
 legend("topright", c("Wikiaves", "SpeciesLink","Wikiaves 2"), col=c(rgb(0,0,1,1/2),col=rgb(1,0,0,1/2) ,rgb(0,1,0,1/2) ), lwd=5, box.col = "white")
 
-#Plots de Desidade
 
-#Registros
+## Representação 2
+
+
+dados$L <- factor(dados$L, levels = c("WAV", "SPL", "WAV 2"), labels = c("WAV (N = 631)", "SLI (N = 174)", "WAV 2 (N = 173)"))
 
 ggplot(dados, aes(x = R, fill = L, colour = L))+
-  scale_colour_manual(values = c("red", "blue", "green")) +
-  scale_fill_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  scale_fill_manual(values = c("blue", "red", "green")) +
   geom_density(alpha = 0.2)+
   labs(x = "Quantidade de Registros (Log10)",
-       y = "Densidade")+
+       y = "Densidade",
+       colour  = "",
+       fill = "")+
   theme_classic()
 
-#Espécies
+
 
 ggplot(dados, aes(x = E, fill = L, colour = L))+
-  scale_colour_manual(values = c("red", "blue", "green")) +
-  scale_fill_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  scale_fill_manual(values = c("blue", "red", "green")) +
   geom_density(alpha = 0.2)+
   labs(x = "Quantidade de Espécies (Log10)",
-       y = "Densidade")+
+       y = "Densidade",
+       colour  = "",
+       fill = "")+
   theme_classic()
 
-#Registros por Espécies
+
+
+dados$L2 <- factor(dados$L2, levels = c("WAV", "SPL", "WAV 2"), labels = c("WAV (S = 790)", "SLI (S = 661)", "WAV 2 (S = 779)"))
 
 ggplot(dados, aes(x = RE, fill = L2, colour = L2))+
   scale_colour_manual(values = c("red", "blue", "green")) +
   scale_fill_manual(values = c("red", "blue", "green")) +
   geom_density(alpha = 0.2)+
   labs(x = "Quantidade de Registros (Log10)",
-       y = "Densidade")+
+       y = "Densidade",
+       colour  = "",
+       fill = "")+
   theme_classic()
 
-# Gráficos de Linha
 
-# Registros
+## Representação 3
+
 
 y1 <- A1$density
 x1 <- c()
@@ -206,7 +219,7 @@ ggplot(dados, aes(x = x, y = C, group = L, colour = L))+
   theme_classic()
 
 
-#Espécies
+
 
 y1 <- A2$density
 x1 <- c()
@@ -278,7 +291,7 @@ ggplot(dados, aes(x = x, y = C, group = L, colour = L))+
        colour = " ")+
   theme_classic()
 
-# Registros por Espécies
+
 
 y1 <- A3$density
 x1 <- c()
@@ -351,4 +364,8 @@ ggplot(dados, aes(x = x, y = C, group = L, colour = L))+
        colour = " ")+
   theme_classic()
 
+
+
 rm(list=ls())
+
+
