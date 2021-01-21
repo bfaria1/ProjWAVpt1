@@ -127,32 +127,42 @@ legend("topright", c("Wikiaves", "SpeciesLink","Wikiaves 2"), col=c(rgb(0,0,1,1/
 ## Representação 2
 
 ```{r}
+dados$L <- factor(dados$L, levels = c("WAV", "SPL", "WAV 2"), labels = c("WAV (N = 631)", "SLI (N = 174)", "WAV 2 (N = 173)"))
+
 ggplot(dados, aes(x = R, fill = L, colour = L))+
-  scale_colour_manual(values = c("red", "blue", "green")) +
-  scale_fill_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  scale_fill_manual(values = c("blue", "red", "green")) +
   geom_density(alpha = 0.2)+
   labs(x = "Quantidade de Registros (Log10)",
-       y = "Densidade")+
+       y = "Densidade",
+       colour  = "",
+       fill = "")+
   theme_classic()
 ```
 
 ```{r}
 ggplot(dados, aes(x = E, fill = L, colour = L))+
-  scale_colour_manual(values = c("red", "blue", "green")) +
-  scale_fill_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  scale_fill_manual(values = c("blue", "red", "green")) +
   geom_density(alpha = 0.2)+
   labs(x = "Quantidade de Espécies (Log10)",
-       y = "Densidade")+
+       y = "Densidade",
+       colour  = "",
+       fill = "")+
   theme_classic()
 ```
 
 ```{r}
+dados$L2 <- factor(dados$L2, levels = c("WAV", "SPL", "WAV 2"), labels = c("WAV (S = 790)", "SLI (S = 661)", "WAV 2 (S = 779)"))
+
 ggplot(dados, aes(x = RE, fill = L2, colour = L2))+
   scale_colour_manual(values = c("red", "blue", "green")) +
   scale_fill_manual(values = c("red", "blue", "green")) +
   geom_density(alpha = 0.2)+
   labs(x = "Quantidade de Registros (Log10)",
-       y = "Densidade")+
+       y = "Densidade",
+       colour  = "",
+       fill = "")+
   theme_classic()
 ```
 
@@ -188,7 +198,7 @@ for (i in 1:25){
   A[i] = "WAV (N = 631)"
 }
 for (i in 26:50){
-  A[i] = "SPL (N = 174)"
+  A[i] = "SLI (N = 174)"
 }
 for (i in 51:75){
   A[i] = "WAV 2 (N = 173)"
@@ -221,9 +231,10 @@ for(i  in 51:75){
 }
 
 dados <- data.frame(L = A, x = B, y = C)
+dados$L <- factor(dados$L, levels = c("WAV (N = 631)", "SLI (N = 174)", "WAV 2 (N = 173)"))
 
 ggplot(dados, aes(x = x, y = C, group = L, colour = L))+
-  scale_colour_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = lm, formula = y ~ poly(x, 15),se = FALSE, fullrange = TRUE)+
   labs(x = "Número de Registros (Log10)",
        y = "Frequência Relativa (%)",
@@ -260,7 +271,7 @@ for (i in 1:25){
   A[i] = "WAV (N = 631)"
 }
 for (i in 26:50){
-  A[i] = "SPL (N = 174)"
+  A[i] = "SLI (N = 174)"
 }
 for (i in 51:75){
   A[i] = "WAV 2 (N = 173)"
@@ -293,9 +304,10 @@ for(i  in 51:75){
 }
 
 dados <- data.frame(L = A, x = B, y = C)
+dados$L <- factor(dados$L, levels = c("WAV (N = 631)", "SLI (N = 174)", "WAV 2 (N = 173)"))
 
 ggplot(dados, aes(x = x, y = C, group = L, colour = L))+
-  scale_colour_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = lm, formula = y ~ poly(x, 15),se = FALSE, fullrange = TRUE)+
   labs(x = "Número de Espécies (Log10)",
        y = "Frequência Relativa (%)",
@@ -332,7 +344,7 @@ for (i in 1:25){
   A[i] = "WAV (S = 790)"
 }
 for (i in 26:50){
-  A[i] = "SPL (S = 661)"
+  A[i] = "SLI (S = 661)"
 }
 for (i in 51:75){
   A[i] = "WAV 2 (S = 779)"
@@ -365,9 +377,10 @@ for(i  in 51:75){
 }
 
 dados <- data.frame(L = A, x = B, y = C)
+dados$L <- factor(dados$L, levels = c("WAV (S = 790)", "SLI (S = 661)", "WAV 2 (S = 779)"))
 
 ggplot(dados, aes(x = x, y = C, group = L, colour = L))+
-  scale_colour_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = lm, formula = y ~ poly(x, 15),se = FALSE, fullrange = TRUE)+
   labs(x = "Número de Registros por Espécie (Log10)",
        y = "Frequência Relativa (%)",
@@ -515,12 +528,16 @@ legend("topright", c("Wikiaves", "SpeciesLink"), col=c(rgb(0,0,1,1/2),col=rgb(1,
 ### Altitude
 
 ```{r}
+dados$L <- factor(dados$L, levels = c("WAV", "SPL"), labels = c("WAV (N = 631)", "SLI (N = 174)"))
+
 ggplot(dados, aes(x = Altitude, fill = L, colour = L))+
-        scale_colour_manual(values = c("red", "blue", "green")) +
-        scale_fill_manual(values = c("red", "blue", "green")) +
+        scale_colour_manual(values = c("blue", "red")) +
+        scale_fill_manual(values = c("blue", "red")) +
         geom_density(alpha = 0.2)+
         labs(x = "Altitude (m)",
-             y = "Densidade")+
+             y = "Densidade",
+       colour  = "",
+       fill = "")+
         theme_classic()
 ```
 
@@ -528,11 +545,13 @@ ggplot(dados, aes(x = Altitude, fill = L, colour = L))+
 
 ```{r}
 ggplot(dados, aes(x = Área, fill = L, colour = L))+
-        scale_colour_manual(values = c("red", "blue", "green")) +
-        scale_fill_manual(values = c("red", "blue", "green")) +
+        scale_colour_manual(values = c("blue", "red")) +
+        scale_fill_manual(values = c("blue", "red")) +
         geom_density(alpha = 0.2)+
         labs(x = "Área (Log10(km^2))",
-             y = "Densidade")+
+             y = "Densidade",
+       colour  = "",
+       fill = "")+
         theme_classic()
 ```
 
@@ -540,11 +559,13 @@ ggplot(dados, aes(x = Área, fill = L, colour = L))+
 
 ```{r}
 ggplot(dados, aes(x = População, fill = L, colour = L))+
-        scale_colour_manual(values = c("red", "blue", "green")) +
-        scale_fill_manual(values = c("red", "blue", "green")) +
+        scale_colour_manual(values = c("blue", "red")) +
+        scale_fill_manual(values = c("blue", "red")) +
         geom_density(alpha = 0.2)+
         labs(x = "População (log10)",
-             y = "Densidade")+
+             y = "Densidade",
+       colour  = "",
+       fill = "")+
         theme_classic()
 ```
 
@@ -552,11 +573,13 @@ ggplot(dados, aes(x = População, fill = L, colour = L))+
 
 ```{r}
 ggplot(dados, aes(x = Latitude, fill = L, colour = L))+
-        scale_colour_manual(values = c("red", "blue", "green")) +
-        scale_fill_manual(values = c("red", "blue", "green")) +
+        scale_colour_manual(values = c("blue", "red")) +
+        scale_fill_manual(values = c("blue", "red")) +
         geom_density(alpha = 0.2)+
         labs(x = "Latitude (º)",
-             y = "Densidade")+
+             y = "Densidade",
+       colour  = "",
+       fill = "")+
         theme_classic()
 ```
 
@@ -564,11 +587,13 @@ ggplot(dados, aes(x = Latitude, fill = L, colour = L))+
 
 ```{r}
 ggplot(dados, aes(x = Longitude, fill = L, colour = L))+
-        scale_colour_manual(values = c("red", "blue", "green")) +
-        scale_fill_manual(values = c("red", "blue", "green")) +
+        scale_colour_manual(values = c("blue", "red")) +
+        scale_fill_manual(values = c("blue", "red")) +
         geom_density(alpha = 0.2)+
         labs(x = "Longitude (º)",
-             y = "Densidade")+
+             y = "Densidade",
+       colour  = "",
+       fill = "")+
         theme_classic()
 
 ```
@@ -622,9 +647,10 @@ for(i in 26:50){
 }
 
 dados <- data.frame(Legenda = A, x = B, y = C)
+dados$Legenda <- factor(dados$Legenda, levels = c("WAV (N = 631)", "SPL (N = 174)"))
 
 ggplot(dados, aes(x = x, y = C, group = Legenda, colour = Legenda))+
-  scale_colour_manual(values = c("red", "blue")) +
+  scale_colour_manual(values = c("blue", "red")) +
   stat_smooth(method = lm, formula = y ~ poly(x, 15),se = FALSE, fullrange = TRUE)+
   labs(x = "Altitude (m)",
        y = "Frequência Relativa %",
@@ -679,9 +705,10 @@ for(i in 26:50){
 }
 
 dados <- data.frame(Legenda = A, x = B, y = C)
+dados$Legenda <- factor(dados$Legenda, levels = c("WAV (N = 631)", "SPL (N = 174)"))
 
 ggplot(dados, aes(x = x, y = C, group = Legenda, colour = Legenda))+
-  scale_colour_manual(values = c("red", "blue")) +
+  scale_colour_manual(values = c("blue", "red")) +
   stat_smooth(method = lm, formula = y ~ poly(x, 15),se = FALSE, fullrange = TRUE)+
   labs(x = "Área (Log10(km^2))",
        y = "Frequência Relativa (%)",
@@ -736,9 +763,10 @@ for(i in 26:50){
 }
 
 dados <- data.frame(Legenda = A, x = B, y = C)
+dados$Legenda <- factor(dados$Legenda, levels = c("WAV (N = 631)", "SPL (N = 174)"))
 
 ggplot(dados, aes(x = x, y = C, group = Legenda, colour = Legenda))+
-  scale_colour_manual(values = c("red", "blue")) +
+  scale_colour_manual(values = c("blue", "red")) +
   stat_smooth(method = lm, formula = y ~ poly(x, 15),se = FALSE, fullrange = TRUE)+
   labs(x = "Número de habitantes (Log10)",
        y = "Frequência Relativa (%)",
@@ -793,9 +821,10 @@ for(i in 26:50){
 }
 
 dados <- data.frame(Legenda = A, x = B, y = C)
+dados$Legenda <- factor(dados$Legenda, levels = c("WAV (N = 631)", "SPL (N = 174)"))
 
 ggplot(dados, aes(x = x, y = C, group = Legenda, colour = Legenda))+
-  scale_colour_manual(values = c("red", "blue")) +
+  scale_colour_manual(values = c("blue", "red")) +
   stat_smooth(method = lm, formula = y ~ poly(x, 15),se = FALSE, fullrange = TRUE)+
   labs(x = "Latitude (º)",
        y = "Frequência Relativa (%)",
@@ -850,9 +879,10 @@ for(i in 26:50){
 }
 
 dados <- data.frame(Legenda = A, x = B, y = C)
+dados$Legenda <- factor(dados$Legenda, levels = c("WAV (N = 631)", "SPL (N = 174)"))
 
 ggplot(dados, aes(x = x, y = C, group = Legenda, colour = Legenda))+
-  scale_colour_manual(values = c("red", "blue")) +
+  scale_colour_manual(values = c("blue", "red")) +
   stat_smooth(method = lm, formula = y ~ poly(x, 15),se = FALSE)+
   labs(x = "Longitude (º)",
        y = "Frequência Relativa (%)",
@@ -1139,9 +1169,11 @@ summary(RE)
 #### Registros
 
 ```{r}
+AL$L1 <- factor(AL$L1, levels=c("WAV (N = 598)", "SLI (N = 145)", "WAV 2 (N = 141)"))
+
 gráfico <- ggplot(AL, aes(x = FR, y = R, colour = L1))+
   geom_point()+
-  scale_colour_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -1190,9 +1222,11 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 #### Espécies
 
 ```{r}
+AL$L2 <- factor(AL$L2, levels=c("WAV (N = 557)", "SLI (N = 147)", "WAV 2 (N = 136)"))
+
 gráfico <- ggplot(AL, aes(x = FE, y = E, color = L2))+
   geom_point()+
-  scale_colour_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -1241,9 +1275,11 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 #### Registros
 
 ```{r}
+AR$L1 <- factor(AR$L1, levels=c("WAV (N = 624)", "SLI (N = 171)", "WAV 2 (N = 168)"))
+
 gráfico <- ggplot(AR, aes(x = FR, y = R, color = L1))+
   geom_point()+
-  scale_colour_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -1290,9 +1326,11 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 #### Espécies
 
 ```{r}
+AR$L2 <- factor(AR$L2, levels=c("WAV (N = 605)", "SLI (N = 171)", "WAV 2 (N = 161)"))
+
 gráfico <- ggplot(AR, aes(x = FE, y = E, color = L2))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue" , "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -1341,9 +1379,12 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 #### Registros
 
 ```{r}
+
+POP$L1 <- factor(POP$L1, levels=c("WAV (N = 619)", "SpeciesLink", "WAV 2 (N = 167)") ,labels = c("WAV (N = 619)", "SLI (N = 173)", "WAV 2 (N = 167)"))
+
 gráfico <- ggplot(POP, aes(x = FR, y = R, color = L1))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue" , "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -1391,15 +1432,18 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 #### Espécies
 
 ```{r}
+POP$L2 <- factor(POP$L2, levels=c("WAV (N = 611)", "SLI (N = 173)", "WAV 2 (N = 158)"))
+
 gráfico <- ggplot(POP, aes(x = FE, y = E, color = L2))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue" , "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
               size = 1)+
   labs( x = "População (Log10)",
-        y = "Número de Espécies (Log10)")+
+        y = "Número de Espécies (Log10)",
+        color = " ")+
   theme_classic()
 
 REW <- lm(WAVRE~PWAVE, data = dados)
@@ -1441,9 +1485,12 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 #### Registros
 
 ```{r}
+
+LA$L1 <- factor(LA$L1, levels=c("WAV (N = 629)", "SLI (N = 174)", "WAV 2 (N = 170)"))
+
 gráfico <- ggplot(LA, aes(x = FR, y = R, color = L1))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue", "green")) +
+  scale_colour_manual(values = c("blue","red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -1490,9 +1537,11 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 #### Espécies
 
 ```{r}
+LA$L2 <- factor(LA$L2, levels=c("WAV (N = 605)", "SLI (N = 174)", "WAV 2 (N = 164)"))
+
 gráfico <- ggplot(LA, aes(x = FE, y = E, color = L2))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue", "green")) +
+  scale_colour_manual(values = c("blue","red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -1541,9 +1590,11 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 #### Registros
 
 ```{r}
+LO$L1 <- factor(LO$L1, levels=c("WAV (N = 627)", "SLI (N = 174)", "WAV 2 (N = 170)"))
+
 gráfico <- ggplot(LO, aes(x = FR, y = R, color = L1))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue", "green")) +
+  scale_colour_manual(values = c("blue","red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -1590,9 +1641,11 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 #### Espécies
 
 ```{r}
+LO$L2 <- factor(LO$L2, levels=c("WAV (N = 602)", "SLI (N = 174)", "WAV 2 (N = 167)"))
+
 gráfico <- ggplot(LO, aes(x = FE, y = E, color = L2))+
   geom_point()+
-  scale_colour_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -1646,7 +1699,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(AL, aes(x = FR, y = R, colour = L1))+
   geom_point()+
-  scale_colour_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -1694,7 +1747,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(AL, aes(x = FE, y = E, color = L2))+
   geom_point()+
-  scale_colour_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -1744,7 +1797,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 
 gráfico <- ggplot(AR, aes(x = FR, y = R, color = L1))+
   geom_point()+
-  scale_colour_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -1789,7 +1842,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(AR, aes(x = FE, y = E, color = L2))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue" , "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -1836,7 +1889,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(POP, aes(x = FR, y = R, color = L1))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue" , "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -1881,7 +1934,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(POP, aes(x = FE, y = E, color = L2))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue" , "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -1927,7 +1980,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(LA, aes(x = FR, y = R, color = L1))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue", "green")) +
+  scale_colour_manual(values = c("blue","red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -1972,7 +2025,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(LA, aes(x = FE, y = E, color = L2))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue", "green")) +
+  scale_colour_manual(values = c("blue","red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -2019,7 +2072,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(LO, aes(x = FR, y = R, color = L1))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue", "green")) +
+  scale_colour_manual(values = c("blue","red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -2064,7 +2117,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(LO, aes(x = FE, y = E, color = L2))+
   geom_point()+
-  scale_colour_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -2104,6 +2157,1060 @@ resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
 ```
 
+## Representação 1.3.
+
+### Altitude
+
+#### Registros
+
+```{r}
+gráfico <- ggplot(AL, aes(x = FR, y = R, colour = L1))+
+  geom_point()+
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Altitude (m)",
+        y =  "Número de Registros (Log10)",
+        colour = " ")+
+  #guides(colour=FALSE)+
+  theme_classic()
+
+REW <- lm(WAVRAL~ALWAVR, data = dados)
+RES <- lm(SPLRAL~ALSPLR, data = dados)
+RE <- lm(WAV2RAL~ALWAV2R, data = dados)
+
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+AX <- hist(R1, 
+           plot = FALSE, 
+           breaks = c(-2.1,-1.875,-1.65,-1.425,-1.2,-0.925,-0.75,-0.525,-0.3,-0.075,0.15,0.375,0.6,0.825,1.05,1.275,1.5,1.725,1.95,2.175,2.4))
+AX$density = AX$counts/sum(AX$counts)*100
+
+BX <- hist(R2, 
+           plot = FALSE, 
+           breaks = c(-2.1,-1.875,-1.65,-1.425,-1.2,-0.925,-0.75,-0.525,-0.3,-0.075,0.15,0.375,0.6,0.825,1.05,1.275,1.5,1.725,1.95,2.175,2.4))
+BX$density = BX$counts/sum(BX$counts)*100
+
+CX <- hist(R3, 
+           plot = FALSE, 
+           breaks = c(-2.1,-1.875,-1.65,-1.425,-1.2,-0.925,-0.75,-0.525,-0.3,-0.075,0.15,0.375,0.6,0.825,1.05,1.275,1.5,1.725,1.95,2.175,2.4))
+CX$density = CX$counts/sum(CX$counts)*100
+
+y1 <- AX$density
+y2 <- BX$density
+y3 <- CX$density
+
+x1 <- c()
+x1[1] <- -2.1
+for (i in 1:19){
+  x1[i+1] = x1[i]+0.225
+}
+
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+#### Espécies
+
+```{r}
+gráfico <- ggplot(AL, aes(x = FE, y = E, color = L2))+
+  geom_point()+
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x = "Altitude (m)",
+        y = "Número de Espécies (Log10)",
+        colour = " ")+
+  theme_classic()
+
+REW <- lm(WAVEAL~ALWAVE, data = dados)
+RES <- lm(SPLEAL~ALSPLE, data = dados)
+RE <- lm(WAV2EAL~ALWAV2E, data = dados)
+
+
+  AX <- hist(R1, 
+             plot = FALSE, 
+             breaks = c(-1.3,-1.1,-0.9,-0.7,-0.5,-0.3,-0.1,0.1,0.3,0.5,0.7,0.9,1.1,1.3,1.5,1.7,1.9,2.1,2.3,2.5,2.7))
+  AX$density = AX$counts/sum(AX$counts)*100
+  
+  BX <- hist(R2, 
+             plot = FALSE, 
+             breaks = c(-1.3,-1.1,-0.9,-0.7,-0.5,-0.3,-0.1,0.1,0.3,0.5,0.7,0.9,1.1,1.3,1.5,1.7,1.9,2.1,2.3,2.5,2.7))
+  BX$density = BX$counts/sum(BX$counts)*100
+  
+  CX <- hist(R3, 
+             plot = FALSE, 
+             breaks = c(-1.3,-1.1,-0.9,-0.7,-0.5,-0.3,-0.1,0.1,0.3,0.5,0.7,0.9,1.1,1.3,1.5,1.7,1.9,2.1,2.3,2.5,2.7))
+  CX$density = CX$counts/sum(CX$counts)*100
+  
+  y1 <- AX$density
+  y2 <- BX$density
+  y3 <- CX$density
+  
+  x1 <- c()
+  x1[1] <- -1.3
+  for (i in 1:19){
+    x1[i+1] = x1[i]+0.2
+  }
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+### Área
+
+#### Registros
+
+```{r}
+
+gráfico <- ggplot(AR, aes(x = FR, y = R, color = L1))+
+  geom_point()+
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Área (Log10(Km^2))",
+        y =  "Número de Registros (Log10)",
+        colour = " ")+
+  theme_classic()
+
+REW <- lm(WAVRAR~ARWAVR, data = dados)
+RES <- lm(SPLRAR~ARSPLR, data = dados)
+RE <- lm(WAV2RAR~ARWAV2R, data = dados)
+
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+  AX <- hist(R1, 
+             plot = FALSE, 
+             breaks = c(-2.4,-2.165,-1.93,-1.695,-1.46,-1.225,-0.99,-0.755,-0.52,-0.285,-0.05,0.185,0.42,0.655,0.89,1.125,1.36,1.595,1.83,2.065,2.3))
+  AX$density = AX$counts/sum(AX$counts)*100
+  
+  BX <- hist(R2, 
+             plot = FALSE, 
+             breaks = c(-2.4,-2.165,-1.93,-1.695,-1.46,-1.225,-0.99,-0.755,-0.52,-0.285,-0.05,0.185,0.42,0.655,0.89,1.125,1.36,1.595,1.83,2.065,2.3))
+  BX$density = BX$counts/sum(BX$counts)*100
+  
+  CX <- hist(R3, 
+             plot = FALSE, 
+             breaks = c(-2.4,-2.165,-1.93,-1.695,-1.46,-1.225,-0.99,-0.755,-0.52,-0.285,-0.05,0.185,0.42,0.655,0.89,1.125,1.36,1.595,1.83,2.065,2.3))
+  CX$density = CX$counts/sum(CX$counts)*100
+  
+  y1 <- AX$density
+  y2 <- BX$density
+  y3 <- CX$density
+  
+  x1 <- c()
+  x1[1] <- -2.4
+  for (i in 1:19){
+    x1[i+1] = x1[i]+0.235
+  }
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+#### Espécies
+
+```{r}
+gráfico <- ggplot(AR, aes(x = FE, y = E, color = L2))+
+  geom_point()+
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x = "Área (Log10(Km^2))",
+        y = "Número de Espécies (Log10)",
+        colour = " ")+
+  theme_classic()
+
+REW <- lm(WAVEAR~ARWAVE, data = dados)
+RES <- lm(SPLEAR~ARSPLE, data = dados)
+RE <- lm(WAV2EAR~ARWAV2E, data = dados)
+
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+  AX <- hist(R1, 
+             plot = FALSE, 
+             breaks = c(-1.4,-1.26,-1.12,-0.98,-0.84,-0.7,-0.56,-0.42,-0.28,-0.14,0,0.14,0.28,0.42,0.56,0.7,0.84,0.98,1.12,1.26,1.4))
+  AX$density = AX$counts/sum(AX$counts)*100
+  
+  BX <- hist(R2, 
+             plot = FALSE, 
+             breaks = c(-1.4,-1.26,-1.12,-0.98,-0.84,-0.7,-0.56,-0.42,-0.28,-0.14,0,0.14,0.28,0.42,0.56,0.7,0.84,0.98,1.12,1.26,1.4))
+  BX$density = BX$counts/sum(BX$counts)*100
+  
+  CX <- hist(R3, 
+             plot = FALSE, 
+             breaks = c(-1.4,-1.26,-1.12,-0.98,-0.84,-0.7,-0.56,-0.42,-0.28,-0.14,0,0.14,0.28,0.42,0.56,0.7,0.84,0.98,1.12,1.26,1.4))
+  CX$density = CX$counts/sum(CX$counts)*100
+  
+  y1 <- AX$density
+  y2 <- BX$density
+  y3 <- CX$density
+  
+  x1 <- c()
+  x1[1] <- -1.4
+  for (i in 1:19){
+    x1[i+1] = x1[i]+0.14
+  }
+
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+### População
+
+#### Registros
+
+```{r}
+gráfico <- ggplot(POP, aes(x = FR, y = R, color = L1))+
+  geom_point()+
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="População (Log10)",
+        y =  "Número de Registros (Log10)",
+        colour = " ")+
+  theme_classic()
+
+REW <- lm(WAVRP~PWAVR, data = dados)
+RES <- lm(SPLRP~PSPLR, data = dados)
+RE <- lm(WAV2RP~PWAV2R, data = dados)
+
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+  AX <- hist(R1, 
+             plot = FALSE, 
+             breaks = c(-1.7,-1.495,-1.29,-1.085,-0.88,-0.675,-0.47,-0.265,-0.06,0.145,0.35,0.555,0.76,0.965,1.17,1.375,1.58,1.785,1.99,2.195,2.4))
+  AX$density = AX$counts/sum(AX$counts)*100
+  
+  BX <- hist(R2, 
+             plot = FALSE, 
+             breaks = c(-1.7,-1.495,-1.29,-1.085,-0.88,-0.675,-0.47,-0.265,-0.06,0.145,0.35,0.555,0.76,0.965,1.17,1.375,1.58,1.785,1.99,2.195,2.4))
+  BX$density = BX$counts/sum(BX$counts)*100
+  
+  CX <- hist(R3, 
+             plot = FALSE, 
+             breaks = c(-1.7,-1.495,-1.29,-1.085,-0.88,-0.675,-0.47,-0.265,-0.06,0.145,0.35,0.555,0.76,0.965,1.17,1.375,1.58,1.785,1.99,2.195,2.4))
+  CX$density = CX$counts/sum(CX$counts)*100
+  
+  y1 <- AX$density
+  y2 <- BX$density
+  y3 <- CX$density
+  
+  x1 <- c()
+  x1[1] <- -1.7
+  for (i in 1:19){
+    x1[i+1] = x1[i]+0.205
+  }
+
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+#### Espécies
+
+```{r}
+gráfico <- ggplot(POP, aes(x = FE, y = E, color = L2))+
+  geom_point()+
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x = "População (Log10)",
+        y = "Número de Espécies (Log10)")+
+  theme_classic()
+
+REW <- lm(WAVRE~PWAVE, data = dados)
+RES <- lm(SPLEP~PSPLE, data = dados)
+RE <- lm(WAV2EP~PWAV2E, data = dados)
+
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+  AX <- hist(R1, 
+             plot = FALSE, 
+             breaks = c(-1.2,-1.06,-0.92,-0.78,-0.74,-0.5,-0.36,-0.22,-0.08,0.06,0.2,0.34,0.48,0.62,0.76,0.9,1.04,1.18,1.32,1.46,1.6))
+  AX$density = AX$counts/sum(AX$counts)*100
+  
+  BX <- hist(R2, 
+             plot = FALSE, 
+             breaks = c(-1.2,-1.06,-0.92,-0.78,-0.74,-0.5,-0.36,-0.22,-0.08,0.06,0.2,0.34,0.48,0.62,0.76,0.9,1.04,1.18,1.32,1.46,1.6))
+  BX$density = BX$counts/sum(BX$counts)*100
+  
+  CX <- hist(R3, 
+             plot = FALSE, 
+             breaks = c(-1.2,-1.06,-0.92,-0.78,-0.74,-0.5,-0.36,-0.22,-0.08,0.06,0.2,0.34,0.48,0.62,0.76,0.9,1.04,1.18,1.32,1.46,1.6))
+  CX$density = CX$counts/sum(CX$counts)*100
+  
+  y1 <- AX$density
+  y2 <- BX$density
+  y3 <- CX$density
+  
+  x1 <- c()
+  x1[1] <- -1.2
+  for (i in 1:19){
+    x1[i+1] = x1[i]+0.14
+  }
+
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+### Latitude
+
+#### Registros
+
+```{r}
+gráfico <- ggplot(LA, aes(x = FR, y = R, color = L1))+
+  geom_point()+
+  scale_colour_manual(values = c("blue","red", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Latitude (º)",
+        y =  "Número de Registros (Log10)",
+        colour = " ")+
+  theme_classic()
+
+REW <- lm(WAVRLA~LAWAVR, data = dados)
+RES <- lm(SPLRLA~LASPLR, data = dados)
+RE <- lm(WAV2RLA~LAWAV2R, data = dados)
+
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+  AX <- hist(R1, 
+             plot = FALSE, 
+             breaks = c(-2.2,-1.965,-1.73,-1.495,-1.26,-1.025,-0.79,-0.555,-0.32,-0.085,0.15,0.385,0.62,0.855,1.09,1.325,1.56,1.795,2.03,2.265,2.5))
+  AX$density = AX$counts/sum(AX$counts)*100
+  
+  BX <- hist(R2, 
+             plot = FALSE, 
+             breaks = c(-2.2,-1.965,-1.73,-1.495,-1.26,-1.025,-0.79,-0.555,-0.32,-0.085,0.15,0.385,0.62,0.855,1.09,1.325,1.56,1.795,2.03,2.265,2.5))
+  BX$density = BX$counts/sum(BX$counts)*100
+  
+  CX <- hist(R3, 
+             plot = FALSE, 
+             breaks = c(-2.2,-1.965,-1.73,-1.495,-1.26,-1.025,-0.79,-0.555,-0.32,-0.085,0.15,0.385,0.62,0.855,1.09,1.325,1.56,1.795,2.03,2.265,2.5))
+  CX$density = CX$counts/sum(CX$counts)*100
+  
+  y1 <- AX$density
+  y2 <- BX$density
+  y3 <- CX$density
+  
+  x1 <- c()
+  x1[1] <- -2.2
+  for (i in 1:19){
+    x1[i+1] = x1[i]+0.235
+  }
+
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+#### Espécies
+
+```{r}
+gráfico <- ggplot(LA, aes(x = FE, y = E, color = L2))+
+  geom_point()+
+  scale_colour_manual(values = c("blue","red", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Latitude (º)",
+        y = "Número de Espécies (Log10)",
+        colour = " ")+
+  theme_classic()
+
+REW <- lm(WAVELA~LAWAVE, data = dados)
+RES <- lm(SPLELA~LASPLE, data = dados)
+RE <- lm(WAV2ELA~LAWAV2E, data = dados)
+
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+  AX <- hist(R1, 
+             plot = FALSE, 
+             breaks = c(-1.4,-1.245,-1.09,-0.935,-0.78,-0.625,-0.47,-0.315,-0.16,-0.005,0.15,0.305,0.46,0.615,0.77,0.925,1.08,1.235,1.39,1.545,1.7))
+  AX$density = AX$counts/sum(AX$counts)*100
+  
+  BX <- hist(R2, 
+             plot = FALSE, 
+             breaks = c(-1.4,-1.245,-1.09,-0.935,-0.78,-0.625,-0.47,-0.315,-0.16,-0.005,0.15,0.305,0.46,0.615,0.77,0.925,1.08,1.235,1.39,1.545,1.7))
+  BX$density = BX$counts/sum(BX$counts)*100
+  
+  CX <- hist(R3, 
+             plot = FALSE, 
+             breaks = c(-1.4,-1.245,-1.09,-0.935,-0.78,-0.625,-0.47,-0.315,-0.16,-0.005,0.15,0.305,0.46,0.615,0.77,0.925,1.08,1.235,1.39,1.545,1.7))
+  CX$density = CX$counts/sum(CX$counts)*100
+  
+  y1 <- AX$density
+  y2 <- BX$density
+  y3 <- CX$density
+  
+  x1 <- c()
+  x1[1] <- -1.4
+  for (i in 1:19){
+    x1[i+1] = x1[i]+0.155
+  }
+
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+### Longitude
+
+#### Registros
+
+```{r}
+gráfico <- ggplot(LO, aes(x = FR, y = R, color = L1))+
+  geom_point()+
+  scale_colour_manual(values = c("blue","red", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Longitude (º)",
+        y =  "Número de Registros (Log10)",
+        colour = " ")+
+  theme_classic()
+
+REW <- lm(WAVRLO~LOWAVR, data = dados)
+RES <- lm(SPLRLO~LOSPLR, data = dados)
+RE <- lm(WAV2RLO~LOWAV2R, data = dados)
+
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+  AX <- hist(R1, 
+             plot = FALSE, 
+             breaks = c(-1.8,-1.59,-1.38,-1.17,-0.96,-0.75,-0.54,-0.33,-0.12,0.09,0.3,0.51,0.72,0.93,1.14,1.35,1.56,1.77,1.98,2.19,2.4))
+  AX$density = AX$counts/sum(AX$counts)*100
+  
+  BX <- hist(R2, 
+             plot = FALSE, 
+             breaks = c(-1.8,-1.59,-1.38,-1.17,-0.96,-0.75,-0.54,-0.33,-0.12,0.09,0.3,0.51,0.72,0.93,1.14,1.35,1.56,1.77,1.98,2.19,2.4))
+  BX$density = BX$counts/sum(BX$counts)*100
+  
+  CX <- hist(R3, 
+             plot = FALSE, 
+             breaks = c(-1.8,-1.59,-1.38,-1.17,-0.96,-0.75,-0.54,-0.33,-0.12,0.09,0.3,0.51,0.72,0.93,1.14,1.35,1.56,1.77,1.98,2.19,2.4))
+  CX$density = CX$counts/sum(CX$counts)*100
+  
+  y1 <- AX$density
+  y2 <- BX$density
+  y3 <- CX$density
+  
+  x1 <- c()
+  x1[1] <- -1.8
+  for (i in 1:19){
+    x1[i+1] = x1[i]+0.21
+  }
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+#### Espécies
+
+```{r}
+gráfico <- ggplot(LO, aes(x = FE, y = E, color = L2))+
+  geom_point()+
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Longitude (º)",
+        y = "Número de Espécies (Log10)",
+        colour = " ")+
+  theme_classic()
+
+REW <- lm(WAVELO~LOWAVE, data = dados)
+RES <- lm(SPLELO~LOSPLE, data = dados)
+RE <- lm(WAV2ELO~LOWAV2E, data = dados)
+
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+  AX <- hist(R1, 
+             plot = FALSE, 
+             breaks = c(-1.2,-1.065,-0.93,-0.795,-0.66,-0.525,-0.39,-0.255,-0.12,0.015,0.15,0.285,0.42,0.555,0.69,0.825,0.96,1.095,1.23,1.365,1.5))
+  AX$density = AX$counts/sum(AX$counts)*100
+  
+  BX <- hist(R2, 
+             plot = FALSE, 
+             breaks = c(-1.2,-1.065,-0.93,-0.795,-0.66,-0.525,-0.39,-0.255,-0.12,0.015,0.15,0.285,0.42,0.555,0.69,0.825,0.96,1.095,1.23,1.365,1.5))
+  BX$density = BX$counts/sum(BX$counts)*100
+  
+  CX <- hist(R3, 
+             plot = FALSE, 
+             breaks = c(-1.2,-1.065,-0.93,-0.795,-0.66,-0.525,-0.39,-0.255,-0.12,0.015,0.15,0.285,0.42,0.555,0.69,0.825,0.96,1.095,1.23,1.365,1.5))
+  CX$density = CX$counts/sum(CX$counts)*100
+  
+  y1 <- AX$density
+  y2 <- BX$density
+  y3 <- CX$density
+  
+  x1 <- c()
+  x1[1] <- -1.2
+  for (i in 1:19){
+    x1[i+1] = x1[i]+0.135
+  }
+
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
 ## Representação 2.1.
 
 ### Altitude
@@ -2113,7 +3220,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(AL, aes(x = FR, y = R, colour = L1, alpha =I(.5)))+
   geom_point()+
-  scale_colour_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -2163,7 +3270,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(AL, aes(x = FE, y = E, color = L2, alpha =I(.5)))+
   geom_point()+
-  scale_colour_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -2214,7 +3321,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(AR, aes(x = FR, y = R, color = L1, alpha =I(.5)))+
   geom_point()+
-  scale_colour_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -2263,7 +3370,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(AR, aes(x = FE, y = E, color = L2, alpha =I(.5)))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue" , "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -2314,7 +3421,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(POP, aes(x = FR, y = R, color = L1, alpha =I(.5)))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue" , "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -2364,13 +3471,14 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(POP, aes(x = FE, y = E, color = L2, alpha =I(.5)))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue" , "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
               size = 1)+
   labs( x = "População (Log10)",
-        y = "Número de Espécies (Log10)")+
+        y = "Número de Espécies (Log10)",
+        colour = " ")+
   theme_classic()
 
 REW <- lm(WAVRE~PWAVE, data = dados)
@@ -2414,7 +3522,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(LA, aes(x = FR, y = R, color = L1, alpha =I(.5)))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -2463,7 +3571,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(LA, aes(x = FE, y = E, color = L2, alpha =I(.5)))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -2514,7 +3622,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(LO, aes(x = FR, y = R, color = L1, alpha =I(.5)))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -2563,7 +3671,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(LO, aes(x = FE, y = E, color = L2, alpha =I(.5)))+
   geom_point()+
-  scale_colour_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -2616,7 +3724,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(AL, aes(x = FR, y = R, colour = L1, alpha =I(.5)))+
   geom_point()+
-  scale_colour_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -2663,7 +3771,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(AL, aes(x = FE, y = E, color = L2, alpha =I(.5)))+
   geom_point()+
-  scale_colour_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -2713,7 +3821,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 
 gráfico <- ggplot(AR, aes(x = FR, y = R, color = L1, alpha =I(.5)))+
   geom_point()+
-  scale_colour_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -2758,7 +3866,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(AR, aes(x = FE, y = E, color = L2, alpha =I(.5)))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue" , "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -2805,7 +3913,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(POP, aes(x = FR, y = R, color = L1, alpha =I(.5)))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue" , "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -2850,13 +3958,14 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(POP, aes(x = FE, y = E, color = L2, alpha =I(.5)))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue" , "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
               size = 1)+
   labs( x = "População (Log10)",
-        y = "Número de Espécies (Log10)")+
+        y = "Número de Espécies (Log10)",
+        colour = " ")+
   theme_classic()
 
 REW <- lm(WAVRE~PWAVE, data = dados)
@@ -2896,7 +4005,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(LA, aes(x = FR, y = R, color = L1, alpha =I(.5)))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -2941,7 +4050,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(LA, aes(x = FE, y = E, color = L2, alpha =I(.5)))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -2988,7 +4097,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(LO, aes(x = FR, y = R, color = L1, alpha =I(.5)))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -3033,7 +4142,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(LO, aes(x = FE, y = E, color = L2, alpha =I(.5)))+
   geom_point()+
-  scale_colour_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -3073,6 +4182,1074 @@ resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
 ```
 
+## Representação 2.3.
+
+### Altitude
+
+#### Registros
+
+```{r}
+gráfico <- ggplot(AL, aes(x = FR, y = R, colour = L1, alpha =I(.5)))+
+  geom_point()+
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Altitude (m)",
+        y =  "Número de Registros (Log10)",
+        colour = " ")+
+  theme_classic()
+
+REW <- lm(WAVRAL~ALWAVR, data = dados)
+RES <- lm(SPLRAL~ALSPLR, data = dados)
+RE <- lm(WAV2RAL~ALWAV2R, data = dados)
+
+
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+AX <- hist(R1, 
+           plot = FALSE, 
+           breaks = c(-2.1,-1.875,-1.65,-1.425,-1.2,-0.925,-0.75,-0.525,-0.3,-0.075,0.15,0.375,0.6,0.825,1.05,1.275,1.5,1.725,1.95,2.175,2.4))
+AX$density = AX$counts/sum(AX$counts)*100
+
+BX <- hist(R2, 
+           plot = FALSE, 
+           breaks = c(-2.1,-1.875,-1.65,-1.425,-1.2,-0.925,-0.75,-0.525,-0.3,-0.075,0.15,0.375,0.6,0.825,1.05,1.275,1.5,1.725,1.95,2.175,2.4))
+BX$density = BX$counts/sum(BX$counts)*100
+
+CX <- hist(R3, 
+           plot = FALSE, 
+          breaks = c(-2.1,-1.875,-1.65,-1.425,-1.2,-0.925,-0.75,-0.525,-0.3,-0.075,0.15,0.375,0.6,0.825,1.05,1.275,1.5,1.725,1.95,2.175,2.4))
+CX$density = CX$counts/sum(CX$counts)*100
+
+y1 <- AX$density
+y2 <- BX$density
+y3 <- CX$density
+
+x1 <- c()
+x1[1] <- -2.1
+for (i in 1:19){
+  x1[i+1] = x1[i]+0.225
+}
+
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+#### Espécies
+
+```{r}
+
+gráfico <- ggplot(AL, aes(x = FE, y = E, color = L2, alpha =I(.5)))+
+  geom_point()+
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x = "Altitude (m)",
+        y = "Número de Espécies (Log10)",
+        colour = " ")+
+  theme_classic()
+
+
+
+REW <- lm(WAVEAL~ALWAVE, data = dados)
+RES <- lm(SPLEAL~ALSPLE, data = dados)
+RE <- lm(WAV2EAL~ALWAV2E, data = dados)
+
+
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+AX <- hist(R1, 
+           plot = FALSE, 
+           breaks = c(-1.3,-1.1,-0.9,-0.7,-0.5,-0.3,-0.1,0.1,0.3,0.5,0.7,0.9,1.1,1.3,1.5,1.7,1.9,2.1,2.3,2.5,2.7))
+AX$density = AX$counts/sum(AX$counts)*100
+
+BX <- hist(R2, 
+           plot = FALSE, 
+           breaks = c(-1.3,-1.1,-0.9,-0.7,-0.5,-0.3,-0.1,0.1,0.3,0.5,0.7,0.9,1.1,1.3,1.5,1.7,1.9,2.1,2.3,2.5,2.7))
+BX$density = BX$counts/sum(BX$counts)*100
+
+CX <- hist(R3, 
+           plot = FALSE, 
+          breaks = c(-1.3,-1.1,-0.9,-0.7,-0.5,-0.3,-0.1,0.1,0.3,0.5,0.7,0.9,1.1,1.3,1.5,1.7,1.9,2.1,2.3,2.5,2.7))
+CX$density = CX$counts/sum(CX$counts)*100
+
+y1 <- AX$density
+y2 <- BX$density
+y3 <- CX$density
+
+x1 <- c()
+x1[1] <- -1.3
+for (i in 1:19){
+  x1[i+1] = x1[i]+0.2
+}
+
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+### Área
+
+#### Registros
+
+```{r}
+
+gráfico <- ggplot(AR, aes(x = FR, y = R, color = L1, alpha =I(.5)))+
+  geom_point()+
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Área (Log10(Km^2))",
+        y =  "Número de Registros (Log10)",
+        colour = " ")+
+  theme_classic()
+
+REW <- lm(WAVRAR~ARWAVR, data = dados)
+RES <- lm(SPLRAR~ARSPLR, data = dados)
+RE <- lm(WAV2RAR~ARWAV2R, data = dados)
+
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+AX <- hist(R1, 
+           plot = FALSE, 
+           breaks = c(-2.4,-2.165,-1.93,-1.695,-1.46,-1.225,-0.99,-0.755,-0.52,-0.285,-0.05,0.185,0.42,0.655,0.89,1.125,1.36,1.595,1.83,2.065,2.3))
+AX$density = AX$counts/sum(AX$counts)*100
+
+BX <- hist(R2, 
+           plot = FALSE, 
+           breaks = c(-2.4,-2.165,-1.93,-1.695,-1.46,-1.225,-0.99,-0.755,-0.52,-0.285,-0.05,0.185,0.42,0.655,0.89,1.125,1.36,1.595,1.83,2.065,2.3))
+BX$density = BX$counts/sum(BX$counts)*100
+
+CX <- hist(R3, 
+           plot = FALSE, 
+          breaks = c(-2.4,-2.165,-1.93,-1.695,-1.46,-1.225,-0.99,-0.755,-0.52,-0.285,-0.05,0.185,0.42,0.655,0.89,1.125,1.36,1.595,1.83,2.065,2.3))
+CX$density = CX$counts/sum(CX$counts)*100
+
+y1 <- AX$density
+y2 <- BX$density
+y3 <- CX$density
+
+x1 <- c()
+x1[1] <- -2.4
+for (i in 1:19){
+  x1[i+1] = x1[i]+0.235
+}
+
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+
+#### Espécies
+
+```{r}
+gráfico <- ggplot(AR, aes(x = FE, y = E, color = L2, alpha =I(.5)))+
+  geom_point()+
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x = "Área (Log10(Km^2))",
+        y = "Número de Espécies (Log10)",
+        colour = " ")+
+  theme_classic()
+
+REW <- lm(WAVEAR~ARWAVE, data = dados)
+RES <- lm(SPLEAR~ARSPLE, data = dados)
+RE <- lm(WAV2EAR~ARWAV2E, data = dados)
+
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+AX <- hist(R1, 
+           plot = FALSE, 
+           breaks = c(-1.4,-1.26,-1.12,-0.98,-0.84,-0.7,-0.56,-0.42,-0.28,-0.14,0,0.14,0.28,0.42,0.56,0.7,0.84,0.98,1.12,1.26,1.4))
+AX$density = AX$counts/sum(AX$counts)*100
+
+BX <- hist(R2, 
+           plot = FALSE, 
+           breaks = c(-1.4,-1.26,-1.12,-0.98,-0.84,-0.7,-0.56,-0.42,-0.28,-0.14,0,0.14,0.28,0.42,0.56,0.7,0.84,0.98,1.12,1.26,1.4))
+BX$density = BX$counts/sum(BX$counts)*100
+
+CX <- hist(R3, 
+           plot = FALSE, 
+          breaks = c(-1.4,-1.26,-1.12,-0.98,-0.84,-0.7,-0.56,-0.42,-0.28,-0.14,0,0.14,0.28,0.42,0.56,0.7,0.84,0.98,1.12,1.26,1.4))
+CX$density = CX$counts/sum(CX$counts)*100
+
+y1 <- AX$density
+y2 <- BX$density
+y3 <- CX$density
+
+x1 <- c()
+x1[1] <- -1.4
+for (i in 1:19){
+  x1[i+1] = x1[i]+0.14
+}
+
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+### População
+
+#### Registros
+
+```{r}
+gráfico <- ggplot(POP, aes(x = FR, y = R, color = L1, alpha =I(.5)))+
+  geom_point()+
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="População (Log10)",
+        y =  "Número de Registros (Log10)",
+        colour = " ")+
+  theme_classic()
+
+REW <- lm(WAVRP~PWAVR, data = dados)
+RES <- lm(SPLRP~PSPLR, data = dados)
+RE <- lm(WAV2RP~PWAV2R, data = dados)
+
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+AX <- hist(R1, 
+           plot = FALSE, 
+           breaks = c(-1.7,-1.495,-1.29,-1.085,-0.88,-0.675,-0.47,-0.265,-0.06,0.145,0.35,0.555,0.76,0.965,1.17,1.375,1.58,1.785,1.99,2.195,2.4))
+AX$density = AX$counts/sum(AX$counts)*100
+
+BX <- hist(R2, 
+           plot = FALSE, 
+           breaks = c(-1.7,-1.495,-1.29,-1.085,-0.88,-0.675,-0.47,-0.265,-0.06,0.145,0.35,0.555,0.76,0.965,1.17,1.375,1.58,1.785,1.99,2.195,2.4))
+BX$density = BX$counts/sum(BX$counts)*100
+
+CX <- hist(R3, 
+           plot = FALSE, 
+          breaks = c(-1.7,-1.495,-1.29,-1.085,-0.88,-0.675,-0.47,-0.265,-0.06,0.145,0.35,0.555,0.76,0.965,1.17,1.375,1.58,1.785,1.99,2.195,2.4))
+CX$density = CX$counts/sum(CX$counts)*100
+
+y1 <- AX$density
+y2 <- BX$density
+y3 <- CX$density
+
+x1 <- c()
+x1[1] <- -1.7
+for (i in 1:19){
+  x1[i+1] = x1[i]+0.205
+}
+
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+#### Espécies
+
+```{r}
+gráfico <- ggplot(POP, aes(x = FE, y = E, color = L2, alpha =I(.5)))+
+  geom_point()+
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x = "População (Log10)",
+        y = "Número de Espécies (Log10)")+
+  theme_classic()
+
+REW <- lm(WAVRE~PWAVE, data = dados)
+RES <- lm(SPLEP~PSPLE, data = dados)
+RE <- lm(WAV2EP~PWAV2E, data = dados)
+
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+AX <- hist(R1, 
+           plot = FALSE, 
+           breaks = c(-1.2,-1.06,-0.92,-0.78,-0.74,-0.5,-0.36,-0.22,-0.08,0.06,0.2,0.34,0.48,0.62,0.76,0.9,1.04,1.18,1.32,1.46,1.6))
+AX$density = AX$counts/sum(AX$counts)*100
+
+BX <- hist(R2, 
+           plot = FALSE, 
+           breaks = c(-1.2,-1.06,-0.92,-0.78,-0.74,-0.5,-0.36,-0.22,-0.08,0.06,0.2,0.34,0.48,0.62,0.76,0.9,1.04,1.18,1.32,1.46,1.6))
+BX$density = BX$counts/sum(BX$counts)*100
+
+CX <- hist(R3, 
+           plot = FALSE, 
+          breaks = c(-1.2,-1.06,-0.92,-0.78,-0.74,-0.5,-0.36,-0.22,-0.08,0.06,0.2,0.34,0.48,0.62,0.76,0.9,1.04,1.18,1.32,1.46,1.6))
+CX$density = CX$counts/sum(CX$counts)*100
+
+y1 <- AX$density
+y2 <- BX$density
+y3 <- CX$density
+
+x1 <- c()
+x1[1] <- -1.2
+for (i in 1:19){
+  x1[i+1] = x1[i]+0.14
+}
+
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+### Latitude
+
+#### Registros
+
+```{r}
+gráfico <- ggplot(LA, aes(x = FR, y = R, color = L1, alpha =I(.5)))+
+  geom_point()+
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Latitude (º)",
+        y =  "Número de Registros (Log10)",
+        colour = " ")+
+  theme_classic()
+
+REW <- lm(WAVRLA~LAWAVR, data = dados)
+RES <- lm(SPLRLA~LASPLR, data = dados)
+RE <- lm(WAV2RLA~LAWAV2R, data = dados)
+
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+AX <- hist(R1, 
+           plot = FALSE, 
+           breaks = c(-2.2,-1.965,-1.73,-1.495,-1.26,-1.025,-0.79,-0.555,-0.32,-0.085,0.15,0.385,0.62,0.855,1.09,1.325,1.56,1.795,2.03,2.265,2.5))
+AX$density = AX$counts/sum(AX$counts)*100
+
+BX <- hist(R2, 
+           plot = FALSE, 
+           breaks = c(-2.2,-1.965,-1.73,-1.495,-1.26,-1.025,-0.79,-0.555,-0.32,-0.085,0.15,0.385,0.62,0.855,1.09,1.325,1.56,1.795,2.03,2.265,2.5))
+BX$density = BX$counts/sum(BX$counts)*100
+
+CX <- hist(R3, 
+           plot = FALSE, 
+          breaks = c(-2.2,-1.965,-1.73,-1.495,-1.26,-1.025,-0.79,-0.555,-0.32,-0.085,0.15,0.385,0.62,0.855,1.09,1.325,1.56,1.795,2.03,2.265,2.5))
+CX$density = CX$counts/sum(CX$counts)*100
+
+y1 <- AX$density
+y2 <- BX$density
+y3 <- CX$density
+
+x1 <- c()
+x1[1] <- -2.2
+for (i in 1:19){
+  x1[i+1] = x1[i]+0.235
+}
+
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+#### Espécies
+
+```{r}
+gráfico <- ggplot(LA, aes(x = FE, y = E, color = L2, alpha =I(.5)))+
+  geom_point()+
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Latitude (º)",
+        y = "Número de Espécies (Log10)",
+        colour = " ")+
+  theme_classic()
+
+REW <- lm(WAVELA~LAWAVE, data = dados)
+RES <- lm(SPLELA~LASPLE, data = dados)
+RE <- lm(WAV2ELA~LAWAV2E, data = dados)
+
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+AX <- hist(R1, 
+           plot = FALSE, 
+           breaks = c(-1.4,-1.245,-1.09,-0.935,-0.78,-0.625,-0.47,-0.315,-0.16,-0.005,0.15,0.305,0.46,0.615,0.77,0.925,1.08,1.235,1.39,1.545,1.7))
+AX$density = AX$counts/sum(AX$counts)*100
+
+BX <- hist(R2, 
+           plot = FALSE, 
+           breaks = c(-1.4,-1.245,-1.09,-0.935,-0.78,-0.625,-0.47,-0.315,-0.16,-0.005,0.15,0.305,0.46,0.615,0.77,0.925,1.08,1.235,1.39,1.545,1.7))
+BX$density = BX$counts/sum(BX$counts)*100
+
+CX <- hist(R3, 
+           plot = FALSE, 
+          breaks = c(-1.4,-1.245,-1.09,-0.935,-0.78,-0.625,-0.47,-0.315,-0.16,-0.005,0.15,0.305,0.46,0.615,0.77,0.925,1.08,1.235,1.39,1.545,1.7))
+CX$density = CX$counts/sum(CX$counts)*100
+
+y1 <- AX$density
+y2 <- BX$density
+y3 <- CX$density
+
+x1 <- c()
+x1[1] <- -1.4
+for (i in 1:19){
+  x1[i+1] = x1[i]+0.155
+}
+
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+### Longitude
+
+#### Registros
+
+```{r}
+gráfico <- ggplot(LO, aes(x = FR, y = R, color = L1, alpha =I(.5)))+
+  geom_point()+
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Longitude (º)",
+        y =  "Número de Registros (Log10)",
+        colour = " ")+
+  theme_classic()
+
+REW <- lm(WAVRLO~LOWAVR, data = dados)
+RES <- lm(SPLRLO~LOSPLR, data = dados)
+RE <- lm(WAV2RLO~LOWAV2R, data = dados)
+
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+AX <- hist(R1, 
+           plot = FALSE, 
+           breaks = c(-1.8,-1.59,-1.38,-1.17,-0.96,-0.75,-0.54,-0.33,-0.12,0.09,0.3,0.51,0.72,0.93,1.14,1.35,1.56,1.77,1.98,2.19,2.4))
+AX$density = AX$counts/sum(AX$counts)*100
+
+BX <- hist(R2, 
+           plot = FALSE, 
+           breaks = c(-1.8,-1.59,-1.38,-1.17,-0.96,-0.75,-0.54,-0.33,-0.12,0.09,0.3,0.51,0.72,0.93,1.14,1.35,1.56,1.77,1.98,2.19,2.4))
+BX$density = BX$counts/sum(BX$counts)*100
+
+CX <- hist(R3, 
+           plot = FALSE, 
+          breaks = c(-1.8,-1.59,-1.38,-1.17,-0.96,-0.75,-0.54,-0.33,-0.12,0.09,0.3,0.51,0.72,0.93,1.14,1.35,1.56,1.77,1.98,2.19,2.4))
+CX$density = CX$counts/sum(CX$counts)*100
+
+y1 <- AX$density
+y2 <- BX$density
+y3 <- CX$density
+
+x1 <- c()
+x1[1] <- -1.8
+for (i in 1:19){
+  x1[i+1] = x1[i]+0.21
+}
+
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+#### Espécies
+
+```{r}
+gráfico <- ggplot(LO, aes(x = FE, y = E, color = L2, alpha =I(.5)))+
+  geom_point()+
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Longitude (º)",
+        y = "Número de Espécies (Log10)",
+        colour = " ")+
+  theme_classic()
+
+REW <- lm(WAVELO~LOWAVE, data = dados)
+RES <- lm(SPLELO~LOSPLE, data = dados)
+RE <- lm(WAV2ELO~LOWAV2E, data = dados)
+
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+AX <- hist(R1, 
+           plot = FALSE, 
+           breaks = c(-1.2,-1.065,-0.93,-0.795,-0.66,-0.525,-0.39,-0.255,-0.12,0.015,0.15,0.285,0.42,0.555,0.69,0.825,0.96,1.095,1.23,1.365,1.5))
+AX$density = AX$counts/sum(AX$counts)*100
+
+BX <- hist(R2, 
+           plot = FALSE, 
+           breaks = c(-1.2,-1.065,-0.93,-0.795,-0.66,-0.525,-0.39,-0.255,-0.12,0.015,0.15,0.285,0.42,0.555,0.69,0.825,0.96,1.095,1.23,1.365,1.5))
+BX$density = BX$counts/sum(BX$counts)*100
+
+CX <- hist(R3, 
+           plot = FALSE, 
+          breaks = c(-1.2,-1.065,-0.93,-0.795,-0.66,-0.525,-0.39,-0.255,-0.12,0.015,0.15,0.285,0.42,0.555,0.69,0.825,0.96,1.095,1.23,1.365,1.5))
+CX$density = CX$counts/sum(CX$counts)*100
+
+y1 <- AX$density
+y2 <- BX$density
+y3 <- CX$density
+
+x1 <- c()
+x1[1] <- -1.2
+for (i in 1:19){
+  x1[i+1] = x1[i]+0.135
+}
+
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
 ## Representação 3.1.
 
 ### Altitude
@@ -3082,7 +5259,8 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(AL, aes(x = FR, y = R, colour = L1, shape = L1))+
   geom_point()+
-  scale_colour_manual(values = c("red", "blue", "green"))) +
+  scale_colour_manual(values = c("blue", "red", "green"))+
+  scale_shape_manual(values=c(15, 16, 17))+
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -3134,7 +5312,8 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(AL, aes(x = FE, y = E, color = L2, shape = L2))+
   geom_point()+
-  scale_colour_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  scale_shape_manual(values=c(15, 16, 17))+
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -3186,7 +5365,8 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(AR, aes(x = FR, y = R, color = L1, shape = L1))+
   geom_point()+
-  scale_colour_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  scale_shape_manual(values=c(15, 16, 17))+
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -3236,7 +5416,8 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(AR, aes(x = FE, y = E, color = L2, shape = L2))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue" , "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  scale_shape_manual(values=c(15, 16, 17))+
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -3288,7 +5469,8 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(POP, aes(x = FR, y = R, color = L1, shape = L1))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue" , "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  scale_shape_manual(values=c(15, 16, 17))+
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -3339,7 +5521,8 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(POP, aes(x = FE, y = E, color = L2, shape = L2))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue" , "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  scale_shape_manual(values=c(15, 16, 17))+
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -3391,7 +5574,8 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(LA, aes(x = FR, y = R, color = L1, shape = L1))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
+   scale_shape_manual(values=c(15, 16, 17))+
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -3441,7 +5625,8 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(LA, aes(x = FE, y = E, color = L2, shape = L2))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
+   scale_shape_manual(values=c(15, 16, 17))+
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -3493,7 +5678,8 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(LO, aes(x = FR, y = R, color = L1, shape = L1))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
+   scale_shape_manual(values=c(15, 16, 17))+
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -3543,7 +5729,8 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(LO, aes(x = FE, y = E, color = L2, shape = L2))+
   geom_point()+
-  scale_colour_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
+   scale_shape_manual(values=c(15, 16, 17))+
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -3597,7 +5784,8 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(AL, aes(x = FR, y = R, colour = L1, shape = L1))+
   geom_point()+
-  scale_colour_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
+   scale_shape_manual(values=c(15, 16, 17))+
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -3645,7 +5833,8 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(AL, aes(x = FE, y = E, color = L2, shape = L2))+
   geom_point()+
-  scale_colour_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
+   scale_shape_manual(values=c(15, 16, 17))+
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -3696,7 +5885,8 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 
 gráfico <- ggplot(AR, aes(x = FR, y = R, color = L1, shape = L1))+
   geom_point()+
-  scale_colour_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
+   scale_shape_manual(values=c(15, 16, 17))+
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -3742,7 +5932,8 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(AR, aes(x = FE, y = E, color = L2, shape = L2))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue" , "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
+   scale_shape_manual(values=c(15, 16, 17))+
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -3790,7 +5981,8 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(POP, aes(x = FR, y = R, color = L1, shape = L1))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue" , "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
+   scale_shape_manual(values=c(15, 16, 17))+
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -3836,7 +6028,8 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(POP, aes(x = FE, y = E, color = L2, shape = L2))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue" , "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
+   scale_shape_manual(values=c(15, 16, 17))+
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -3884,7 +6077,8 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(LA, aes(x = FR, y = R, color = L1, shape = L1))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
+   scale_shape_manual(values=c(15, 16, 17))+
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -3930,7 +6124,8 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(LA, aes(x = FE, y = E, color = L2, shape = L2))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
+   scale_shape_manual(values=c(15, 16, 17))+
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -3978,7 +6173,8 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(LO, aes(x = FR, y = R, color = L1, shape = L1))+
   geom_point()+
-  scale_colour_manual(values = c("red","blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
+   scale_shape_manual(values=c(15, 16, 17))+
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -4024,7 +6220,8 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(LO, aes(x = FE, y = E, color = L2, shape = L2))+
   geom_point()+
-  scale_colour_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  scale_shape_manual(values=c(15, 16, 17))+
   stat_smooth(method = "lm",
               se = FALSE,
               fullrange = TRUE,
@@ -4064,6 +6261,1090 @@ resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
 ```
+
+## Representação 3.3.
+
+### Altitude
+
+#### Registros
+
+```{r}
+gráfico <- ggplot(AL, aes(x = FR, y = R, colour = L1, shape = L1))+
+  geom_point()+
+  scale_colour_manual(values = c("blue", "red", "green"))+
+  scale_shape_manual(values=c(15, 16, 17))+
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Altitude (m)",
+        y =  "Número de Registros (Log10)",
+        colour = " ",
+        shape = " ")+
+  #guides(colour=FALSE)+
+  theme_classic()
+
+REW <- lm(WAVRAL~ALWAVR, data = dados)
+RES <- lm(SPLRAL~ALSPLR, data = dados)
+RE <- lm(WAV2RAL~ALWAV2R, data = dados)
+
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+AX <- hist(R1, 
+           plot = FALSE, 
+           breaks = c(-2.1,-1.875,-1.65,-1.425,-1.2,-0.925,-0.75,-0.525,-0.3,-0.075,0.15,0.375,0.6,0.825,1.05,1.275,1.5,1.725,1.95,2.175,2.4))
+AX$density = AX$counts/sum(AX$counts)*100
+
+BX <- hist(R2, 
+           plot = FALSE, 
+           breaks = c(-2.1,-1.875,-1.65,-1.425,-1.2,-0.925,-0.75,-0.525,-0.3,-0.075,0.15,0.375,0.6,0.825,1.05,1.275,1.5,1.725,1.95,2.175,2.4))
+BX$density = BX$counts/sum(BX$counts)*100
+
+CX <- hist(R3, 
+           plot = FALSE, 
+           breaks = c(-2.1,-1.875,-1.65,-1.425,-1.2,-0.925,-0.75,-0.525,-0.3,-0.075,0.15,0.375,0.6,0.825,1.05,1.275,1.5,1.725,1.95,2.175,2.4))
+CX$density = CX$counts/sum(CX$counts)*100
+
+y1 <- AX$density
+y2 <- BX$density
+y3 <- CX$density
+
+x1 <- c()
+x1[1] <- -2.1
+for (i in 1:19){
+  x1[i+1] = x1[i]+0.225
+
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+#### Espécies
+
+```{r}
+gráfico <- ggplot(AL, aes(x = FE, y = E, color = L2, shape = L2))+
+  geom_point()+
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  scale_shape_manual(values=c(15, 16, 17))+
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x = "Altitude (m)",
+        y = "Número de Espécies (Log10)",
+        colour = " ",
+        shape = " ")+
+  theme_classic()
+
+REW <- lm(WAVEAL~ALWAVE, data = dados)
+RES <- lm(SPLEAL~ALSPLE, data = dados)
+RE <- lm(WAV2EAL~ALWAV2E, data = dados)
+
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+  AX <- hist(R1, 
+             plot = FALSE, 
+             breaks = c(-1.3,-1.1,-0.9,-0.7,-0.5,-0.3,-0.1,0.1,0.3,0.5,0.7,0.9,1.1,1.3,1.5,1.7,1.9,2.1,2.3,2.5,2.7))
+  AX$density = AX$counts/sum(AX$counts)*100
+  
+  BX <- hist(R2, 
+             plot = FALSE, 
+             breaks = c(-1.3,-1.1,-0.9,-0.7,-0.5,-0.3,-0.1,0.1,0.3,0.5,0.7,0.9,1.1,1.3,1.5,1.7,1.9,2.1,2.3,2.5,2.7))
+  BX$density = BX$counts/sum(BX$counts)*100
+  
+  CX <- hist(R3, 
+             plot = FALSE, 
+             breaks = c(-1.3,-1.1,-0.9,-0.7,-0.5,-0.3,-0.1,0.1,0.3,0.5,0.7,0.9,1.1,1.3,1.5,1.7,1.9,2.1,2.3,2.5,2.7))
+  CX$density = CX$counts/sum(CX$counts)*100
+  
+  y1 <- AX$density
+  y2 <- BX$density
+  y3 <- CX$density
+  
+  x1 <- c()
+  x1[1] <- -1.3
+  for (i in 1:19){
+    x1[i+1] = x1[i]+0.2
+  }
+
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+### Área
+
+#### Registros
+
+```{r}
+gráfico <- ggplot(AR, aes(x = FR, y = R, color = L1, shape = L1))+
+  geom_point()+
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  scale_shape_manual(values=c(15, 16, 17))+
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Área (Log10(Km^2))",
+        y =  "Número de Registros (Log10)",
+        colour = " ",
+        shape = " ")+
+  theme_classic()
+
+REW <- lm(WAVRAR~ARWAVR, data = dados)
+RES <- lm(SPLRAR~ARSPLR, data = dados)
+RE <- lm(WAV2RAR~ARWAV2R, data = dados)
+
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+  AX <- hist(R1, 
+             plot = FALSE, 
+             breaks = c(-2.4,-2.165,-1.93,-1.695,-1.46,-1.225,-0.99,-0.755,-0.52,-0.285,-0.05,0.185,0.42,0.655,0.89,1.125,1.36,1.595,1.83,2.065,2.3))
+  AX$density = AX$counts/sum(AX$counts)*100
+  
+  BX <- hist(R2, 
+             plot = FALSE, 
+             breaks = c(-2.4,-2.165,-1.93,-1.695,-1.46,-1.225,-0.99,-0.755,-0.52,-0.285,-0.05,0.185,0.42,0.655,0.89,1.125,1.36,1.595,1.83,2.065,2.3))
+  BX$density = BX$counts/sum(BX$counts)*100
+  
+  CX <- hist(R3, 
+             plot = FALSE, 
+             breaks = c(-2.4,-2.165,-1.93,-1.695,-1.46,-1.225,-0.99,-0.755,-0.52,-0.285,-0.05,0.185,0.42,0.655,0.89,1.125,1.36,1.595,1.83,2.065,2.3))
+  CX$density = CX$counts/sum(CX$counts)*100
+  
+  y1 <- AX$density
+  y2 <- BX$density
+  y3 <- CX$density
+  
+  x1 <- c()
+  x1[1] <- -2.4
+  for (i in 1:19){
+    x1[i+1] = x1[i]+0.235
+  }
+
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+#### Espécies
+
+```{r}
+gráfico <- ggplot(AR, aes(x = FE, y = E, color = L2, shape = L2))+
+  geom_point()+
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  scale_shape_manual(values=c(15, 16, 17))+
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x = "Área (Log10(Km^2))",
+        y = "Número de Espécies (Log10)",
+        colour = " ",
+        shape = " ")+
+  theme_classic()
+
+REW <- lm(WAVEAR~ARWAVE, data = dados)
+RES <- lm(SPLEAR~ARSPLE, data = dados)
+RE <- lm(WAV2EAR~ARWAV2E, data = dados)
+
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+  AX <- hist(R1, 
+             plot = FALSE, 
+             breaks = c(-1.4,-1.26,-1.12,-0.98,-0.84,-0.7,-0.56,-0.42,-0.28,-0.14,0,0.14,0.28,0.42,0.56,0.7,0.84,0.98,1.12,1.26,1.4))
+  AX$density = AX$counts/sum(AX$counts)*100
+  
+  BX <- hist(R2, 
+             plot = FALSE, 
+             breaks = c(-1.4,-1.26,-1.12,-0.98,-0.84,-0.7,-0.56,-0.42,-0.28,-0.14,0,0.14,0.28,0.42,0.56,0.7,0.84,0.98,1.12,1.26,1.4))
+  BX$density = BX$counts/sum(BX$counts)*100
+  
+  CX <- hist(R3, 
+             plot = FALSE, 
+             breaks = c(-1.4,-1.26,-1.12,-0.98,-0.84,-0.7,-0.56,-0.42,-0.28,-0.14,0,0.14,0.28,0.42,0.56,0.7,0.84,0.98,1.12,1.26,1.4))
+  CX$density = CX$counts/sum(CX$counts)*100
+  
+  y1 <- AX$density
+  y2 <- BX$density
+  y3 <- CX$density
+  
+  x1 <- c()
+  x1[1] <- -1.4
+  for (i in 1:19){
+    x1[i+1] = x1[i]+0.14
+  }
+
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+### População
+
+#### Registros
+
+```{r}
+gráfico <- ggplot(POP, aes(x = FR, y = R, color = L1, shape = L1))+
+  geom_point()+
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  scale_shape_manual(values=c(15, 16, 17))+
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="População (Log10)",
+        y =  "Número de Registros (Log10)",
+        colour = " ",
+        shape = " ")+
+  theme_classic()
+
+REW <- lm(WAVRP~PWAVR, data = dados)
+RES <- lm(SPLRP~PSPLR, data = dados)
+RE <- lm(WAV2RP~PWAV2R, data = dados)
+
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+  AX <- hist(R1, 
+             plot = FALSE, 
+             breaks = c(-1.7,-1.495,-1.29,-1.085,-0.88,-0.675,-0.47,-0.265,-0.06,0.145,0.35,0.555,0.76,0.965,1.17,1.375,1.58,1.785,1.99,2.195,2.4))
+  AX$density = AX$counts/sum(AX$counts)*100
+  
+  BX <- hist(R2, 
+             plot = FALSE, 
+             breaks = c(-1.7,-1.495,-1.29,-1.085,-0.88,-0.675,-0.47,-0.265,-0.06,0.145,0.35,0.555,0.76,0.965,1.17,1.375,1.58,1.785,1.99,2.195,2.4))
+  BX$density = BX$counts/sum(BX$counts)*100
+  
+  CX <- hist(R3, 
+             plot = FALSE, 
+             breaks = c(-1.7,-1.495,-1.29,-1.085,-0.88,-0.675,-0.47,-0.265,-0.06,0.145,0.35,0.555,0.76,0.965,1.17,1.375,1.58,1.785,1.99,2.195,2.4))
+  CX$density = CX$counts/sum(CX$counts)*100
+  
+  y1 <- AX$density
+  y2 <- BX$density
+  y3 <- CX$density
+  
+  x1 <- c()
+  x1[1] <- -1.7
+  for (i in 1:19){
+    x1[i+1] = x1[i]+0.205
+  }
+
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+#### Espécies
+
+```{r}
+gráfico <- ggplot(POP, aes(x = FE, y = E, color = L2, shape = L2))+
+  geom_point()+
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  scale_shape_manual(values=c(15, 16, 17))+
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x = "População (Log10)",
+        y = "Número de Espécies (Log10)",
+        color = " ",
+        shape = " ")+
+  theme_classic()
+
+REW <- lm(WAVRE~PWAVE, data = dados)
+RES <- lm(SPLEP~PSPLE, data = dados)
+RE <- lm(WAV2EP~PWAV2E, data = dados)
+
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+  AX <- hist(R1, 
+             plot = FALSE, 
+             breaks = c(-1.2,-1.06,-0.92,-0.78,-0.74,-0.5,-0.36,-0.22,-0.08,0.06,0.2,0.34,0.48,0.62,0.76,0.9,1.04,1.18,1.32,1.46,1.6))
+  AX$density = AX$counts/sum(AX$counts)*100
+  
+  BX <- hist(R2, 
+             plot = FALSE, 
+             breaks = c(-1.2,-1.06,-0.92,-0.78,-0.74,-0.5,-0.36,-0.22,-0.08,0.06,0.2,0.34,0.48,0.62,0.76,0.9,1.04,1.18,1.32,1.46,1.6))
+  BX$density = BX$counts/sum(BX$counts)*100
+  
+  CX <- hist(R3, 
+             plot = FALSE, 
+             breaks = c(-1.2,-1.06,-0.92,-0.78,-0.74,-0.5,-0.36,-0.22,-0.08,0.06,0.2,0.34,0.48,0.62,0.76,0.9,1.04,1.18,1.32,1.46,1.6))
+  CX$density = CX$counts/sum(CX$counts)*100
+  
+  y1 <- AX$density
+  y2 <- BX$density
+  y3 <- CX$density
+  
+  x1 <- c()
+  x1[1] <- -1.2
+  for (i in 1:19){
+    x1[i+1] = x1[i]+0.14
+  }
+
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+### Latitude
+
+#### Registros
+
+```{r}
+gráfico <- ggplot(LA, aes(x = FR, y = R, color = L1, shape = L1))+
+  geom_point()+
+  scale_colour_manual(values = c("blue", "red", "green")) +
+   scale_shape_manual(values=c(15, 16, 17))+
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Latitude (º)",
+        y =  "Número de Registros (Log10)",
+        colour = " ",
+        shape = " ")+
+  theme_classic()
+
+REW <- lm(WAVRLA~LAWAVR, data = dados)
+RES <- lm(SPLRLA~LASPLR, data = dados)
+RE <- lm(WAV2RLA~LAWAV2R, data = dados)
+
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+  
+  AX <- hist(R1, 
+             plot = FALSE, 
+             breaks = c(-2.2,-1.965,-1.73,-1.495,-1.26,-1.025,-0.79,-0.555,-0.32,-0.085,0.15,0.385,0.62,0.855,1.09,1.325,1.56,1.795,2.03,2.265,2.5))
+  AX$density = AX$counts/sum(AX$counts)*100
+  
+  BX <- hist(R2, 
+             plot = FALSE, 
+             breaks = c(-2.2,-1.965,-1.73,-1.495,-1.26,-1.025,-0.79,-0.555,-0.32,-0.085,0.15,0.385,0.62,0.855,1.09,1.325,1.56,1.795,2.03,2.265,2.5))
+  BX$density = BX$counts/sum(BX$counts)*100
+  
+  CX <- hist(R3, 
+             plot = FALSE, 
+             breaks = c(-2.2,-1.965,-1.73,-1.495,-1.26,-1.025,-0.79,-0.555,-0.32,-0.085,0.15,0.385,0.62,0.855,1.09,1.325,1.56,1.795,2.03,2.265,2.5))
+  CX$density = CX$counts/sum(CX$counts)*100
+  
+  y1 <- AX$density
+  y2 <- BX$density
+  y3 <- CX$density
+  
+  x1 <- c()
+  x1[1] <- -2.2
+  for (i in 1:19){
+    x1[i+1] = x1[i]+0.235
+  }
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+#### Espécies
+
+```{r}
+gráfico <- ggplot(LA, aes(x = FE, y = E, color = L2, shape = L2))+
+  geom_point()+
+  scale_colour_manual(values = c("blue", "red", "green")) +
+   scale_shape_manual(values=c(15, 16, 17))+
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Latitude (º)",
+        y = "Número de Espécies (Log10)",
+        colour = " ",
+        shape = " ")+
+  theme_classic()
+
+REW <- lm(WAVELA~LAWAVE, data = dados)
+RES <- lm(SPLELA~LASPLE, data = dados)
+RE <- lm(WAV2ELA~LAWAV2E, data = dados)
+
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+  
+  AX <- hist(R1, 
+             plot = FALSE, 
+             breaks = c(-1.4,-1.245,-1.09,-0.935,-0.78,-0.625,-0.47,-0.315,-0.16,-0.005,0.15,0.305,0.46,0.615,0.77,0.925,1.08,1.235,1.39,1.545,1.7))
+  AX$density = AX$counts/sum(AX$counts)*100
+  
+  BX <- hist(R2, 
+             plot = FALSE, 
+             breaks = c(-1.4,-1.245,-1.09,-0.935,-0.78,-0.625,-0.47,-0.315,-0.16,-0.005,0.15,0.305,0.46,0.615,0.77,0.925,1.08,1.235,1.39,1.545,1.7))
+  BX$density = BX$counts/sum(BX$counts)*100
+  
+  CX <- hist(R3, 
+             plot = FALSE, 
+             breaks = c(-1.4,-1.245,-1.09,-0.935,-0.78,-0.625,-0.47,-0.315,-0.16,-0.005,0.15,0.305,0.46,0.615,0.77,0.925,1.08,1.235,1.39,1.545,1.7))
+  CX$density = CX$counts/sum(CX$counts)*100
+  
+  y1 <- AX$density
+  y2 <- BX$density
+  y3 <- CX$density
+  
+  x1 <- c()
+  x1[1] <- -1.4
+  for (i in 1:19){
+    x1[i+1] = x1[i]+0.155
+  }
+
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+### Longitude
+
+#### Registros
+
+```{r}
+gráfico <- ggplot(LO, aes(x = FR, y = R, color = L1, shape = L1))+
+  geom_point()+
+  scale_colour_manual(values = c("blue", "red", "green")) +
+   scale_shape_manual(values=c(15, 16, 17))+
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Longitude (º)",
+        y =  "Número de Registros (Log10)",
+        colour = " ",
+        shape = " ")+
+  theme_classic()
+
+REW <- lm(WAVRLO~LOWAVR, data = dados)
+RES <- lm(SPLRLO~LOSPLR, data = dados)
+RE <- lm(WAV2RLO~LOWAV2R, data = dados)
+
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+  AX <- hist(R1, 
+             plot = FALSE, 
+             breaks = c(-1.8,-1.59,-1.38,-1.17,-0.96,-0.75,-0.54,-0.33,-0.12,0.09,0.3,0.51,0.72,0.93,1.14,1.35,1.56,1.77,1.98,2.19,2.4))
+  AX$density = AX$counts/sum(AX$counts)*100
+  
+  BX <- hist(R2, 
+             plot = FALSE, 
+             breaks = c(-1.8,-1.59,-1.38,-1.17,-0.96,-0.75,-0.54,-0.33,-0.12,0.09,0.3,0.51,0.72,0.93,1.14,1.35,1.56,1.77,1.98,2.19,2.4))
+  BX$density = BX$counts/sum(BX$counts)*100
+  
+  CX <- hist(R3, 
+             plot = FALSE, 
+             breaks = c(-1.8,-1.59,-1.38,-1.17,-0.96,-0.75,-0.54,-0.33,-0.12,0.09,0.3,0.51,0.72,0.93,1.14,1.35,1.56,1.77,1.98,2.19,2.4))
+  CX$density = CX$counts/sum(CX$counts)*100
+  
+  y1 <- AX$density
+  y2 <- BX$density
+  y3 <- CX$density
+  
+  x1 <- c()
+  x1[1] <- -1.8
+  for (i in 1:19){
+    x1[i+1] = x1[i]+0.21
+  }
+
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+#### Espécies
+
+```{r}
+gráfico <- ggplot(LO, aes(x = FE, y = E, color = L2, shape = L2))+
+  geom_point()+
+  scale_colour_manual(values = c("blue", "red", "green")) +
+   scale_shape_manual(values=c(15, 16, 17))+
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Longitude (º)",
+        y = "Número de Espécies (Log10)",
+        colour = " ",
+        shape = " ")+
+  theme_classic()
+
+REW <- lm(WAVELO~LOWAVE, data = dados)
+RES <- lm(SPLELO~LOSPLE, data = dados)
+RE <- lm(WAV2ELO~LOWAV2E, data = dados)
+
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+  AX <- hist(R1, 
+             plot = FALSE, 
+             breaks = c(-1.2,-1.065,-0.93,-0.795,-0.66,-0.525,-0.39,-0.255,-0.12,0.015,0.15,0.285,0.42,0.555,0.69,0.825,0.96,1.095,1.23,1.365,1.5))
+  AX$density = AX$counts/sum(AX$counts)*100
+  
+  BX <- hist(R2, 
+             plot = FALSE, 
+             breaks = c(-1.2,-1.065,-0.93,-0.795,-0.66,-0.525,-0.39,-0.255,-0.12,0.015,0.15,0.285,0.42,0.555,0.69,0.825,0.96,1.095,1.23,1.365,1.5))
+  BX$density = BX$counts/sum(BX$counts)*100
+  
+  CX <- hist(R3, 
+             plot = FALSE, 
+             breaks = c(-1.2,-1.065,-0.93,-0.795,-0.66,-0.525,-0.39,-0.255,-0.12,0.015,0.15,0.285,0.42,0.555,0.69,0.825,0.96,1.095,1.23,1.365,1.5))
+  CX$density = CX$counts/sum(CX$counts)*100
+  
+  y1 <- AX$density
+  y2 <- BX$density
+  y3 <- CX$density
+  
+  x1 <- c()
+  x1[1] <- -1.2
+  for (i in 1:19){
+    x1[i+1] = x1[i]+0.135
+  }
+
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line()+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
 
 ```{r}
 rm(list=ls())
@@ -4143,9 +7424,11 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1)
 ```
 
 ```{r}
+dados$L1 <- factor(dados$L1, levels=c("Wikiaves", "SpeciesLink", "Wikiaves 2"), labels = c("WAV (N=)","SLI (N=)","WAV 2 (N="))
+
 gráfico <- ggplot(dados, aes(x = C1, y = C2, color = L1))+
   geom_point()+
-  scale_colour_manual(values = c("red", "blue","green")) +
+  scale_colour_manual(values = c("blue","red", "green")) +
   stat_smooth(method = "lm",
               formula = y~poly(x,2),
               se = FALSE,
@@ -4246,7 +7529,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ```{r}
 gráfico <- ggplot(dados, aes(x = C1, y = C2, color = L1))+
   geom_point()+
-  scale_colour_manual(values = c("red", "blue","green")) +
+  scale_colour_manual(values = c("blue","red", "green")) +
   stat_smooth(method = "lm",
               formula = y~poly(x,2),
               se = FALSE,
@@ -4285,6 +7568,232 @@ c <- qplot(fitted(C), resid(C))+
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+
+```
+
+## Representação 1.3
+
+```{r}
+gráfico <- ggplot(dados, aes(x = A2, y = A1))+
+  geom_point()+
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              col = "red",
+              size = 1)+
+  labs( x ="Número de Registros SpeciesLink (Log10)",
+        y =  "Número de Registros Wikiaves (Log10)")+
+  theme_classic()
+
+A <- lm(A1~A2, data = dados)
+
+R1 <- resid (A)
+
+min(R1)
+max(R1)
+
+AX <- hist(R1, 
+           plot = FALSE, 
+           breaks = c(-1.7,-1.4,-1.1,-0.8,-0.5,-0.2,0.1,0.4,0.7,1,1.3,1.6))
+AX$density = AX$counts/sum(AX$counts)*100
+
+
+y1 <- AX$density
+
+x1 <- c()
+x1[1] <- -0.3
+for (i in 1:19){
+  x1[i+1] = x1[i]+0.0535
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+data <- data.frame(x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = y))+
+  geom_line()+
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)")+
+  theme_classic()
+
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+```
+
+```{r}
+gráfico <- ggplot(dados, aes(x = B2, y = B1))+
+  geom_point()+
+  stat_smooth(method = "lm",
+              se = FALSE,
+              fullrange = TRUE,
+              col = "red",
+              size = 1)+
+  labs( x ="Número de Espécies SpeciesLink (Log10)",
+        y =  "Número de Espécies Wikiaves (Log10)")+
+  theme_classic()
+
+A <- lm(B1~B2, data = dados)
+
+R1 <- resid (A)
+
+min(R1)
+max(R1)
+
+AX <- hist(R1, 
+           plot = FALSE, 
+           breaks = c(-0.65,-0.5965,-0.543,-0.4895,-0.436,-0.3825,-0.329,-0.2755,-0.222,-0.1685,-0.115,-0.0615,-0.008,0.0455,0.099,0.1525,0.206,0.2595,0.313,0.3665,0.42))
+AX$density = AX$counts/sum(AX$counts)*100
+
+
+y1 <- AX$density
+
+x1 <- c()
+x1[1] <- -0.3
+for (i in 1:19){
+  x1[i+1] = x1[i]+0.0535
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+data <- data.frame(x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = y))+
+  geom_line()+
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)")+
+  theme_classic()
+
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+
+```
+
+```{r}
+gráfico <- ggplot(dados, aes(x = C1, y = C2, color = L1))+
+  geom_point()+
+  scale_colour_manual(values = c("blue","red", "green")) +
+  stat_smooth(method = "lm",
+              formula = y~poly(x,2),
+              se = FALSE,
+              fullrange = TRUE,
+              size = 1)+
+  labs( x ="Número de Registros (Log10)",
+        y =  "Número de Espécies (Log10)",
+        colour = " ")+
+  theme_classic()
+
+A <- lm(WE~poly(WR,2), data = RW)
+B <- lm(SE~poly(SR,2), data = RS)
+C <- lm(W2E~poly(W2R,2), data = RW2)
+
+R1 <- resid (A)
+R2 <- resid (B)
+R3 <- resid (C)
+
+min(R1,R2,R3)
+max(R1,R2,R3)
+
+AX <- hist(R1, 
+           plot = FALSE, 
+           breaks = c(-0.4,-0.2765,-0.253,-0.2295,-0.206,-0.1825,-0.159,-0.1355,-0.112,-0.0885,-0.065,-0.0415,-0.018,0.0055,0.029,0.0525,0.076,0.0995,0.123,0.1465,0.18))
+AX$density = AX$counts/sum(AX$counts)*100
+
+BX <- hist(R2, 
+           plot = FALSE, 
+           breaks = c(-0.4,-0.2765,-0.253,-0.2295,-0.206,-0.1825,-0.159,-0.1355,-0.112,-0.0885,-0.065,-0.0415,-0.018,0.0055,0.029,0.0525,0.076,0.0995,0.123,0.1465,0.18))
+BX$density = BX$counts/sum(BX$counts)*100
+
+CX <- hist(R3, 
+           plot = FALSE, 
+           breaks = c(-0.4,-0.2765,-0.253,-0.2295,-0.206,-0.1825,-0.159,-0.1355,-0.112,-0.0885,-0.065,-0.0415,-0.018,0.0055,0.029,0.0525,0.076,0.0995,0.123,0.1465,0.18))
+CX$density = CX$counts/sum(CX$counts)*100
+
+y1 <- AX$density
+y2 <- BX$density
+y3 <- CX$density
+
+x1 <- c()
+x1[1] <- -0.3
+for (i in 1:19){
+  x1[i+1] = x1[i]+0.0235
+}
+
+
+A <- c()
+
+for (i in 1:20){
+  A[i] = "WAV (N = 631)"
+}
+for (i in 21:40){
+  A[i] = "SPL (N = 174)"
+}
+for (i in 41:60){
+  A[i] = "WAV 2 (N = 173)"
+}
+
+B <- c()
+
+for (i in 1:20){
+  B[i] = x1[i]
+}
+
+for(i in 21:40){
+  B[i] = x1[i-20]
+}
+for(i in 41:60){
+  B[i] = x1[i-40]
+}
+
+C<- c()
+
+for (i in 1:20){
+  C[i] = y1[i]
+}
+
+for(i in 21:40){
+  C[i] = y2[i-20]
+}
+for(i in 41:60){
+  C[i] = y3[i-40]
+}
+
+data <- data.frame(L = A, x = B, y = C)
+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line(fullrange = TRUE)+
+  scale_colour_manual(values = c("red", "blue", "green")) +
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
+       y = "Frequência Relativa (%)",
+       colour = " ")+
+  theme_classic()
+
+
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
 
 ```
 
@@ -4388,7 +7897,7 @@ ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend 
 ## Representação 2.3
 
 ```{r}
-grafico <- ggplot(dados, aes(x = C1, y = C2, color = L1, alpha =I(.5)))+
+gráfico <- ggplot(dados, aes(x = C1, y = C2, color = L1, alpha =I(.5)))+
   geom_point()+
   scale_colour_manual(values = c("red", "blue","green")) +
   stat_smooth(method = "lm",
@@ -4409,26 +7918,32 @@ R1 <- resid (A)
 R2 <- resid (B)
 R3 <- resid (C)
 
-A1 <- hist(R1, 
-           plot = FALSE, 
-           breaks = c(-0.4,-0.275,-0.25,-0.225,-0.2,-0.175,-0.15,-0.125,-0.1,-0.075,-0.05,-0.025,0,0.025,0.05,0.075,0.1,0.125,0.15,0.172,0.2))
-A1$density = A1$counts/sum(A1$counts)*100
+min(R1,R2,R3)
+max(R1,R2,R3)
 
-B1 <- hist(R2, 
+AX <- hist(R1, 
            plot = FALSE, 
-           breaks = c(-0.4,-0.275,-0.25,-0.225,-0.2,-0.175,-0.15,-0.125,-0.1,-0.075,-0.05,-0.025,0,0.025,0.05,0.075,0.1,0.125,0.15,0.172,0.2))
-B1$density = B1$counts/sum(B1$counts)*100
+           breaks = c(-0.4,-0.2765,-0.253,-0.2295,-0.206,-0.1825,-0.159,-0.1355,-0.112,-0.0885,-0.065,-0.0415,-0.018,0.0055,0.029,0.0525,0.076,0.0995,0.123,0.1465,0.18))
+AX$density = AX$counts/sum(AX$counts)*100
 
-C1 <- hist(R3, 
+BX <- hist(R2, 
            plot = FALSE, 
-           breaks = c(-0.4,-0.275,-0.25,-0.225,-0.2,-0.175,-0.15,-0.125,-0.1,-0.075,-0.05,-0.025,0,0.025,0.05,0.075,0.1,0.125,0.15,0.172,0.2))
-C1$density = C1$counts/sum(C1$counts)*100
+           breaks = c(-0.4,-0.2765,-0.253,-0.2295,-0.206,-0.1825,-0.159,-0.1355,-0.112,-0.0885,-0.065,-0.0415,-0.018,0.0055,0.029,0.0525,0.076,0.0995,0.123,0.1465,0.18))
+BX$density = BX$counts/sum(BX$counts)*100
 
-y1 <- A1$density
+CX <- hist(R3, 
+           plot = FALSE, 
+           breaks = c(-0.4,-0.2765,-0.253,-0.2295,-0.206,-0.1825,-0.159,-0.1355,-0.112,-0.0885,-0.065,-0.0415,-0.018,0.0055,0.029,0.0525,0.076,0.0995,0.123,0.1465,0.18))
+CX$density = CX$counts/sum(CX$counts)*100
+
+y1 <- AX$density
+y2 <- BX$density
+y3 <- CX$density
+
 x1 <- c()
 x1[1] <- -0.3
 for (i in 1:19){
-  x1[i+1] = x1[i]+0.025
+  x1[i+1] = x1[i]+0.0235
 }
 
 
@@ -4470,18 +7985,19 @@ for(i in 41:60){
   C[i] = y3[i-40]
 }
 
-dados <- data.frame(L = A, x = B, y = C)
+data <- data.frame(L = A, x = B, y = C)
 
- ggplot(dados, aes(x = x, y = C, group = L, colour = L))+
+Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
+  geom_line(fullrange = TRUE)+
   scale_colour_manual(values = c("red", "blue", "green")) +
-  stat_smooth(method = lm, formula = y ~ poly(x, 10),se = FALSE, fullrange = TRUE)+
-  labs(x = "Número de Espécies (Log10)",
+  #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
+  labs(x = "Resíduos",
        y = "Frequência Relativa (%)",
        colour = " ")+
   theme_classic()
 
 
-#ggarrange(grafico, tatu,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
 ```
 
 # Seção 5
