@@ -15,15 +15,15 @@ Portanto, para pesquisar a figura da seção 2.2 em sua terceira versão, o cód
 
 ### Registros por Município:
 
-111.
+###### 111.
 
 ![111](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/111.png)
 
-112.
+###### 112.
 
 ![112](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/112.png)
 
-113.
+###### 113.
 
 ![113](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/113.png)
 
