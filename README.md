@@ -515,8 +515,109 @@ Portanto, para pesquisar a figura da seção 2.2 em sua terceira versão, o cód
 
 ## Seção 4
 
+### Registros
+
+4111.
+
+![4111](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/4111.png)
+
+4112.
+
+![4112](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/4112.png)
+
+4113.
+
+![4113](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/4113.png)
+
+### Espécies
+
+4211.
+
+![4211](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/4211.png)
+
+4212.
+
+![4212](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/4212.png)
+
+4213.
+
+![4213](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/4213.png)
+
+### Registros x Espécies
+
+4311.
+
+![4311](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/4311.png)
+
+4312.
+
+![4312](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/4312.png)
+
+4313.
+
+![4313](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/4313.png)
+
+4321.
+
+![4321](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/4321.png)
+
+4322.
+
+![4322](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/4322.png)
+
+4323.
+
+![4323](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/4323.png)
+
+4331.
+
+![4331](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/4331.png)
+
+4332.
+
+![4332](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/4332.png)
+
+4313.
+
+![4333](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/4333.png)
 
 ## Seção 5
+
+### Altitude
+
+511.
+
+![511](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/511.png)
+
+### Área
+
+521.
+
+![521](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/521.png)
+
+### População
+
+531.
+
+![531](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/531.png)
+
+### Latitude
+
+541.
+
+![541](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/541.png)
+
+### Longitude
+
+551.
+
+![551](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/551.png)
+
+### Geral
+
+561.
+
+![561](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/561.png)
 
 ## Seção 6
 
