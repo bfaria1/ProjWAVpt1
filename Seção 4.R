@@ -42,8 +42,9 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("4111.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1)
-
+dev.off()
 
 
 gráfico <- ggplot(dados, aes(x = B2, y = B1))+
@@ -73,8 +74,9 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("4211.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1)
-
+dev.off()
 
 
 dados$L1 <- factor(dados$L1, levels=c("Wikiaves", "SpeciesLink", "Wikiaves 2"), labels = c("WAV (N = 620)","SLI (N = 143)","WAV 2 (N = 171)"))
@@ -125,8 +127,9 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("4311.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-
+dev.off()
 
 ## Representação 1.2
 
@@ -147,12 +150,13 @@ A <- lm(A1~A2, data = dados)
 resíduos <- qplot(fitted(A), resid(A))+ 
   geom_point()+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
+png("4112.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-
+dev.off()
 
 
 gráfico <- ggplot(dados, aes(x = B2, y = B1))+
@@ -171,12 +175,13 @@ A <- lm(B1~B2, data = dados)
 resíduos <- qplot(fitted(A), resid(A))+ 
   geom_point()+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
+png("4212.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-
+dev.off()
 
 
 
@@ -200,28 +205,29 @@ C <- lm(W2E~poly(W2R,2), data = RW2)
 a <- qplot(fitted(A), resid(A))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(B), resid(B))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(C), resid(C))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
+png("4312.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-
+dev.off()
 
 
 ## Representação 1.3
@@ -281,9 +287,9 @@ Resíduos <-  ggplot(data, aes(x = x, y = y))+
   theme_classic()
 
 
-
+png("4113.png", width = 1000, height = 450)
 ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-
+dev.off()
 
 
 gráfico <- ggplot(dados, aes(x = B2, y = B1))+
@@ -340,9 +346,9 @@ Resíduos <-  ggplot(data, aes(x = x, y = y))+
   theme_classic()
 
 
-
+png("4213.png", width = 1000, height = 450)
 ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-
+dev.off()
 
 
 
@@ -445,9 +451,9 @@ Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
        colour = " ")+
   theme_classic()
 
-
+png("4313.png", width = 1000, height = 450)
 ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-
+dev.off()
 
 
 ## Representação 2.1
@@ -497,8 +503,9 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("4321.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-
+dev.off()
 
 ## Representação 2.2
 
@@ -523,28 +530,29 @@ C <- lm(W2E~poly(W2R,2), data = RW2)
 a <- qplot(fitted(A), resid(A))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(B), resid(B))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(C), resid(C))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
+png("4322.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-
+dev.off()
 
 
 ## Representação 2.3
@@ -650,9 +658,9 @@ Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
        colour = " ")+
   theme_classic()
 
-
+png("4323.png", width = 1000, height = 450)
 ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-
+dev.off()
 
 ## Representação 3.1
 
@@ -706,8 +714,9 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("4331.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-
+dev.off()
 
 ## Representação 3.2
 
@@ -734,28 +743,29 @@ C <- lm(W2E~poly(W2R,2), data = RW2)
 a <- qplot(fitted(A), resid(A))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(B), resid(B))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(C), resid(C))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
+png("4332.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-
+dev.off()
 
 
 ## Representação 3.3
@@ -863,9 +873,9 @@ Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
        colour = " ")+
   theme_classic()
 
-
+png("4333.png", width = 1000, height = 450)
 ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-
+dev.off()
 
 
 

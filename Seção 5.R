@@ -1,3 +1,20 @@
+library("openxlsx") 
+library(ggplot2)
+library(RColorBrewer)
+library(dplyr)
+library(ggpubr)
+library(tidyr)
+library(hrbrthemes)
+library(sf)
+library(geobr)
+library(factoextra)
+library(ade4)
+library(vegan)
+library(gclus)
+library(cluster)
+library(FD)
+library(ggcorrplot)
+
 Dados <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S5/Mapas.xlsx")
 FE <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S5/Mapas2.xlsx")
 mc <- read_municipality(code_muni= "SP")
@@ -33,58 +50,59 @@ FAT$LPOP <- cut (FAT$PopulacaoL, breaks = c(2,3,4,5,6,7,8),
 
 ## Altitude
 
-
+png("511.png", width = 600, height = 300)
 ggplot(FAT) +  
   geom_sf(aes(fill=AL), color = NA) + 
   labs(subtitle="", size=8)+ 
   scale_fill_manual (values = brewer.pal(9,'OrRd'))+  
   labs(fill = "Altitude (m) ")+  
   theme_minimal()
-
+dev.off()
 
 ## Área
 
-
+png("521.png", width = 600, height = 300)
 ggplot(FAT) +
   geom_sf(aes(fill=LAR), color = NA) +
   labs(subtitle=" ", size=8)+  
   scale_fill_manual (values = brewer.pal(7,'OrRd'))+  
   labs(fill = "Área (Log10(km^2))")+  
   theme_minimal()
-
+dev.off()
 
 ## População
 
-
+png("531.png", width = 600, height = 300)
 ggplot(FAT) + 
   geom_sf(aes(fill=LPOP), color = NA) + 
   labs(subtitle="", size=8)+   
   scale_fill_manual (values = brewer.pal(9,'OrRd'))+  
   labs(fill = "População (Log10)")+ 
   theme_minimal()
-
+dev.off()
 
 ##Latitude
 
-
+png("541.png", width = 600, height = 300)
 ggplot(FAT) + 
   geom_sf(aes(fill=LAT), color = NA) + 
   labs(subtitle="", size=8)+  
   scale_fill_manual (values = brewer.pal(7,'OrRd'))+ 
   labs(fill = "Latitude (°) ")+ 
   theme_minimal()
-
+dev.off()
 
 
 ##Longitude
 
-
+png("551.png", width = 600, height = 300)
 ggplot(FAT) + 
   geom_sf(aes(fill=LOG), color = NA) + 
   labs(subtitle="", size=8)+  
   scale_fill_manual (values = brewer.pal(6,'OrRd'))+ 
   labs(fill = "Longitude  (°)")+ 
   theme_minimal()
+dev.off()
 
 cid$WEI <- cut(cid$WAVE, breaks = c(-1,0,100,200,300,400,Inf), 
                labels=c("0","1 a 100","101 a 200","201 a 300","301 a 400","401+"))
@@ -160,6 +178,8 @@ G <- ggplot(cid) +
   labs(fill = "Registros (Log10) ")+
   theme_minimal()
 
+png("561.png", width = 1100, height = 800)
 ggarrange(E,A,D,C,G,B, ncol = 2, nrow = 3)
+dev.off()
 
 rm(list = ls())

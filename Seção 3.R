@@ -24,7 +24,7 @@ POP <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S3/Populacao.xls
 LA <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S3/Latitude.xlsx")
 LO <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S3/Longitude.xlsx")
 dados <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S3/Auxiliar.xlsx")
-```
+
 
 ## Estatísticas 
 
@@ -34,49 +34,49 @@ dados <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S3/Auxiliar.xl
 REW <- lm(WAVRAL~ALWAVR, data = dados)
 RES <- lm(SPLRAL~ALSPLR, data = dados)
 RE <- lm(WAV2RAL~ALWAV2R, data = dados)
-```
+
 
 #### Registros Wikiaves
 
 
 summary(REW)
-```
+
 
 #### Registros SpeciesLink
 
 
 summary(RES) 
-```
+
 
 #### Registros Wikiaves 2
 
 
 summary(RE)
-```
+
 
 
 REW <- lm(WAVRAR~ARWAVR, data = dados)
 RES <- lm(SPLRAR~ARSPLR, data = dados)
 RE <- lm(WAV2RAR~ARWAV2R, data = dados)
-```
+
 
 #### Espécies Wikiaves
 
 
 summary(REW)
-```
+
 
 #### Espécies SpeciesLink
 
 
 summary(RES) 
-```
+
 
 #### Espécies Wikiaves 2
 
 
 summary(RE)
-```
+
 
 ### Área
 
@@ -84,49 +84,49 @@ summary(RE)
 REW <- lm(WAVRAR~ARWAVR, data = dados)
 RES <- lm(SPLRAR~ARSPLR, data = dados)
 RE <- lm(WAV2RAR~ARWAV2R, data = dados)
-```
+
 
 #### Registros Wikiaves
 
 
 summary(REW)
-```
+
 
 #### Registros SpeciesLink
 
 
 summary(RES) 
-```
+
 
 #### Registros Wikiaves 2
 
 
 summary(RE)
-```
+
 
 
 REW <- lm(WAVEAR~ARWAVE, data = dados)
 RES <- lm(SPLEAR~ARSPLE, data = dados)
 RE <- lm(WAV2EAR~ARWAV2E, data = dados)
-```
+
 
 #### Espécies Wikiaves
 
 
 summary(REW)
-```
+
 
 #### Espécies SpeciesLink
 
 
 summary(RES) 
-```
+
 
 #### Espécies Wikiaves 2
 
 
 summary(RE)
-```
+
 
 
 ### População
@@ -135,49 +135,49 @@ summary(RE)
 REW <- lm(WAVRP~PWAVR, data = dados)
 RES <- lm(SPLRP~PSPLR, data = dados)
 RE <- lm(WAV2RP~PWAV2R, data = dados)
-```
+
 
 #### Registros Wikiaves
 
 
 summary(REW)
-```
+
 
 #### Registros SpeciesLink
 
 
 summary(RES) 
-```
+
 
 #### Registros Wikiaves 2
 
 
 summary(RE)
-```
+
 
 
 REW <- lm(WAVRE~PWAVE, data = dados)
 RES <- lm(SPLEP~PSPLE, data = dados)
 RE <- lm(WAV2EP~PWAV2E, data = dados)
-```
+
 
 #### Espécies Wikiaves
 
 
 summary(REW)
-```
+
 
 #### Espécies SpeciesLink
 
 
 summary(RES) 
-```
+
 
 #### Espécies Wikiaves 2
 
 
 summary(RE)
-```
+
 
 
 ### Latitude
@@ -186,50 +186,50 @@ summary(RE)
 REW <- lm(WAVRLA~LAWAVR, data = dados)
 RES <- lm(SPLRLA~LASPLR, data = dados)
 RE <- lm(WAV2RLA~LAWAV2R, data = dados)
-```
+
 
 
 #### Registros Wikiaves
 
 
 summary(REW)
-```
+
 
 #### Registros SpeciesLink
 
 
 summary(RES) 
-```
+
 
 #### Registros Wikiaves 2
 
 
 summary(RE)
-```
+
 
 
 REW <- lm(WAVELA~LAWAVE, data = dados)
 RES <- lm(SPLELA~LASPLE, data = dados)
 RE <- lm(WAV2ELA~LAWAV2E, data = dados)
-```
+
 
 #### Espécies Wikiaves
 
 
 summary(REW)
-```
+
 
 #### Espécies SpeciesLink
 
 
 summary(RES) 
-```
+
 
 #### Espécies Wikiaves 2
 
 
 summary(RE)
-```
+
 
 ### Longitude
 
@@ -237,49 +237,49 @@ summary(RE)
 REW <- lm(WAVRLO~LOWAVR, data = dados)
 RES <- lm(SPLRLO~LOSPLR, data = dados)
 RE <- lm(WAV2RLO~LOWAV2R, data = dados)
-```
+
 
 #### Registros Wikiaves
 
 
 summary(REW)
-```
+
 
 #### Registros SpeciesLink
 
 
 summary(RES) 
-```
+
 
 #### Registros Wikiaves 2
 
 
 summary(RE)
-```
+
 
 
 REW <- lm(WAVELO~LOWAVE, data = dados)
 RES <- lm(SPLELO~LOSPLE, data = dados)
 RE <- lm(WAV2ELO~LOWAV2E, data = dados)
-```
+
 
 #### Espécies Wikiaves
 
 
 summary(REW)
-```
+
 
 #### Espécies SpeciesLink
 
 
 summary(RES) 
-```
+
 
 #### Espécies Wikiaves 2
 
 
 summary(RE)
-```
+
 
 ## Representação 1.1.
 
@@ -335,8 +335,11 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("31111.png", width = 1000, height = 450)
+
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+
+dev.off()
 
 #### Espécies
 
@@ -386,8 +389,11 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("32111.png", width = 1000, height = 450)
+
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+
+dev.off()
 
 ### Área
 
@@ -439,8 +445,11 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("31211.png", width = 1000, height = 450)
+
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+
+dev.off()
 
 #### Espécies
 
@@ -490,8 +499,11 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("32211.png", width = 1000, height = 450)
+
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+
+dev.off()
 
 ### População
 
@@ -545,8 +557,11 @@ resíduos <- ggplot()+
        colour = " ") +
   theme_classic()
 
+png("31311.png", width = 1000, height = 450)
+
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+
+dev.off()
 
 #### Espécies
 
@@ -596,8 +611,11 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("32311.png", width = 1000, height = 450)
+
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+
+dev.off()
 
 ### Latitude
 
@@ -650,8 +668,11 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("31411.png", width = 1000, height = 450)
+
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+
+dev.off()
 
 #### Espécies
 
@@ -701,8 +722,11 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("32411.png", width = 1000, height = 450)
+
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+
+dev.off()
 
 ### Longitude
 
@@ -754,8 +778,11 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("31511.png", width = 1000, height = 450)
+
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+
+dev.off()
 
 #### Espécies
 
@@ -806,8 +833,11 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("32511.png", width = 1000, height = 450)
+
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+
+dev.off()
 
 ## Representação 1.2.
 
@@ -836,30 +866,31 @@ RE <- lm(WAV2RAL~ALWAV2R, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
-
+png("31112.png", width = 1000, height = 450)
 
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+
+dev.off()
 
 #### Espécies
 
@@ -884,29 +915,31 @@ RE <- lm(WAV2EAL~ALWAV2E, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
+png("32112.png", width = 1000, height = 450)
 
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+
+dev.off()
 
 ### Área
 
@@ -933,28 +966,31 @@ RE <- lm(WAV2RAR~ARWAV2R, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
+png("31212.png", width = 1000, height = 450)
+
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+
+dev.off()
 
 #### Espécies
 
@@ -978,28 +1014,31 @@ RE <- lm(WAV2EAR~ARWAV2E, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
+png("32212.png", width = 1000, height = 450)
+
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+
+dev.off()
 
 ### População
 
@@ -1025,28 +1064,32 @@ RE <- lm(WAV2RP~PWAV2R, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
+
+png("31312.png", width = 1000, height = 450)
+
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+
+dev.off()
 
 #### Espécies
 
@@ -1069,28 +1112,31 @@ RE <- lm(WAV2EP~PWAV2E, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
+png("32312.png", width = 1000, height = 450)
+
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+
+dev.off()
 
 ### Latitude
 
@@ -1116,28 +1162,31 @@ RE <- lm(WAV2RLA~LAWAV2R, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
+png("31412.png", width = 1000, height = 450)
+
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+
+dev.off()
 
 #### Espécies
 
@@ -1161,28 +1210,31 @@ RE <- lm(WAV2ELA~LAWAV2E, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
+png("32412.png", width = 1000, height = 450)
+
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+
+dev.off()
 
 ### Longitude
 
@@ -1208,28 +1260,31 @@ RE <- lm(WAV2RLO~LOWAV2R, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
+png("31512.png", width = 1000, height = 450)
+
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+
+dev.off()
 
 #### Espécies
 
@@ -1253,28 +1308,31 @@ RE <- lm(WAV2ELO~LOWAV2E, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
+png("32512.png", width = 1000, height = 450)
+
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+
+dev.off()
 
 ## Representação 1.3.
 
@@ -1382,9 +1440,11 @@ Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
        colour = " ")+
   theme_classic()
 
+png("31113.png", width = 1000, height = 450)
 
 ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+
+dev.off()
 
 #### Espécies
 
@@ -1405,6 +1465,9 @@ REW <- lm(WAVEAL~ALWAVE, data = dados)
 RES <- lm(SPLEAL~ALSPLE, data = dados)
 RE <- lm(WAV2EAL~ALWAV2E, data = dados)
 
+R1 <- resid (REW)
+R2 <- resid (RES)
+R3 <- resid (RE)
 
 AX <- hist(R1, 
            plot = FALSE, 
@@ -1480,9 +1543,11 @@ Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
        colour = " ")+
   theme_classic()
 
+png("32113.png", width = 1000, height = 450)
 
 ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+
+dev.off()
 
 ### Área
 
@@ -1587,9 +1652,11 @@ Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
        colour = " ")+
   theme_classic()
 
+png("31213.png", width = 1000, height = 450)
 
 ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+
+dev.off()
 
 #### Espécies
 
@@ -1692,9 +1759,11 @@ Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
        colour = " ")+
   theme_classic()
 
+png("32213.png", width = 1000, height = 450)
 
 ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+
+dev.off()
 
 ### População
 
@@ -1799,9 +1868,11 @@ Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
        colour = " ")+
   theme_classic()
 
+png("31313.png", width = 1000, height = 450)
 
 ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+
+dev.off()
 
 #### Espécies
 
@@ -1814,7 +1885,8 @@ gráfico <- ggplot(POP, aes(x = FE, y = E, color = L2))+
               fullrange = TRUE,
               size = 1)+
   labs( x = "População (Log10)",
-        y = "Número de Espécies (Log10)")+
+        y = "Número de Espécies (Log10)",
+        color = " ")+
   theme_classic()
 
 REW <- lm(WAVRE~PWAVE, data = dados)
@@ -1903,9 +1975,11 @@ Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
        colour = " ")+
   theme_classic()
 
+png("32313.png", width = 1000, height = 450)
 
 ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+
+dev.off()
 
 ### Latitude
 
@@ -2010,9 +2084,11 @@ Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
        colour = " ")+
   theme_classic()
 
+png("31413.png", width = 1000, height = 450)
 
 ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+
+dev.off()
 
 #### Espécies
 
@@ -2115,9 +2191,11 @@ Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
        colour = " ")+
   theme_classic()
 
+png("32413.png", width = 1000, height = 450)
 
 ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+
+dev.off()
 
 ### Longitude
 
@@ -2221,9 +2299,11 @@ Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
        colour = " ")+
   theme_classic()
 
+png("31513.png", width = 1000, height = 450)
 
 ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+
+dev.off()
 
 #### Espécies
 
@@ -2326,9 +2406,10 @@ Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
        colour = " ")+
   theme_classic()
 
+png("32513.png", width = 1000, height = 450)
 
 ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 ## Representação 2.1.
 
@@ -2381,8 +2462,10 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("31121.png", width = 1000, height = 450)
+
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 #### Espécies
 
@@ -2430,8 +2513,10 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("32121.png", width = 1000, height = 450)
+
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 ### Área
 
@@ -2481,8 +2566,10 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("31221.png", width = 1000, height = 450)
+
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 #### Espécies
 
@@ -2530,8 +2617,10 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("32221.png", width = 1000, height = 450)
+
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 ### População
 
@@ -2582,8 +2671,10 @@ resíduos <- ggplot()+
        colour = " ") +
   theme_classic()
 
+png("31321.png", width = 1000, height = 450)
+
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 #### Espécies
 
@@ -2631,8 +2722,10 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("32321.png", width = 1000, height = 450)
+
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 ### Latitude
 
@@ -2682,8 +2775,10 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("31421.png", width = 1000, height = 450)
+
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 #### Espécies
 
@@ -2731,8 +2826,10 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("32421.png", width = 1000, height = 450)
+
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 ### Longitude
 
@@ -2782,8 +2879,10 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("31521.png", width = 1000, height = 450)
+
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 #### Espécies
 
@@ -2831,8 +2930,9 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("32521.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 ## Representação 2.2.
 
@@ -2860,30 +2960,30 @@ RE <- lm(WAV2RAL~ALWAV2R, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
-
+png("31122.png", width = 1000, height = 450)
 
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 #### Espécies
 
@@ -2908,29 +3008,29 @@ RE <- lm(WAV2EAL~ALWAV2E, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
-
+png("32122.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 ### Área
 
@@ -2957,28 +3057,29 @@ RE <- lm(WAV2RAR~ARWAV2R, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
+png("31222.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 #### Espécies
 
@@ -3002,28 +3103,29 @@ RE <- lm(WAV2EAR~ARWAV2E, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
+png("32222.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 ### População
 
@@ -3049,28 +3151,29 @@ RE <- lm(WAV2RP~PWAV2R, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
+png("31322.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 #### Espécies
 
@@ -3094,28 +3197,28 @@ RE <- lm(WAV2EP~PWAV2E, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
-
+png("32322.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 ### Latitude
 
@@ -3141,28 +3244,29 @@ RE <- lm(WAV2RLA~LAWAV2R, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
+png("31422.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 #### Espécies
 
@@ -3186,28 +3290,29 @@ RE <- lm(WAV2ELA~LAWAV2E, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
+png("32422.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 ### Longitude
 
@@ -3233,28 +3338,29 @@ RE <- lm(WAV2RLO~LOWAV2R, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
+png("31522.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 #### Espécies
 
@@ -3278,28 +3384,29 @@ RE <- lm(WAV2ELO~LOWAV2E, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
+png("32522.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 ## Representação 2.3.
 
@@ -3407,9 +3514,9 @@ Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
        colour = " ")+
   theme_classic()
 
-
+png("31123.png", width = 1000, height = 450)
 ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 #### Espécies
 
@@ -3516,9 +3623,9 @@ Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
        colour = " ")+
   theme_classic()
 
-
+png("32123.png", width = 1000, height = 450)
 ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 ### Área
 
@@ -3624,9 +3731,9 @@ Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
        colour = " ")+
   theme_classic()
 
-
+png("31223.png", width = 1000, height = 450)
 ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 
 #### Espécies
@@ -3730,9 +3837,9 @@ Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
        colour = " ")+
   theme_classic()
 
-
+png("32223.png", width = 1000, height = 450)
 ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 ### População
 
@@ -3837,9 +3944,9 @@ Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
        colour = " ")+
   theme_classic()
 
-
+png("31323.png", width = 1000, height = 450)
 ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 #### Espécies
 
@@ -3852,7 +3959,8 @@ gráfico <- ggplot(POP, aes(x = FE, y = E, color = L2, alpha =I(.5)))+
               fullrange = TRUE,
               size = 1)+
   labs( x = "População (Log10)",
-        y = "Número de Espécies (Log10)")+
+        y = "Número de Espécies (Log10)",
+        color = " ")+
   theme_classic()
 
 REW <- lm(WAVRE~PWAVE, data = dados)
@@ -3941,9 +4049,9 @@ Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
        colour = " ")+
   theme_classic()
 
-
+png("32323.png", width = 1000, height = 450)
 ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 ### Latitude
 
@@ -4048,9 +4156,9 @@ Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
        colour = " ")+
   theme_classic()
 
-
+png("31423.png", width = 1000, height = 450)
 ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 #### Espécies
 
@@ -4153,9 +4261,9 @@ Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
        colour = " ")+
   theme_classic()
 
-
+png("32423.png", width = 1000, height = 450)
 ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 ### Longitude
 
@@ -4260,9 +4368,9 @@ Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
        colour = " ")+
   theme_classic()
 
-
+png("31523.png", width = 1000, height = 450)
 ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 #### Espécies
 
@@ -4365,9 +4473,9 @@ Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
        colour = " ")+
   theme_classic()
 
-
+png("32523.png", width = 1000, height = 450)
 ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 ## Representação 3.1.
 
@@ -4423,8 +4531,9 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("31131.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 #### Espécies
 
@@ -4474,8 +4583,9 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("32131.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 ### Área
 
@@ -4527,8 +4637,9 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("31231.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 #### Espécies
 
@@ -4578,8 +4689,9 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("32231.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 ### População
 
@@ -4632,8 +4744,9 @@ resíduos <- ggplot()+
        colour = " ") +
   theme_classic()
 
+png("31331.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 #### Espécies
 
@@ -4683,8 +4796,9 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("32331.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 ### Latitude
 
@@ -4736,8 +4850,9 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("31431.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 #### Espécies
 
@@ -4787,8 +4902,9 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("32431.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 ### Longitude
 
@@ -4840,8 +4956,9 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("31531.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 #### Espécies
 
@@ -4891,8 +5008,9 @@ resíduos <- ggplot()+
        x = "Resíduos") +
   theme_classic()
 
+png("32531.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 ## Representação 3.2.
 
@@ -4922,30 +5040,30 @@ RE <- lm(WAV2RAL~ALWAV2R, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
-
+png("31132.png", width = 1000, height = 450)
 
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 #### Espécies
 
@@ -4972,29 +5090,30 @@ RE <- lm(WAV2EAL~ALWAV2E, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
+png("32132.png", width = 1000, height = 450)
 
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 ### Área
 
@@ -5023,28 +5142,29 @@ RE <- lm(WAV2RAR~ARWAV2R, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
+png("31232.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 #### Espécies
 
@@ -5070,28 +5190,29 @@ RE <- lm(WAV2EAR~ARWAV2E, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
+png("32232.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 ### População
 
@@ -5119,28 +5240,29 @@ RE <- lm(WAV2RP~PWAV2R, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
+png("31332.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 #### Espécies
 
@@ -5166,28 +5288,29 @@ RE <- lm(WAV2EP~PWAV2E, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
+png("32332.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 ### Latitude
 
@@ -5215,28 +5338,29 @@ RE <- lm(WAV2RLA~LAWAV2R, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
+png("31432.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 #### Espécies
 
@@ -5262,28 +5386,29 @@ RE <- lm(WAV2ELA~LAWAV2E, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
+png("32432.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 ### Longitude
 
@@ -5311,28 +5436,29 @@ RE <- lm(WAV2RLO~LOWAV2R, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
+png("31532.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 #### Espécies
 
@@ -5358,28 +5484,29 @@ RE <- lm(WAV2ELO~LOWAV2E, data = dados)
 a <- qplot(fitted(REW), resid(REW))+ 
   geom_point(col = "blue")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 b <- qplot(fitted(RES), resid(RES))+ 
   geom_point(col = "Red")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 c <- qplot(fitted(RE), resid(RE))+ 
   geom_point(col = "Green")+
   geom_hline(yintercept=0) + 
-  labs(y = "Residuals",
+  labs(y = "Resíduos",
        x = " ")+
   theme_classic()
 
 resíduos <- ggarrange(a,b,c, ncol = 1, nrow = 3)
 
+png("32532.png", width = 1000, height = 450)
 ggarrange(gráfico,resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-```
+dev.off()
 
 ## Representação 3.3.
 
@@ -5437,6 +5564,7 @@ x1 <- c()
 x1[1] <- -2.1
 for (i in 1:19){
   x1[i+1] = x1[i]+0.225
+}
   
   
   A <- c()
@@ -5488,9 +5616,9 @@ for (i in 1:19){
          colour = " ")+
     theme_classic()
   
-  
+  png("31133.png", width = 1000, height = 450)
   ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-
+  dev.off()
   
   #### Espécies
   
@@ -5595,9 +5723,9 @@ for (i in 1:19){
          colour = " ")+
     theme_classic()
   
-  
+  png("32133.png", width = 1000, height = 450) 
   ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
-
+dev.off
   
   ### Área
   
@@ -5705,7 +5833,9 @@ for (i in 1:19){
     theme_classic()
   
   
+  png("31233.png", width = 1000, height = 450)
   ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+  dev.off()
 
   
   #### Espécies
@@ -5812,7 +5942,9 @@ for (i in 1:19){
     theme_classic()
   
   
+  png("32233.png", width = 1000, height = 450)
   ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+  dev.off()
 
   
   ### População
@@ -5921,7 +6053,9 @@ for (i in 1:19){
     theme_classic()
   
   
+  png("31333.png", width = 1000, height = 450)
   ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+  dev.off()
 
   
   #### Espécies
@@ -6028,7 +6162,9 @@ for (i in 1:19){
     theme_classic()
   
   
+  png("32333.png", width = 1000, height = 450)
   ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+  dev.off()
 
   
   ### Latitude
@@ -6137,7 +6273,9 @@ for (i in 1:19){
     theme_classic()
   
   
+  png("31433.png", width = 1000, height = 450)
   ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+  dev.off()
 
   
   #### Espécies
@@ -6245,7 +6383,9 @@ for (i in 1:19){
     theme_classic()
   
   
+  png("32433.png", width = 1000, height = 450)
   ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+  dev.off()
 
   
   ### Longitude
@@ -6354,7 +6494,9 @@ for (i in 1:19){
     theme_classic()
   
   
+  png("31533.png", width = 1000, height = 450)
   ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+  dev.off()
 
   
   #### Espécies
@@ -6461,9 +6603,13 @@ for (i in 1:19){
     theme_classic()
   
   
+  png("32533.png", width = 1000, height = 450)
   ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
+  dev.off()
 
   
   
   
-  rm(list=ls())
+rm(list=ls())
+
+  

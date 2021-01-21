@@ -4,16 +4,13 @@ library("openxlsx")
 library(ggplot2)
 library(RColorBrewer)
 library(esquisse)
-
+library(usethis)
 
 WS <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S1/WAVxSPL.xlsx") 
 WAV <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S1/WAV.xlsx") 
 SPL <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S1/SPL.xlsx")
 ESP <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S1/Espécies.xlsx")
 dados <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S1/dados.xlsx")
-
-
-
 
 
 A1 <- hist(WAV$WAVR, 
@@ -63,6 +60,9 @@ C3$density = C3$counts/sum(C3$counts)*100
 
 ## Representação 1
 
+
+png("111.png", width = 550, height = 530)
+
 plot(A1, col=rgb(0,0,1,1/2),
      main = " ",
      xlab = "Número de Registros (Log10)",
@@ -72,9 +72,11 @@ plot(A1, col=rgb(0,0,1,1/2),
      xlim=c(0,5))
 plot(B1, col=rgb(1,0,0,1/2), freq = FALSE, add=T) 
 plot(C1, col=rgb(0,1,0,1/2), freq = FALSE, add=T)
-legend("topright", c("Wikiaves", "SpeciesLink","Wikiaves 2"), col=c(rgb(0,0,1,1/2),col=rgb(1,0,0,1/2) ,rgb(0,1,0,1/2) ), lwd=5, box.col = "white")
+legend("topright", c("WAV (N = 631)", "SLI (N = 174)","WAV 2 (N = 173)"), col=c(rgb(0,0,1,1/2),col=rgb(1,0,0,1/2) ,rgb(0,1,0,1/2) ), lwd=5, box.col = "white")
 
+dev.off()
 
+png("121.png", width = 550, height = 530)
 
 plot(A2, col=rgb(0,0,1,1/2),
      main = " ",
@@ -85,9 +87,11 @@ plot(A2, col=rgb(0,0,1,1/2),
      xlim=c(0,3))
 plot(B2, col=rgb(1,0,0,1/2), freq = FALSE, add=T) 
 plot(C2, col=rgb(0,1,0,1/2), freq = FALSE, add=T)
-legend("top", c("Wikiaves", "SpeciesLink","Wikiaves 2"), col=c(rgb(0,0,1,1/2),col=rgb(1,0,0,1/2) ,rgb(0,1,0,1/2) ), lwd=5, box.col = "white")
+legend("top", c("WAV (N = 631)", "SLI (N = 174)","WAV 2 (N = 173)"), col=c(rgb(0,0,1,1/2),col=rgb(1,0,0,1/2) ,rgb(0,1,0,1/2) ), lwd=5, box.col = "white")
 
+dev.off()
 
+png("131.png", width = 550, height = 530)
 
 plot(A3, col=rgb(0,0,1,1/2),
      main = " ",
@@ -98,13 +102,16 @@ plot(A3, col=rgb(0,0,1,1/2),
      xlim=c(0,4))
 plot(B3, col=rgb(1,0,0,1/2), freq = FALSE, add=T) 
 plot(C3, col=rgb(0,1,0,1/2), freq = FALSE, add=T)
-legend("topright", c("Wikiaves", "SpeciesLink","Wikiaves 2"), col=c(rgb(0,0,1,1/2),col=rgb(1,0,0,1/2) ,rgb(0,1,0,1/2) ), lwd=5, box.col = "white")
+legend("topright", c("WAV (N = 631)", "SLI (N = 174)","WAV 2 (N = 173)"), col=c(rgb(0,0,1,1/2),col=rgb(1,0,0,1/2) ,rgb(0,1,0,1/2) ), lwd=5, box.col = "white")
 
+dev.off()
 
 ## Representação 2
 
 
 dados$L <- factor(dados$L, levels = c("WAV", "SPL", "WAV 2"), labels = c("WAV (N = 631)", "SLI (N = 174)", "WAV 2 (N = 173)"))
+
+png("112.png", width = 550, height = 530)
 
 ggplot(dados, aes(x = R, fill = L, colour = L))+
   scale_colour_manual(values = c("blue", "red", "green")) +
@@ -116,7 +123,9 @@ ggplot(dados, aes(x = R, fill = L, colour = L))+
        fill = "")+
   theme_classic()
 
+dev.off()
 
+png("122.png", width = 550, height = 530)
 
 ggplot(dados, aes(x = E, fill = L, colour = L))+
   scale_colour_manual(values = c("blue", "red", "green")) +
@@ -128,13 +137,15 @@ ggplot(dados, aes(x = E, fill = L, colour = L))+
        fill = "")+
   theme_classic()
 
-
+dev.off()
 
 dados$L2 <- factor(dados$L2, levels = c("WAV", "SPL", "WAV 2"), labels = c("WAV (S = 790)", "SLI (S = 661)", "WAV 2 (S = 779)"))
 
+png("132.png", width = 550, height = 530)
+
 ggplot(dados, aes(x = RE, fill = L2, colour = L2))+
-  scale_colour_manual(values = c("red", "blue", "green")) +
-  scale_fill_manual(values = c("red", "blue", "green")) +
+  scale_colour_manual(values = c("blue", "red", "green")) +
+  scale_fill_manual(values = c("blue", "red", "green")) +
   geom_density(alpha = 0.2)+
   labs(x = "Quantidade de Registros (Log10)",
        y = "Densidade",
@@ -142,8 +153,10 @@ ggplot(dados, aes(x = RE, fill = L2, colour = L2))+
        fill = "")+
   theme_classic()
 
+dev.off()
 
 ## Representação 3
+
 
 
 y1 <- A1$density
@@ -210,6 +223,8 @@ for(i  in 51:75){
 dados <- data.frame(L = A, x = B, y = C)
 dados$L <- factor(dados$L, levels = c("WAV (N = 631)", "SLI (N = 174)", "WAV 2 (N = 173)"))
 
+png("113.png", width = 550, height = 530)
+
 ggplot(dados, aes(x = x, y = C, group = L, colour = L))+
   scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = lm, formula = y ~ poly(x, 15),se = FALSE, fullrange = TRUE)+
@@ -218,7 +233,7 @@ ggplot(dados, aes(x = x, y = C, group = L, colour = L))+
        colour = " ")+
   theme_classic()
 
-
+dev.off()
 
 
 y1 <- A2$density
@@ -283,6 +298,8 @@ for(i  in 51:75){
 dados <- data.frame(L = A, x = B, y = C)
 dados$L <- factor(dados$L, levels = c("WAV (N = 631)", "SLI (N = 174)", "WAV 2 (N = 173)"))
 
+png("123.png", width = 550, height = 530)
+
 ggplot(dados, aes(x = x, y = C, group = L, colour = L))+
   scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = lm, formula = y ~ poly(x, 15),se = FALSE, fullrange = TRUE)+
@@ -291,6 +308,7 @@ ggplot(dados, aes(x = x, y = C, group = L, colour = L))+
        colour = " ")+
   theme_classic()
 
+dev.off()
 
 
 y1 <- A3$density
@@ -356,6 +374,8 @@ for(i  in 51:75){
 dados <- data.frame(L = A, x = B, y = C)
 dados$L <- factor(dados$L, levels = c("WAV (S = 790)", "SLI (S = 661)", "WAV 2 (S = 779)"))
 
+png("133.png", width = 550, height = 530)
+
 ggplot(dados, aes(x = x, y = C, group = L, colour = L))+
   scale_colour_manual(values = c("blue", "red", "green")) +
   stat_smooth(method = lm, formula = y ~ poly(x, 15),se = FALSE, fullrange = TRUE)+
@@ -364,7 +384,7 @@ ggplot(dados, aes(x = x, y = C, group = L, colour = L))+
        colour = " ")+
   theme_classic()
 
-
+dev.off()
 
 rm(list=ls())
 

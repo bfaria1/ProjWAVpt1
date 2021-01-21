@@ -63,6 +63,7 @@ SLO$density = SLO$counts/sum(SLO$counts)*100
 
 ### Altitude
 
+png("211.png", width = 550, height = 530)
 
 plot(WAL, col=rgb(0,0,1,1/2),
      main = " ",
@@ -72,11 +73,13 @@ plot(WAL, col=rgb(0,0,1,1/2),
      #ylim = c(0,1),
      xlim=c(0,1800))
 plot(SAL, col=rgb(1,0,0,1/2), freq = FALSE, add=T) 
-legend("topright", c("Wikiaves", "SpeciesLink"), col=c(rgb(0,0,1,1/2),col=rgb(1,0,0,1/2) ), lwd=5, box.col = "white")
+legend("topright", c("WAV (N = 631)", "SLI (N = 174)"), col=c(rgb(0,0,1,1/2),col=rgb(1,0,0,1/2) ), lwd=5, box.col = "white")
 
+dev.off()
 
 ### Área
 
+png("221.png", width = 550, height = 530)
 
 plot(WAR, col=rgb(0,0,1,1/2),
      main = " ",
@@ -86,11 +89,13 @@ plot(WAR, col=rgb(0,0,1,1/2),
      ylim = c(0,20),
      xlim=c(0,4))
 plot(SAR, col=rgb(1,0,0,1/2), freq = FALSE, add=T) 
-legend("topright", c("Wikiaves", "SpeciesLink"), col=c(rgb(0,0,1,1/2),col=rgb(1,0,0,1/2) ), lwd=5, box.col = "white")
+legend("topright", c("WAV (N = 631)", "SLI (N = 174)"), col=c(rgb(0,0,1,1/2),col=rgb(1,0,0,1/2) ), lwd=5, box.col = "white")
 
+dev.off()
 
 ### População
 
+png("231.png", width = 550, height = 530)
 
 plot(WPOP, col=rgb(0,0,1,1/2),
      main = " ",
@@ -100,11 +105,13 @@ plot(WPOP, col=rgb(0,0,1,1/2),
      ylim = c(0,20),
      xlim=c(2,7.5))
 plot(SPOP, col=rgb(1,0,0,1/2), freq = FALSE, add=T)
-legend("topright", c("Wikiaves", "SpeciesLink"), col=c(rgb(0,0,1,1/2),col=rgb(1,0,0,1/2) ), lwd=5, box.col = "white")
+legend("topright", c("WAV (N = 631)", "SLI (N = 174)"), col=c(rgb(0,0,1,1/2),col=rgb(1,0,0,1/2) ), lwd=5, box.col = "white")
 
+dev.off()
 
 ### Latitude
 
+png("241.png", width = 550, height = 530)
 
 plot(WLA, col=rgb(0,0,1,1/2),
      main = " ",
@@ -114,11 +121,13 @@ plot(WLA, col=rgb(0,0,1,1/2),
      ylim = c(0,15),
      xlim=c(-25.5,-19.5))
 plot(SLA, col=rgb(1,0,0,1/2), freq = FALSE, add=T)
-legend("topright", c("Wikiaves", "SpeciesLink"), col=c(rgb(0,0,1,1/2),col=rgb(1,0,0,1/2) ), lwd=5, box.col = "white")
+legend("topright", c("WAV (N = 631)", "SLI (N = 174)"), col=c(rgb(0,0,1,1/2),col=rgb(1,0,0,1/2) ), lwd=5, box.col = "white")
 
+dev.off()
 
 ### Longitude
 
+png("251.png", width = 550, height = 530)
 
 plot(WLO, col=rgb(0,0,1,1/2),
      main = " ",
@@ -128,13 +137,15 @@ plot(WLO, col=rgb(0,0,1,1/2),
      ylim = c(0,20),
      xlim=c(-55,-42))
 plot(SLO, col=rgb(1,0,0,1/2), freq = FALSE, add=T)
-legend("topright", c("Wikiaves", "SpeciesLink"), col=c(rgb(0,0,1,1/2),col=rgb(1,0,0,1/2) ), lwd=5, box.col = "white")
+legend("topright", c("WAV (N = 631)", "SLI (N = 174)"), col=c(rgb(0,0,1,1/2),col=rgb(1,0,0,1/2) ), lwd=5, box.col = "white")
 
+dev.off()
 
 ## Representação 2
 
 ### Altitude
 
+png("212.png", width = 550, height = 530)
 
 dados$L <- factor(dados$L, levels = c("WAV", "SPL"), labels = c("WAV (N = 631)", "SLI (N = 174)"))
 
@@ -148,9 +159,11 @@ ggplot(dados, aes(x = Altitude, fill = L, colour = L))+
        fill = "")+
   theme_classic()
 
+dev.off()
 
 ### Área
 
+png("222.png", width = 550, height = 530)
 
 ggplot(dados, aes(x = Área, fill = L, colour = L))+
   scale_colour_manual(values = c("blue", "red")) +
@@ -162,9 +175,11 @@ ggplot(dados, aes(x = Área, fill = L, colour = L))+
        fill = "")+
   theme_classic()
 
+dev.off()
 
 ### População
 
+png("232.png", width = 550, height = 530)
 
 ggplot(dados, aes(x = População, fill = L, colour = L))+
   scale_colour_manual(values = c("blue", "red")) +
@@ -176,9 +191,11 @@ ggplot(dados, aes(x = População, fill = L, colour = L))+
        fill = "")+
   theme_classic()
 
+dev.off()
 
 ### Latitude
 
+png("242.png", width = 550, height = 530)
 
 ggplot(dados, aes(x = Latitude, fill = L, colour = L))+
   scale_colour_manual(values = c("blue", "red")) +
@@ -190,9 +207,11 @@ ggplot(dados, aes(x = Latitude, fill = L, colour = L))+
        fill = "")+
   theme_classic()
 
+dev.off()
 
 ### Longitude
 
+png("252.png", width = 550, height = 530)
 
 ggplot(dados, aes(x = Longitude, fill = L, colour = L))+
   scale_colour_manual(values = c("blue", "red")) +
@@ -204,7 +223,7 @@ ggplot(dados, aes(x = Longitude, fill = L, colour = L))+
        fill = "")+
   theme_classic()
 
-
+dev.off()
 
 ## Representação 3
 
@@ -231,7 +250,7 @@ for (i in 1:25){
   A[i] = "WAV (N = 631)"
 }
 for (i in 26:50){
-  A[i] = "SPL (N = 174)"
+  A[i] = "SLI (N = 174)"
 }
 
 B <- c()
@@ -255,7 +274,9 @@ for(i in 26:50){
 }
 
 dados <- data.frame(Legenda = A, x = B, y = C)
-dados$Legenda <- factor(dados$Legenda, levels = c("WAV (N = 631)", "SPL (N = 174)"))
+dados$Legenda <- factor(dados$Legenda, levels = c("WAV (N = 631)", "SLI (N = 174)"))
+
+png("213.png", width = 550, height = 530)
 
 ggplot(dados, aes(x = x, y = C, group = Legenda, colour = Legenda))+
   scale_colour_manual(values = c("blue", "red")) +
@@ -265,6 +286,7 @@ ggplot(dados, aes(x = x, y = C, group = Legenda, colour = Legenda))+
        colour = " ")+
   theme_classic()
 
+dev.off()
 
 ### Área
 
@@ -289,7 +311,7 @@ for (i in 1:25){
   A[i] = "WAV (N = 631)"
 }
 for (i in 26:50){
-  A[i] = "SPL (N = 174)"
+  A[i] = "SLI (N = 174)"
 }
 
 B <- c()
@@ -313,7 +335,9 @@ for(i in 26:50){
 }
 
 dados <- data.frame(Legenda = A, x = B, y = C)
-dados$Legenda <- factor(dados$Legenda, levels = c("WAV (N = 631)", "SPL (N = 174)"))
+dados$Legenda <- factor(dados$Legenda, levels = c("WAV (N = 631)", "SLI (N = 174)"))
+
+png("223.png", width = 550, height = 530)
 
 ggplot(dados, aes(x = x, y = C, group = Legenda, colour = Legenda))+
   scale_colour_manual(values = c("blue", "red")) +
@@ -323,6 +347,7 @@ ggplot(dados, aes(x = x, y = C, group = Legenda, colour = Legenda))+
        colour = " ")+
   theme_classic()
 
+dev.off()
 
 ### População
 
@@ -347,7 +372,7 @@ for (i in 1:25){
   A[i] = "WAV (N = 631)"
 }
 for (i in 26:50){
-  A[i] = "SPL (N = 174)"
+  A[i] = "SLI (N = 174)"
 }
 
 B <- c()
@@ -371,7 +396,9 @@ for(i in 26:50){
 }
 
 dados <- data.frame(Legenda = A, x = B, y = C)
-dados$Legenda <- factor(dados$Legenda, levels = c("WAV (N = 631)", "SPL (N = 174)"))
+dados$Legenda <- factor(dados$Legenda, levels = c("WAV (N = 631)", "SLI (N = 174)"))
+
+png("233.png", width = 550, height = 530)
 
 ggplot(dados, aes(x = x, y = C, group = Legenda, colour = Legenda))+
   scale_colour_manual(values = c("blue", "red")) +
@@ -381,6 +408,7 @@ ggplot(dados, aes(x = x, y = C, group = Legenda, colour = Legenda))+
        colour = " ")+
   theme_classic()
 
+dev.off()
 
 ### Latitude
 
@@ -405,7 +433,7 @@ for (i in 1:25){
   A[i] = "WAV (N = 631)"
 }
 for (i in 26:50){
-  A[i] = "SPL (N = 174)"
+  A[i] = "SLI (N = 174)"
 }
 
 B <- c()
@@ -429,7 +457,9 @@ for(i in 26:50){
 }
 
 dados <- data.frame(Legenda = A, x = B, y = C)
-dados$Legenda <- factor(dados$Legenda, levels = c("WAV (N = 631)", "SPL (N = 174)"))
+dados$Legenda <- factor(dados$Legenda, levels = c("WAV (N = 631)", "SLI (N = 174)"))
+
+png("243.png", width = 550, height = 530)
 
 ggplot(dados, aes(x = x, y = C, group = Legenda, colour = Legenda))+
   scale_colour_manual(values = c("blue", "red")) +
@@ -439,6 +469,7 @@ ggplot(dados, aes(x = x, y = C, group = Legenda, colour = Legenda))+
        colour = " ")+
   theme_classic()
 
+dev.off()
 
 ### Longitude
 
@@ -463,7 +494,7 @@ for (i in 1:25){
   A[i] = "WAV (N = 631)"
 }
 for (i in 26:50){
-  A[i] = "SPL (N = 174)"
+  A[i] = "SLI (N = 174)"
 }
 
 B <- c()
@@ -487,7 +518,9 @@ for(i in 26:50){
 }
 
 dados <- data.frame(Legenda = A, x = B, y = C)
-dados$Legenda <- factor(dados$Legenda, levels = c("WAV (N = 631)", "SPL (N = 174)"))
+dados$Legenda <- factor(dados$Legenda, levels = c("WAV (N = 631)", "SLI (N = 174)"))
+
+png("253.png", width = 550, height = 530)
 
 ggplot(dados, aes(x = x, y = C, group = Legenda, colour = Legenda))+
   scale_colour_manual(values = c("blue", "red")) +
@@ -496,5 +529,7 @@ ggplot(dados, aes(x = x, y = C, group = Legenda, colour = Legenda))+
        y = "Frequência Relativa (%)",
        colour = " ")+
   theme_classic()
+
+dev.off()
 
 rm(list=ls())
