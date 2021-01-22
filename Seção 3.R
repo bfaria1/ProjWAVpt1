@@ -55,9 +55,9 @@ summary(RE)
 
 
 
-REW <- lm(WAVRAR~ARWAVR, data = dados)
-RES <- lm(SPLRAR~ARSPLR, data = dados)
-RE <- lm(WAV2RAR~ARWAV2R, data = dados)
+REW <- lm(WAVEAL~ALWAVE, data = dados)
+RES <- lm(SPLEAL~ALSPLE, data = dados)
+RE <- lm(WAV2EAL~ALWAV2E, data = dados)
 
 
 #### Espécies Wikiaves
