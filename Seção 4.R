@@ -15,7 +15,9 @@ RW2 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S4/RW2.xlsx")
 
 
 
-gráfico <- ggplot(dados, aes(x = A2, y = A1))+
+  gráfico <- ggplot(dados, aes(x = A2, y = A1))+
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed") + 
+  expand_limits(x=0,y=0)+
   geom_point()+
   stat_smooth(method = "lm",
               se = FALSE,
@@ -48,6 +50,8 @@ dev.off()
 
 
 gráfico <- ggplot(dados, aes(x = B2, y = B1))+
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed") + 
+  expand_limits(x=0,y=0)+
   geom_point()+
   stat_smooth(method = "lm",
               se = FALSE,
@@ -82,6 +86,8 @@ dev.off()
 dados$L1 <- factor(dados$L1, levels=c("Wikiaves", "SpeciesLink", "Wikiaves 2"), labels = c("WAV (N = 620)","SLI (N = 143)","WAV 2 (N = 171)"))
 
 gráfico <- ggplot(dados, aes(x = C1, y = C2, color = L1))+
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed") + 
+  expand_limits(x=0,y=0)+
   geom_point()+
   scale_colour_manual(values = c("blue","red", "green")) +
   stat_smooth(method = "lm",
@@ -135,6 +141,8 @@ dev.off()
 
 
 gráfico <- ggplot(dados, aes(x = A2, y = A1))+
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed") + 
+  expand_limits(x=0,y=0)+
   geom_point()+
   stat_smooth(method = "lm",
               se = FALSE,
@@ -160,6 +168,8 @@ dev.off()
 
 
 gráfico <- ggplot(dados, aes(x = B2, y = B1))+
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed") + 
+  expand_limits(x=0,y=0)+
   geom_point()+
   stat_smooth(method = "lm",
               se = FALSE,
@@ -186,6 +196,8 @@ dev.off()
 
 
 gráfico <- ggplot(dados, aes(x = C1, y = C2, color = L1))+
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed") + 
+  expand_limits(x=0,y=0)+
   geom_point()+
   scale_colour_manual(values = c("blue","red", "green")) +
   stat_smooth(method = "lm",
@@ -234,6 +246,8 @@ dev.off()
 
 
 gráfico <- ggplot(dados, aes(x = A2, y = A1))+
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed") + 
+  expand_limits(x=0,y=0)+
   geom_point()+
   stat_smooth(method = "lm",
               se = FALSE,
@@ -293,6 +307,8 @@ dev.off()
 
 
 gráfico <- ggplot(dados, aes(x = B2, y = B1))+
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed") + 
+  expand_limits(x=0,y=0)+
   geom_point()+
   stat_smooth(method = "lm",
               se = FALSE,
@@ -353,6 +369,8 @@ dev.off()
 
 
 gráfico <- ggplot(dados, aes(x = C1, y = C2, color = L1))+
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed") + 
+  expand_limits(x=0,y=0)+
   geom_point()+
   scale_colour_manual(values = c("blue","red", "green")) +
   stat_smooth(method = "lm",
@@ -460,6 +478,8 @@ dev.off()
 
 
 gráfico <- ggplot(dados, aes(x = C1, y = C2, color = L1, alpha =I(.5)))+
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed") + 
+  expand_limits(x=0,y=0)+
   geom_point()+
   scale_colour_manual(values = c("red", "blue","green")) +
   stat_smooth(method = "lm",
@@ -511,6 +531,8 @@ dev.off()
 
 
 gráfico <- ggplot(dados, aes(x = C1, y = C2, color = L1, alpha =I(.5)))+
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed") + 
+  expand_limits(x=0,y=0)+
   geom_point()+
   scale_colour_manual(values = c("red", "blue","green")) +
   stat_smooth(method = "lm",
@@ -559,6 +581,8 @@ dev.off()
 
 
 gráfico <- ggplot(dados, aes(x = C1, y = C2, color = L1, alpha =I(.5)))+
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed") + 
+  expand_limits(x=0,y=0)+
   geom_point()+
   scale_colour_manual(values = c("red", "blue","green")) +
   stat_smooth(method = "lm",
@@ -667,6 +691,8 @@ dev.off()
 
 
 gráfico <- ggplot(dados, aes(x = C1, y = C2, color = L1, shape = L1))+
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed") + 
+  expand_limits(x=0,y=0)+
   geom_point()+
   scale_shape_manual(values=c(15, 16, 17))+
   scale_colour_manual(values = c("blue","red", "green")) +
@@ -722,6 +748,8 @@ dev.off()
 
 
 gráfico <- ggplot(dados, aes(x = C1, y = C2, color = L1, shape = L1))+
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed") + 
+  expand_limits(x=0,y=0)+
   geom_point()+
   scale_colour_manual(values = c("blue","red", "green")) +
   scale_shape_manual(values=c(15, 16, 17))+
@@ -773,6 +801,8 @@ dev.off()
 
 
 gráfico <- ggplot(dados, aes(x = C1, y = C2, color = L1, shape = L1))+
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed") + 
+  expand_limits(x=0,y=0)+
   geom_point()+
   scale_colour_manual(values = c("blue","red", "green")) +
   scale_shape_manual(values=c(15, 16, 17))+
