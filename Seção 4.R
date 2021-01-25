@@ -481,7 +481,7 @@ gráfico <- ggplot(dados, aes(x = C1, y = C2, color = L1, alpha =I(.5)))+
   geom_abline(intercept = 0, slope = 1, linetype = "dashed") + 
   expand_limits(x=0,y=0)+
   geom_point()+
-  scale_colour_manual(values = c("red", "blue","green")) +
+  scale_colour_manual(values = c( "blue","red","green")) +
   stat_smooth(method = "lm",
               formula = y~poly(x,2),
               se = FALSE,
@@ -534,7 +534,7 @@ gráfico <- ggplot(dados, aes(x = C1, y = C2, color = L1, alpha =I(.5)))+
   geom_abline(intercept = 0, slope = 1, linetype = "dashed") + 
   expand_limits(x=0,y=0)+
   geom_point()+
-  scale_colour_manual(values = c("red", "blue","green")) +
+  scale_colour_manual(values = c( "blue","red","green")) +
   stat_smooth(method = "lm",
               formula = y~poly(x,2),
               se = FALSE,
@@ -584,7 +584,7 @@ gráfico <- ggplot(dados, aes(x = C1, y = C2, color = L1, alpha =I(.5)))+
   geom_abline(intercept = 0, slope = 1, linetype = "dashed") + 
   expand_limits(x=0,y=0)+
   geom_point()+
-  scale_colour_manual(values = c("red", "blue","green")) +
+  scale_colour_manual(values = c( "blue","red","green")) +
   stat_smooth(method = "lm",
               formula = y~poly(x,2),
               se = FALSE,
