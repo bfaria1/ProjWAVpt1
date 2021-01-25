@@ -165,41 +165,67 @@ fviz_dist(B6) +
 
 ## Dendograma
 
+png("611.png", width = 2000, height = 1000)
 X1 <- hclust(A1, "ward.D2")
 fviz_dend(X1)
+dev.off()
 
+png("612.png", width = 2000, height = 1000)
 X2 <- hclust(A2, "ward.D2")
 fviz_dend(X2)
+dev.off()
 
+png("613.png", width = 2000, height = 1000)
 X3 <- hclust(A3, "ward.D2")
 fviz_dend(X3)
+dev.off()
 
+png("614.png", width = 2000, height = 1000)
 X4 <- hclust(A4, "ward.D2")
 fviz_dend(X4)
+dev.off()
 
+png("615.png", width = 2000, height = 1000)
 X5 <- hclust(A5, "ward.D2")
 fviz_dend(X5)
+dev.off()
 
+png("616.png", width = 2000, height = 1000)
 X6 <- hclust(A6, "ward.D2")
 fviz_dend(X6)
+dev.off()
 
+png("621.png", width = 2000, height = 1000)
 Y1 <- hclust(B1, "ward.D2")
 fviz_dend(Y1)
+dev.off()
 
+png("622.png", width = 2000, height = 1000)
 Y2 <- hclust(B2, "ward.D2")
 fviz_dend(Y2)
+dev.off()
 
+png("623.png", width = 2000, height = 1000)
 Y3 <- hclust(B3, "ward.D2")
 fviz_dend(Y3)
+dev.off()
 
+png("624.png", width = 2000, height = 1000)
 Y4 <- hclust(B4, "ward.D2")
 fviz_dend(Y4)
+dev.off()
 
+png("625.png", width = 2000, height = 1000)
 Y5 <- hclust(B5, "ward.D2")
 fviz_dend(Y5)
+dev.off()
 
+png("626.png", width = 2000, height = 1000)
 Y6 <- hclust(B6, "ward.D2")
 fviz_dend(Y6)
+dev.off()
+
+
 
 #####################################################################################3
 
