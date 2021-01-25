@@ -648,7 +648,7 @@ Portanto, para pesquisar a figura da seção 2.2 em sua terceira versão, o cód
 
 ![614](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/614.png)
 
-### Top 10
+### Top 100
 
 ###### 615.
 
@@ -686,7 +686,7 @@ Portanto, para pesquisar a figura da seção 2.2 em sua terceira versão, o cód
 
 ![624](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/624.png)
 
-### Top 10
+### Top 100
 
 ###### 625.
 
