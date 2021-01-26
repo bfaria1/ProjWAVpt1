@@ -105,63 +105,87 @@ B6 <- vegdist(SLI6, method = "jaccard", binary = TRUE)
 
 #### Wikiaves 1
 
+png("6111.png", width = 500, height = 500)
 fviz_dist(A1) + 
   scale_fill_gradient(low = "yellow", high = "red")
+dev.off()
 
 #### Wikiaves 2
 
+png("6112.png",  width = 500, height = 500)
 fviz_dist(A2) + 
   scale_fill_gradient(low = "yellow", high = "red")
+dev.off()
 
 #### Wikiaves 3
 
+png("6113.png",  width = 500, height = 500)
 fviz_dist(A3) + 
   scale_fill_gradient(low = "yellow", high = "red")
+dev.off()
 
 #### Wikiaves 4
 
+png("6114.png",  width = 500, height = 500)
 fviz_dist(A4) + 
   scale_fill_gradient(low = "yellow", high = "red")
+dev.off()
 
 #### Wikiaves 5
 
+png("6115.png",  width = 500, height = 500)
 fviz_dist(A5) + 
   scale_fill_gradient(low = "yellow", high = "red")
+dev.off()
 
 #### Wikiaves 6
 
+png("6116.png",  width = 500, height = 500)
 fviz_dist(A6) + 
   scale_fill_gradient(low = "yellow", high = "red")
+dev.off()
 
 #### SpeciesLink 1
 
+png("6117.png",  width = 500, height = 500)
 fviz_dist(B1) + 
   scale_fill_gradient(low = "yellow", high = "red")
+dev.off()
 
 #### SpeciesLink 2
 
+png("6118.png",  width = 500, height = 500)
 fviz_dist(B2) + 
   scale_fill_gradient(low = "yellow", high = "red")
+dev.off()
 
 #### SpeciesLink 3
 
+png("6119.png",  width = 500, height = 500)
 fviz_dist(B3) + 
   scale_fill_gradient(low = "yellow", high = "red")
+dev.off()
 
 #### SpeciesLink 4
 
+png("61110.png",  width = 500, height = 500)
 fviz_dist(B4) + 
   scale_fill_gradient(low = "yellow", high = "red")
+dev.off()
 
 #### SpeciesLink 5
 
+png("61111.png",  width = 500, height = 500)
 fviz_dist(B5) + 
   scale_fill_gradient(low = "yellow", high = "red")
+dev.off()
 
 #### SpeciesLink 6
 
+png("61112.png",  width = 500, height = 500)
 fviz_dist(B6) + 
   scale_fill_gradient(low = "yellow", high = "red")
+dev.off()
 
 ## Dendograma
 
