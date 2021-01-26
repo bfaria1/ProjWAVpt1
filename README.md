@@ -628,11 +628,15 @@ Portanto, para pesquisar a figura da seção 2.2 em sua terceira versão, o cód
 
 ###### 611.
 
+![626](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/6111.png)
+
 ![611](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/611.png)
 
 ### Top 20
 
 ###### 612.
+
+![626](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/6112.png)
 
 ![612](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/612.png)
 
@@ -640,11 +644,15 @@ Portanto, para pesquisar a figura da seção 2.2 em sua terceira versão, o cód
 
 ###### 613.
 
+![626](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/6113.png)
+
 ![613](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/613.png)
 
 ### Top 50
 
 ###### 614.
+
+![626](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/6114.png)
 
 ![614](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/614.png)
 
@@ -652,11 +660,15 @@ Portanto, para pesquisar a figura da seção 2.2 em sua terceira versão, o cód
 
 ###### 615.
 
+![626](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/6115.png)
+
 ![615](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/615.png)
 
 ### Geral
 
 ###### 616.
+
+![626](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/6116.png)
 
 ![616](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/616.png)
 
@@ -666,11 +678,15 @@ Portanto, para pesquisar a figura da seção 2.2 em sua terceira versão, o cód
 
 ###### 621.
 
+![626](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/6117.png)
+
 ![621](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/621.png)
 
 ### Top 20
 
 ###### 622.
+
+![626](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/6118.png)
 
 ![622](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/622.png)
 
@@ -678,11 +694,15 @@ Portanto, para pesquisar a figura da seção 2.2 em sua terceira versão, o cód
 
 ###### 623.
 
+![626](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/6119.png)
+
 ![623](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/623.png)
 
 ### Top 50
 
 ###### 624.
+
+![626](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/61110.png)
 
 ![624](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/624.png)
 
@@ -690,10 +710,14 @@ Portanto, para pesquisar a figura da seção 2.2 em sua terceira versão, o cód
 
 ###### 625.
 
+![626](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/61111.png)
+
 ![625](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/625.png)
 
 ### Geral
 
 ###### 626.
+
+![626](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/61112.png)
 
 ![626](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/626.png)
