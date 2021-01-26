@@ -622,3 +622,78 @@ Portanto, para pesquisar a figura da seção 2.2 em sua terceira versão, o cód
 
 ## Seção 6
 
+### Wikiaves
+
+### Top 10
+
+###### 611.
+
+![611](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/611.png)
+
+### Top 20
+
+###### 612.
+
+![612](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/612.png)
+
+### Top 25
+
+###### 613.
+
+![613](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/613.png)
+
+### Top 50
+
+###### 614.
+
+![614](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/614.png)
+
+### Top 100
+
+###### 615.
+
+![615](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/615.png)
+
+### Geral
+
+###### 616.
+
+![616](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/616.png)
+
+### SpeciesLink
+
+### Top 10
+
+###### 621.
+
+![621](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/621.png)
+
+### Top 20
+
+###### 622.
+
+![622](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/622.png)
+
+### Top 25
+
+###### 623.
+
+![623](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/623.png)
+
+### Top 50
+
+###### 624.
+
+![624](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/624.png)
+
+### Top 100
+
+###### 625.
+
+![625](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/625.png)
+
+### Geral
+
+###### 626.
+
+![626](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/626.png)
