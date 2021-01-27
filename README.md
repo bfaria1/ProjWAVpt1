@@ -53,7 +53,7 @@ Janeiro, 2021
 
 [Arquivo Completo (.Rmd)](https://github.com/bfaria1/ProjWAV/blob/master/ProjWAV.Rmd)
 
-## Código Latex:
+## Código LaTex:
 
 [Main](https://github.com/bfaria1/ProjWAV/blob/master/Latex/Main.Tex)
 
