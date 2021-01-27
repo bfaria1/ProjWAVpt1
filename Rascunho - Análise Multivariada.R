@@ -249,6 +249,48 @@ Y6 <- hclust(B6, "ward.D2")
 fviz_dend(Y6)
 dev.off()
 
+## Cophenetic Correlation
+
+#### Wikiaves
+
+CPW1 <- cophenetic(X1)
+cor (A1, CPW1)
+
+CPW2 <- cophenetic(X2)
+cor (A2, CPW2)
+
+CPW3 <- cophenetic(X3)
+cor (A3, CPW3)
+
+CPW4 <- cophenetic(X4)
+cor (A4, CPW4)
+
+CPW5 <- cophenetic(X5)
+cor (A5, CPW5)
+
+CPW6 <- cophenetic(X6)
+cor (A6, CPW6)
+
+#### SpeciesLink
+
+CPS1 <- cophenetic(Y1)
+cor (B1, CPS1)
+
+CPS2 <- cophenetic(Y2)
+cor (B2, CPS2)
+
+CPS3 <- cophenetic(Y3)
+cor (B3, CPS3)
+
+CPS4 <- cophenetic(Y4)
+cor (B4, CPS4)
+
+CPS5 <- cophenetic(Y5)
+cor (B5, CPS5)
+
+CPS6 <- cophenetic(Y6)
+cor (B6, CPS6)
+
 
 
 #####################################################################################3
