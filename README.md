@@ -29,7 +29,7 @@ Janeiro, 2021
 
 [Fatores Externos 2](https://github.com/bfaria1/ProjWAV/blob/master/Excel/Planilhas%20Principais/Geral/Parametros/Bivariada.xlsx)
 
-#### Arquivos Excel ultilizados nos códigos R:
+##### Arquivos Excel ultilizados nos códigos R:
 
 [Seção 1](https://github.com/bfaria1/ProjWAV/tree/master/Excel/S1)
 
