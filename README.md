@@ -15,19 +15,13 @@ Janeiro, 2021
 
 [Principal](https://github.com/bfaria1/ProjWAV/blob/master/Excel/Planilhas%20Principais/Geral/Geral.xlsx)
 
-[Wikiaves](https://github.com/bfaria1/ProjWAV/blob/master/Excel/Planilhas%20Principais/Wikiaves/Wikiaves.xlsx)
+[Wikiaves](https://github.com/bfaria1/ProjWAV/tree/master/Excel/Planilhas%20Principais/Wikiaves)
 
-[Wikiaves - Auxiliar](https://github.com/bfaria1/ProjWAV/blob/master/Excel/Planilhas%20Principais/Wikiaves/Wikiaves%20(Auxiliar).xlsx)
-
-[SpeciesLink](https://github.com/bfaria1/ProjWAV/blob/master/Excel/Planilhas%20Principais/Cientistas/Cientistas.xlsx)
-
-[SpeciesLink - Auxiliar](https://github.com/bfaria1/ProjWAV/blob/master/Excel/Planilhas%20Principais/Cientistas/Cientistas%20(Auxiliar).xlsx)
+[SpeciesLink](https://github.com/bfaria1/ProjWAV/tree/master/Excel/Planilhas%20Principais/Cientistas)
 
 [Cidades com Registros em Ambas Bases](https://github.com/bfaria1/ProjWAV/blob/master/Excel/Planilhas%20Principais/Geral/Cidades.xlsx)
 
-[Fatores Externos 1](https://github.com/bfaria1/ProjWAV/blob/master/Excel/Planilhas%20Principais/Geral/Parametros/Fatores%20Externos.xlsx)
-
-[Fatores Externos 2](https://github.com/bfaria1/ProjWAV/blob/master/Excel/Planilhas%20Principais/Geral/Parametros/Bivariada.xlsx)
+[Fatores Externos](https://github.com/bfaria1/ProjWAV/tree/master/Excel/Planilhas%20Principais/Geral/Parametros)
 
 ##### Arquivos Excel ultilizados nos códigos R:
 
