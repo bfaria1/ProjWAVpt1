@@ -1,23 +1,11 @@
-\section{Análise multivariada}
+\section{Análise Multivariada}
 
-Pela terceira vez estou te mandando um rascunho dessa parte de análise multivariada (peço desculpas). Eu vou dividir em duas partes aqui porque \textbf{por enquanto} é o que faz sentido para mim, embora essas 2 partes se unem ao final.
+Eu fiz os dendogramas dos top 10, 20, 25, 50 e 100 municípios, tanto para o Wikiaves, quanto para o SpeciesLink. Acontece que, em certos momentos há empates: por exemplo, dois municípios em 100° possuem o mesmo número de espécies (no caso, por Jaccard ser uma distancia binária). Nesses casos, deixei com 102 municípios (há um empate de 4 municípios). Há algum \asp{critério de desempate}?
 
+Essa tabela representa a correlação cofenética para cada um dos dendogramas, não está bem estabelecida como a tabela do artigo de Whisky que o senhor falou (nesse caso seria mais inteligente seguir o padrão das outras tabelas e colocar WAV, SLI nas colunas e n nas linhas), mas, é uma tabela preliminar:
 
-
-\subsection{Registros/Espécies}
-
-Para as espécies, acho que não muda muito do que eu já estava fazendo que é a matriz de distância e o cluster. Acredito que um cluster hierárquico aglomerativo, isto é, dendrograma é uma boa opção para nosso tipo de análise (Greenacre), o principal problema disto é decidir onde deve ser feito o \asp{corte} para que o dendrograma seja interpretável, o senhor havia comentado que dá pra fazer isto de acordo com a figura 20. Pergunto se o corte tem que ser igual nos bancos de dados, digo, se for utilizada a quantidade de registros = 100 haverá muito mais \asp{pontos} em WAV2 em relação ao SPL. 
-
-Uma vez construído o dendrograma (dessa vez de um modo sério e não só para eu me habituar a eles em R), o Borcard passa para uma análise de \asp{cophonetic correlation}, não pesquisei detalhes sobre isso, afinal, se formos fazer uma análise do tipo será posterior ao dendrograma (eu nem sei se ela é interessante para nossos propósitos, do que entendo ela está na área de \asp{supervised learning}, o Borcard não chega a colocar deste modo contudo, do que entendi o que ele coloca como \asp{cross validation} é como a ideia de test e training sets). 
-
-\subsection{Variáveis Explanatórias}
-
-O senhor também falou para agrupar as variáveis explanatórias, para tanto, utiliza-se não uma matriz de distância, porém, uma matriz de correlação (Gotelli, Valentin). Para mim, o que faria sentido nesse tipo de matriz é testar a \asp{multi-normalidade} (não sei se este é o termo correto) para partir para uma regressão múltipla. 
-
-Da regressão múltipla da para partir para o capítulo 4, seção 11 do Borcard, que diz respeito a \asp{Multivariate Regression Trees}. É outra coisa que eu não aprofundei meus estudos, mas, se formos fazer isto ainda há um grande caminho a ser trilhado. E esta é a última coisa que o autor introduz antes de entrar na parte de ordenação, então acho que ficaria por aqui.
-
-\subsection{Geral}
-
-Não sei em que momento o teste de mantel entraria nessa história toda, acredito que está ligado à Cophenetic correlation, mas, como não estudei isto a fundo posso estar completamente errada. Os biomas devem entrar na parte de variáveis explanatórias.
-
-Se este esboço estiver mais ou menos correto, podemos dividir isto em partes? Digo, há a ANOVA (não sei se haverá MANOVA), a análise de objetos e a de descritores. Se pudermos dividir em partes peço que me diga por qual das 3 começar. Se este esboço não estiver correto, começarei pela ANOVA que creio ser independente da parte de análise multivariada.
+\begin{figure}[h!]
+{\scriptsize Tabela 12. Correlação cofenética segundo o número de municípios. WAV = Wikiaves, SLI = SpeciesLink.}
+\centering
+\includegraphics{Tabelas/12.png}
+\end{figure}
