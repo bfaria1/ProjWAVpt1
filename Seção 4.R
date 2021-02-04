@@ -274,7 +274,7 @@ AX$density = AX$counts/sum(AX$counts)*100
 y1 <- AX$density
 
 x1 <- c()
-x1[1] <- -0.3
+x1[1] <- -1.7
 for (i in 1:19){
   x1[i+1] = x1[i]+0.155
 }
@@ -291,7 +291,7 @@ for (i in 1:20){
   C[i] = y1[i]
 }
 
-data <- data.frame(x = B, y = C)
+data <- data.frame(x = x1, y = C)
 
 Resíduos <-  ggplot(data, aes(x = x, y = y))+
   geom_line()+
@@ -335,7 +335,7 @@ AX$density = AX$counts/sum(AX$counts)*100
 y1 <- AX$density
 
 x1 <- c()
-x1[1] <- -0.3
+x1[1] <- -0.65
 for (i in 1:19){
   x1[i+1] = x1[i]+0.0535
 }
@@ -419,7 +419,6 @@ for (i in 1:19){
   x1[i+1] = x1[i]+0.0235
 }
 
-
 A <- c()
 
 for (i in 1:20){
@@ -461,7 +460,7 @@ for(i in 41:60){
 data <- data.frame(L = A, x = B, y = C)
 
 Resíduos <-  ggplot(data, aes(x = x, y = C, colour = L))+
-  geom_line(fullrange = TRUE)+
+  geom_line()+
   scale_colour_manual(values = c("red", "blue", "green")) +
   #stat_smooth(method = lm, formula = y ~ poly(x, 4),se = FALSE, fullrange = TRUE)+
   labs(x = "Resíduos",
