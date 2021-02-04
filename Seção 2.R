@@ -279,8 +279,8 @@ dados$Legenda <- factor(dados$Legenda, levels = c("WAV (N = 631)", "SLI (N = 174
 png("213.png", width = 550, height = 530)
 
 ggplot(dados, aes(x = x, y = C, group = Legenda, colour = Legenda))+
+  geom_line()+
   scale_colour_manual(values = c("blue", "red")) +
-  stat_smooth(method = lm, formula = y ~ poly(x, 15),se = FALSE, fullrange = TRUE)+
   labs(x = "Altitude (m)",
        y = "Frequência Relativa %",
        colour = " ")+
@@ -340,8 +340,8 @@ dados$Legenda <- factor(dados$Legenda, levels = c("WAV (N = 631)", "SLI (N = 174
 png("223.png", width = 550, height = 530)
 
 ggplot(dados, aes(x = x, y = C, group = Legenda, colour = Legenda))+
+  geom_line()+
   scale_colour_manual(values = c("blue", "red")) +
-  stat_smooth(method = lm, formula = y ~ poly(x, 15),se = FALSE, fullrange = TRUE)+
   labs(x = "Área (Log10(km^2))",
        y = "Frequência Relativa (%)",
        colour = " ")+
@@ -401,8 +401,8 @@ dados$Legenda <- factor(dados$Legenda, levels = c("WAV (N = 631)", "SLI (N = 174
 png("233.png", width = 550, height = 530)
 
 ggplot(dados, aes(x = x, y = C, group = Legenda, colour = Legenda))+
+  geom_line()+
   scale_colour_manual(values = c("blue", "red")) +
-  stat_smooth(method = lm, formula = y ~ poly(x, 15),se = FALSE, fullrange = TRUE)+
   labs(x = "Número de habitantes (Log10)",
        y = "Frequência Relativa (%)",
        colour = " ")+
@@ -462,8 +462,8 @@ dados$Legenda <- factor(dados$Legenda, levels = c("WAV (N = 631)", "SLI (N = 174
 png("243.png", width = 550, height = 530)
 
 ggplot(dados, aes(x = x, y = C, group = Legenda, colour = Legenda))+
+  geom_line()+
   scale_colour_manual(values = c("blue", "red")) +
-  stat_smooth(method = lm, formula = y ~ poly(x, 15),se = FALSE, fullrange = TRUE)+
   labs(x = "Latitude (º)",
        y = "Frequência Relativa (%)",
        colour = " ")+
@@ -523,8 +523,8 @@ dados$Legenda <- factor(dados$Legenda, levels = c("WAV (N = 631)", "SLI (N = 174
 png("253.png", width = 550, height = 530)
 
 ggplot(dados, aes(x = x, y = C, group = Legenda, colour = Legenda))+
+  geom_line()+
   scale_colour_manual(values = c("blue", "red")) +
-  stat_smooth(method = lm, formula = y ~ poly(x, 15),se = FALSE)+
   labs(x = "Longitude (º)",
        y = "Frequência Relativa (%)",
        colour = " ")+

@@ -226,8 +226,8 @@ dados$L <- factor(dados$L, levels = c("WAV (N = 631)", "SLI (N = 174)", "WAV 2 (
 png("113.png", width = 550, height = 530)
 
 ggplot(dados, aes(x = x, y = C, group = L, colour = L))+
+  geom_line()+
   scale_colour_manual(values = c("blue", "red", "green")) +
-  stat_smooth(method = lm, formula = y ~ poly(x, 15),se = FALSE, fullrange = TRUE)+
   labs(x = "Número de Registros (Log10)",
        y = "Frequência Relativa (%)",
        colour = " ")+
@@ -301,8 +301,8 @@ dados$L <- factor(dados$L, levels = c("WAV (N = 631)", "SLI (N = 174)", "WAV 2 (
 png("123.png", width = 550, height = 530)
 
 ggplot(dados, aes(x = x, y = C, group = L, colour = L))+
+  geom_line()+
   scale_colour_manual(values = c("blue", "red", "green")) +
-  stat_smooth(method = lm, formula = y ~ poly(x, 15),se = FALSE, fullrange = TRUE)+
   labs(x = "Número de Espécies (Log10)",
        y = "Frequência Relativa (%)",
        colour = " ")+
@@ -377,8 +377,8 @@ dados$L <- factor(dados$L, levels = c("WAV (S = 790)", "SLI (S = 661)", "WAV 2 (
 png("133.png", width = 550, height = 530)
 
 ggplot(dados, aes(x = x, y = C, group = L, colour = L))+
+  geom_line()+
   scale_colour_manual(values = c("blue", "red", "green")) +
-  stat_smooth(method = lm, formula = y ~ poly(x, 15),se = FALSE, fullrange = TRUE)+
   labs(x = "Número de Registros por Espécie (Log10)",
        y = "Frequência Relativa (%)",
        colour = " ")+
