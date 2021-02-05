@@ -55,23 +55,43 @@ Janeiro, 2021
 
 ## Código LaTex:
 
-[Main](https://github.com/bfaria1/ProjWAV/blob/master/Latex/Main.Tex)
+### Rascunho
 
-[Considerações](https://github.com/bfaria1/ProjWAV/blob/master/Latex/Considerações.tex)
+[Main](https://github.com/bfaria1/ProjWAV/blob/master/Latex/Rascunho/Main.Tex)
 
-[Seção 1](https://github.com/bfaria1/ProjWAV/blob/master/Latex/Seção%201.tex)
+[Considerações](https://github.com/bfaria1/ProjWAV/blob/master/Latex/Rascunho/Considerações.tex)
 
-[Seção 2](https://github.com/bfaria1/ProjWAV/blob/master/Latex/Seção%202.tex)
+[Seção 1](https://github.com/bfaria1/ProjWAV/blob/master/Latex/Rascunho/Seção%201.tex)
 
-[Seção 3](https://github.com/bfaria1/ProjWAV/blob/master/Latex/Seção%203.tex)
+[Seção 2](https://github.com/bfaria1/ProjWAV/blob/master/Latex/Rascunho/Seção%202.tex)
 
-[Seção 4](https://github.com/bfaria1/ProjWAV/blob/master/Latex/Seção%204.tex)
+[Seção 3](https://github.com/bfaria1/ProjWAV/blob/master/Latex/Rascunho/Seção%203.tex)
 
-[Seção 5](https://github.com/bfaria1/ProjWAV/blob/master/Latex/Seção%205.tex)
+[Seção 4](https://github.com/bfaria1/ProjWAV/blob/master/Latex/Rascunho/Seção%204.tex)
 
-[Seção 6](https://github.com/bfaria1/ProjWAV/blob/master/Latex/Seção%206.tex)
+[Seção 5](https://github.com/bfaria1/ProjWAV/blob/master/Latex/Rascunho/Seção%205.tex)
 
-[Refêrencias](https://github.com/bfaria1/ProjWAV/blob/master/Latex/Referências.bib)
+[Seção 6](https://github.com/bfaria1/ProjWAV/blob/master/Latex/Rascunho/Seção%206.tex)
 
+### Relatório
 
+[Main](https://github.com/bfaria1/ProjWAV/blob/master/Latex/Relatório/Main.tex)
+
+[Capa](https://github.com/bfaria1/ProjWAV/blob/master/Latex/Relatório/Outros%20Elementos/Capa.tex)
+
+[Resumo](https://github.com/bfaria1/ProjWAV/blob/master/Latex/Relatório/Textual/01.tex)
+
+[Introdução](https://github.com/bfaria1/ProjWAV/blob/master/Latex/Relatório/Textual/02.tex)
+
+[Fundamentação Teórica](https://github.com/bfaria1/ProjWAV/blob/master/Latex/Relatório/Textual/03.tex)
+
+[Metodologia](https://github.com/bfaria1/ProjWAV/blob/master/Latex/Relatório/Textual/04.tex)
+
+[Resultados e Discussão dos Resultados](https://github.com/bfaria1/ProjWAV/blob/master/Latex/Relatório/Textual/05.tex)
+
+[Conclusões e perspectivas de trabalhos futuros](https://github.com/bfaria1/ProjWAV/blob/master/Latex/Relatório/Textual/06.tex)
+
+## Refêrencias:
+
+[Arquivo .bib](https://github.com/bfaria1/ProjWAV/blob/master/Latex/Referências.bib)
 
