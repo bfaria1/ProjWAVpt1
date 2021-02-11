@@ -28,10 +28,16 @@ Por fins de encontrar a variação na quantidade de registros conforme a quantid
 
 Para uma análise visual dos dados foram aplicados gráficos de dispersão ao modelo de regressão \cite{NicholasJ.Gotelli;AaronM.Ellison2010} e gráficos de linha para os resíduos.
 
+\subsubsection{Distribuição Geográfica}
+
+Foram construídos mapas temáticas que apresentam as de acordo com a distribuição geográfica de cada uma \cite{Borcard2011}. \color{blue}\textit{(O Borcard traz essa questão de mostrar as variáveis conforme a localização de cada registro, porém, não do mesmo modo que fizemos, acredito que entre como citação aqui (?).)}\color{black}
+
 \subsubsection{Análise de Covariância}
 
 Comparações entre curvas serão feitas por análise de covariância \cite{NicholasJ.Gotelli;AaronM.Ellison2010,Borcard2011, Field2012}.
 
 \subsubsection{Análise de Classificação}
 
-Análises multivariadas descreverão as relações de similaridade entre municípios quanto à constituição específica e quanto aos valores dos fatores explanatórios \cite{NicholasJ.Gotelli;AaronM.Ellison2010,Borcard2011,VALENTIN2000,greenacre2014multivariate}. Comparações entre matrizes de similaridade serão feitas por meio do teste de Mantel \cite{Borcard2011,VALENTIN2000}. 
+Para a realização de uma análise multivariada, foram desenvolvidas matrizes de distância, valendo-se do valor de similaridade de Jaccard \cite{VALENTIN2000,greenacre2014multivariate}, fundamentados nestas matrizes foram construídos dendogramas hierárquicos para determinar grupos de cidades similares conforme a composição de espécies \cite{VALENTIN2000,greenacre2014multivariate,Borcard2011}.
+
+A posteriori, serão elaborados mapas coloridos conforme os grupos descritos acima e será empregado o teste de mantel para comparar as matrizes de distância \cite{Borcard2011,VALENTIN2000}.
