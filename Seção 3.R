@@ -10,10 +10,10 @@ library(geobr)
 library(factoextra)
 library(ade4)
 library(vegan)
-library(gclus)
-library(cluster)
 library(FD)
 library(ggcorrplot)
+
+
 
 # Seção 3
 
@@ -6606,8 +6606,6 @@ dev.off
   png("32533.png", width = 1000, height = 450)
   ggarrange(gráfico, Resíduos,  ncol = 2, nrow = 1, common.legend = TRUE, legend = "right")
   dev.off()
-
-  
   
   
 rm(list=ls())

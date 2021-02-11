@@ -3,9 +3,42 @@
 library("openxlsx") 
 library(ggplot2)
 library(RColorBrewer)
+library(moments)
 
-FE <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S2/FE.xlsx")
+FE <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S2/FE.xlsx", sheet = "Geral")
+FE1 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S2/FE.xlsx", sheet = "WAV")
+FE2 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S2/FE.xlsx", sheet = "SLI")
 dados <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S2/Dados.xlsx")
+
+skewness(FE1$WAVAL)
+kurtosis(FE1$WAVAL)
+
+skewness(FE2$SPLAL)
+kurtosis(FE2$SPLAL)
+
+skewness(FE1$WAVAR)
+kurtosis(FE1$WAVAR)
+
+skewness(FE2$SPLAR)
+kurtosis(FE2$SPLAR)
+
+skewness(FE1$WAVPOP)
+kurtosis(FE1$WAVPOP)
+
+skewness(FE2$SPLPOP)
+kurtosis(FE2$SPLPOP)
+
+skewness(FE1$WAVLA)
+kurtosis(FE1$WAVLA)
+
+skewness(FE2$SPLLA)
+kurtosis(FE2$SPLLA)
+
+skewness(FE1$WAVLO)
+kurtosis(FE1$WAVLO)
+
+skewness(FE2$SPLLO)
+kurtosis(FE2$SPLLO)
 
 #Histogramas individuais:
 

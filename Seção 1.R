@@ -5,6 +5,7 @@ library(ggplot2)
 library(RColorBrewer)
 library(esquisse)
 library(usethis)
+library(moments)
 
 WS <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S1/WAVxSPL.xlsx") 
 WAV <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S1/WAV.xlsx") 
@@ -12,6 +13,23 @@ SPL <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S1/SPL.xlsx")
 ESP <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S1/Espécies.xlsx")
 dados <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S1/dados.xlsx")
 
+skewness(WAV$WAVR)
+kurtosis(WAV$WAVR)
+
+skewness(SPL$SPLR)
+kurtosis(SPL$SPLR)
+
+skewness(WS$WAV2R)
+kurtosis(WS$WAV2R)
+
+skewness(WAV$WAVE)
+kurtosis(WAV$WAVE)
+
+skewness(SPL$SPLE)
+kurtosis(SPL$SPLE)
+
+skewness(WS$WAV2E)
+kurtosis(WS$WAV2E)
 
 A1 <- hist(WAV$WAVR, 
            plot = FALSE, 
