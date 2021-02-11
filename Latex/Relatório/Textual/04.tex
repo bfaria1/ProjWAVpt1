@@ -1,18 +1,37 @@
 \section{Metodologia}
 
-Variáveis explanatórias (e suas versões log-transformadas) também serão empregadas. O número de habitantes, a área de cada município e as coordenadas geográficas de suas sedes serão obtidas no sítio do IBGE (2020). Os biomas predominantes em cada município serão determinados de acordo com o sítio MapBiomas (2020).
-
-Análises univariadas descreverão a distribuição de cada descritor para os municípios valendo-se de estatísticas de posição (média, mediana) e dispersão (amplitude, interquartis, desvio-padrão), visualizadas por meio de histogramas \cite{NicholasJ.Gotelli;AaronM.Ellison2010,Borcard2011}. Análises bivariadas descreverão as relações das variáveis pareadas, por meio de correlação e regressão, em versões paramétricas ou não \cite{NicholasJ.Gotelli;AaronM.Ellison2010,Borcard2011}. Comparações entre curvas serão feitas por análise de covariância \cite{NicholasJ.Gotelli;AaronM.Ellison2010,Borcard2011}.
-
-Análises multivariadas descreverão as relações de similaridade entre municípios quanto à constituição específica e quanto aos valores dos fatores explanatórios \cite{NicholasJ.Gotelli;AaronM.Ellison2010,Borcard2011}. Comparações entre matrizes de similaridade serão feitas por meio do teste de Mantel \cite{Borcard2011}. Mapas temáticos apresentarão as variáveis em sua distribuição geográfica. As abordagens discriminadas serão conduzidas com os programas R \cite{CoreTeam2017}.
-
-
 \subsection{Materiais e Métodos}
 
-No período de janeiro a fevereiro de 2020, foram coletados os registros provenientes de cientistas-cidadãos no portal Wikiaves (WikiAves, 2020) e aqueles provenientes de cientistas nas coleções disponíveis na rede SpeciesLink (2020). Para equiparação dos bancos de dados, as espécies foram denominadas em acordo com a lista das aves do Brasil do Comitê Brasileiro de Registros Ornitológicos \cite{De2015}.
+No período de janeiro a fevereiro de 2020, foram coletados os registros provenientes de cientistas-cidadãos no portal Wikiaves (WikiAves, 2020) e aqueles provenientes de cientistas nas coleções disponíveis na rede SpeciesLink (2020).
 
-Para responder às questões supracitadas, foram utilizadas as seguintes variáveis oriundas dos dois bancos de dados: o número de registros de cada espécie por município, o número de espécies registradas por município nas suas versões log-transformadas (base 10). Foram empregadas, também, variáveis explanatórias, sendo elas: A altitude da sede, logaritmo na base 10 área, logaritmo na base 10 da quantidade de habitantes, latitude e longitude referentes a cada município. Todas as informações quanto as variáveis explanatórias foram obtidas no sítio do IBGE (2020).
+Para responder às questões supracitadas, foram utilizadas as seguintes variáveis oriundas dos dois bancos de dados: o número de registros de cada espécie por município, o número de espécies registradas por município e suas versões log-transformadas (base 10). Foram empregadas, também, variáveis explanatórias, sendo elas: a altitude da sede, logaritmo na base 10 área, logaritmo na base 10 da quantidade de habitantes, latitude e longitude referentes a cada município. Todas as informações quanto as variáveis explanatórias foram obtidas no sítio do IBGE (2020). Os biomas predominantes em cada município serão determinados de acordo com o sítio MapBiomas (2020).
+
+ As abordagens discriminadas serão conduzidas com os programas R \cite{CoreTeam2017}.
 
 \subsection{Etapas da pesquisa}
 
+\color{blue}\textit{Aqui começam a surgir algumas dúvidas, não mantive a folha de considerações para não atrapalhar a estrutura do texto, vou colocar as considerações ao longo do texto, porém, em itálico e azul.\\ A primeira delas é que eu não sei se posso adicionar subsubseções ao modelo da ufabc, acredito que não, de todo modo o fiz neste primeiro momento por um questão de organização, apenas.}\color{black}
+
+A principio, para equiparação dos bancos de dados, as espécies foram denominadas em acordo com a lista das aves do Brasil do Comitê Brasileiro de Registros Ornitológicos \cite{De2015}.
+
 \subsubsection{Análise Univariada}
+
+Para medir a normalidade dos dados coletados foi empregada uma análise exploratória de dados \cite{NicholasJ.Gotelli;AaronM.Ellison2010,Field2012, Borcard2011}. Foram calculados, portanto, as estatísticas de posição (média, mediana e quartis), dispersão (desvio padrão), inclinação e curtose.  \color{blue}\textit{(Ok, mais um grande parenteses aqui, eu não falei de inclinação e curtose até agora porque (me perdoe) eu tinha esquecido desses valores, eles estavam na planilha que eu estava usando quando fiz as análises no past, ela foi arquivada e eles ficaram perdidos. Para escrever o trabalho de maneira mais formal, tive que reler algumas referências e lembrei que esses valores podem ser importantes (o valor de curtose no WAV2 para a quantidade de espécies é de 11.50854, o que eu acho que é um valor alto), se eles forem importantes, posso apresenta-los nas tabelas.)}\color{black}. Foram removidos os valores discrepantes relativos às variáveis explanatórias \cite{VALENTIN2000,Field2012} e aplicada a transformação logarítmica para todas as variavéis exceto: altitude, latitude e longitude \cite{NicholasJ.Gotelli;AaronM.Ellison2010,Field2012,Borcard2011}. \color{blue}\textit{(Anteriormente eu falei que foram utilizadas as versões log-transformadas. Acredito que isto seja um pleonasmo, mas não sei se esta informação deve aparecer aqui ou lá.)}\color{black}. Os dados foram impressos como gráficos de linhas. \color{blue}\textit{(Eu gostei da apresentação dos gráficos de linha, mas, não me lembro de nenhum livro que justifique isto, então deixei sem citação.)}\color{black}
+
+
+
+\subsubsection{Análise Bivariada}
+
+A partir dos dados reformatados após a análise anterior, foi estabelecido um exame quanto a regressão linear dos parâmetros apresentados \cite{NicholasJ.Gotelli;AaronM.Ellison2010}. Foram medidos os valores de $r^2$, $p$, a inclinação da reta e o intercepto para como cada variável preditora (quantidade de registros e espécies próprias de cada banco de dados) modifica-se conforme alteração nas variáveis explanatórias e como as variáveis preditoras modificam-se entre si, isto é, variação da quantidade de registros de um banco de dados (analogamente, espécies) conforme alteração da quantidade de registros do outro. Os pares-ordenados com resíduos discrepantes foram excluídos \cite{Field2012}.
+
+Por fins de encontrar a variação na quantidade de registros conforme a quantidade de espécies adotou-se um modelo de regressão não linear \cite{NicholasJ.Gotelli;AaronM.Ellison2010}, a partir deste, foram calculados os valores de $r^2$, $p$, inclinação da reta e intercepto.
+
+Para uma análise visual dos dados foram aplicados gráficos de dispersão ao modelo de regressão \cite{NicholasJ.Gotelli;AaronM.Ellison2010} e gráficos de linha para os resíduos.
+
+\subsubsection{Análise de Covariância}
+
+Comparações entre curvas serão feitas por análise de covariância \cite{NicholasJ.Gotelli;AaronM.Ellison2010,Borcard2011, Field2012}.
+
+\subsubsection{Análise de Classificação}
+
+Análises multivariadas descreverão as relações de similaridade entre municípios quanto à constituição específica e quanto aos valores dos fatores explanatórios \cite{NicholasJ.Gotelli;AaronM.Ellison2010,Borcard2011,VALENTIN2000,greenacre2014multivariate}. Comparações entre matrizes de similaridade serão feitas por meio do teste de Mantel \cite{Borcard2011,VALENTIN2000}. 
