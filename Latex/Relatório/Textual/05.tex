@@ -1,14 +1,15 @@
 \section{Resultados e discussão dos resultados}
 
-\subsubsection{Análise Univariada}
+\color{blue}\textit{Acredito que deva haver um modo bem melhor para organizar tudo isso, eu posso reunir gráficos em blocos? Assim como foi feito para os mapas de registros e espécies (até porque há 14 páginas só de imagens).}\color{black}
+
+\subsection{Análise Univariada}
 
 \begin{figure}[h!]
 \centering
 {\scriptsize Tabela 1: Número de municípios amostrados, registros e espécies nos bancos de dados: WAV = Wikiaves, SLI = SpeciesLink, WAV2 = WAV com municípios redundantes em SLI.}
 \includegraphics{Tabelas/1.png}
+\label{t01}
 \end{figure}
-
-\newpage
 
 \begin{itemize}
     \item Registros por Município
@@ -17,13 +18,16 @@
 \centering
 {\scriptsize Tabela 2: Estatísticas de tendência central e dispersão para o número de registros por município em cada banco de dados: WAV = Wikiaves, SLI = SpeciesLink, WAV2 = WAV com municípios redundantes em SLI. Valores de média (m) e desvio-padrão (dp) em Log10 foram retrotransformados (Retro). min-max = valores extremos, q1-q3 = quartis.}
 \includegraphics[height = 4cm]{Tabelas/2.png}
+\label{t02}
 \end{figure}
 
 \begin{figure}[h!]
 \centering
 \includegraphics[height = 6cm]{Imagens/113.png}
 \\{\scriptsize Figura 1: Distribuição de municípios em classes segundo o número de registros (Log10), em cada banco de dados: WAV = Wikiaves, SLI = SpeciesLink, WAV2 = WAV com municípios redundantes em SLI. n = número de municípios.  }
+\label{fig01}
 \end{figure}
+
 
 
 \item Espécies por Município
@@ -32,6 +36,7 @@
 \centering
 {\scriptsize Tabela 3: Estatísticas de tendência central e dispersão para o número de espécies por município em cada banco de dados: WAV = Wikiaves, SLI = SpeciesLink, WAV2 = WAV com municípios redundantes em SLI. Valores de média (m) e desvio-padrão (dp) em Log10 foram retrotransformados (Retro). min-max = valores extremos, q1-q3 = quartis.}
 \includegraphics[height = 4cm]{Tabelas/3.png}
+\label{t03}
 \end{figure}
 
 
@@ -39,6 +44,7 @@
 \centering
 \includegraphics[height = 6cm]{Imagens/123.png}
 \\{\scriptsize Figura 2: Distribuição de municípios em classes segundo o número de espécies (Log10), em cada banco de dados: WAV = Wikiaves, SLI = SpeciesLink, WAV2 = WAV com municípios redundantes em SLI. n = número de municípios. }
+\label{fig02}
 \end{figure}
 
 \newpage
@@ -49,12 +55,14 @@
 \centering
 {\scriptsize Tabela 4: Estatísticas de tendência central e dispersão para o número de registros por espécie em cada banco de dados: WAV = Wikiaves, SLI = SpeciesLink, WAV2 = WAV com municípios redundantes em SLI. Valores de média (m) e desvio-padrão (dp) em Log10 foram retrotransformados (Retro). min-max = valores extremos, q1-q3 = quartis.}
 \includegraphics[height = 4cm]{Tabelas/4.png}
+\label{t04}
 \end{figure}
 
 \begin{figure}[h!]
 \centering
 \includegraphics[height = 6cm]{Imagens/133.png}
 \\{\scriptsize Figura 3: Distribuição de espécies em classes segundo o número de registros (Log10), em cada banco de dados: WAV = Wikiaves, SLI = SpeciesLink, WAV2 = WAV com municípios redundantes em SLI. S = número de espécies.}
+\label{fig03}
 \end{figure}
 
 \newpage
@@ -66,6 +74,7 @@
 {\scriptsize Tabela 5: Estatísticas de tendência central e dispersão para a altitude (m) da sede dos municípios em cada banco de dados: WAV = Wikiaves, SLI = SpeciesLink. n = número de municípios, m = média, dp = desvio-padrão, min-max = valores extremos, q1-q3 = quartis. Foram excluídos dessa análise os municípios com altitude inferior a 250 m e superior a 1200 m.}
 \\
 \includegraphics[height = 3cm]{Tabelas/5.png}
+\label{t05}
 \end{figure}
 
 \begin{figure}[h!]
@@ -149,7 +158,7 @@
 
 \newpage
 
-\subsubsection{Análise Bivariada}
+\subsection{Análise Bivariada}
 
 \begin{itemize}
 
@@ -184,8 +193,6 @@
 \\{\scriptsize Figura 10. Relação linear entre o número de registros (Log10) em cada banco de dados e a área (Log10 km2) dos municípios (esquerda) e respectiva distribuição de resíduos (direita, em unidades de desvio-padrão). Outliers bivariados foram excluídos.}
 \end{figure}
 
-\newpage
-
 \item População
 
 \begin{figure}[h!]
@@ -194,6 +201,7 @@
 \\{\scriptsize Figura 11. Relação linear entre o número de registros (Log10) em cada banco de dados e o tamanho da população humana (Log10 indivíduos) dos municípios (esquerda) e respectiva distribuição de resíduos (direita, em unidades de desvio-padrão). Outliers bivariados foram excluídos.}
 \end{figure}
 
+\newpage
 
 \item Latitude
 
@@ -203,8 +211,6 @@
 \\{\scriptsize Figura 12. Relação linear entre o número de registros (Log10) em cada banco de dados e a latitude (graus) da sede dos municípios (esquerda) e respectiva distribuição de resíduos (direita, em unidades de desvio-padrão). Outliers bivariados foram excluídos.}
 \end{figure}
 
-\newpage
-
 \item Longitude
 
 \begin{figure}[h!]
@@ -212,6 +218,8 @@
 \includegraphics[width = 15cm]{Imagens/31513.png}
 \\{\scriptsize Figura 13. Relação linear entre o número de registros (Log10) em cada banco de dados e a longitude (graus) da sede dos municípios (esquerda) e respectiva distribuição de resíduos (direita, em unidades de desvio-padrão). Outliers bivariados foram excluídos.}
 \end{figure}
+
+\newpage
 
 \end{itemize}
 
@@ -308,8 +316,36 @@
 \centering
 \includegraphics[width = 15cm]{Imagens/4333.png}
 \\{\scriptsize Figura 21: Relação quadrática entre o número de espécies e o número de registros (ambos em Log10) nos bancos de dados WAV, SLI e WAV2 pareados por município e respectiva distribuição de resíduos (direita, em unidades de desvio-padrão). Outliers bivariados foram excluídos. n = 620, r2 = 0,9875, P $<$ 0,0001 no Wikiaves. n = 143, r2 = 0,9867, P $<$ 0,0001 no Wikiaves. n = 171, r2 = 0,9647, P $<$ 0,0001 no Wikiaves 2.}
-\label{Figura 20}
 \end{figure}
 
 \end{itemize}
+
+\item Distribuição Geográfica
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width = 10cm]{Imagens/511.png}
+\\{\scriptsize Figura 22: Distribuição espacial dos municípios do estado de São Paulo em classes segundo a altitude (m) de sua sede.}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width = 10cm]{Imagens/521.png}
+\\{\scriptsize Figura 23: Distribuição espacial dos municípios do estado de São Paulo em classes segundo a área (Log10 km2).}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width = 10cm]{Imagens/531.png}
+\\{\scriptsize Figura 24: Distribuição espacial dos municípios do estado de São Paulo em classes segundo o tamanho da população humana (Log10 indivíduos).}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width = 15cm]{Imagens/561.png}
+\\{\scriptsize Figura 25: Distribuição espacial dos municípios do estado de São Paulo em classes segundo o número de registros (Log10, esquerda) e o número de espécies (Log10, direita) em cada banco de dados (WAV = superior, SLI = central, WAV2 = inferior).}
+\end{figure}
+
 \end{itemize}
+
+\newpage
