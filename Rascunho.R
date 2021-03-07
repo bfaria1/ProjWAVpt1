@@ -20,6 +20,7 @@ library(emmeans)
 library(multcomp)
 library(usethis)
 library(moments)
+
 # Seção 1
 
 WS <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S1/WAVxSPL.xlsx") 
@@ -865,7 +866,7 @@ RW <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S4/RW.xlsx")
 RS <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S4/RS.xlsx")
 RW2 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S4/RW2.xlsx")
 
-gráfico1 <- ggplot(dados, aes(x = A2, y = A1))+
+grafico1 <- ggplot(dados, aes(x = A2, y = A1))+
   geom_abline(intercept = 0, slope = 1, linetype = "dashed") + 
   expand_limits(x=0,y=0)+
   geom_point()+
@@ -879,7 +880,7 @@ gráfico1 <- ggplot(dados, aes(x = A2, y = A1))+
   theme_classic()
 
 
-gráfico2 <- ggplot(dados, aes(x = B2, y = B1))+
+grafico2 <- ggplot(dados, aes(x = B2, y = B1))+
   geom_abline(intercept = 0, slope = 1, linetype = "dashed") + 
   expand_limits(x=0,y=0)+
   geom_point()+
@@ -897,7 +898,7 @@ gráfico2 <- ggplot(dados, aes(x = B2, y = B1))+
 
 dados$L1 <- factor(dados$L1, levels=c("Wikiaves", "SpeciesLink", "Wikiaves 2"), labels = c("WAV (N = 620)","SLI (N = 143)","WAV 2 (N = 171)"))
 
-gráfico3 <- ggplot(dados, aes(x = C1, y = C2, color = L1))+
+grafico3 <- ggplot(dados, aes(x = C1, y = C2, color = L1))+
   geom_abline(intercept = 0, slope = 1, linetype = "dashed") + 
   expand_limits(x=0,y=0)+
   geom_point()+
@@ -913,12 +914,12 @@ gráfico3 <- ggplot(dados, aes(x = C1, y = C2, color = L1))+
   theme_classic()
 
 png("S4.png", width = 800, height = 650)
-ggarrange(gráfico1,gráfico2,gráfico3,  ncol = 2, nrow = 2, legend = "right")
+ggarrange(grafico1,grafico2,grafico3,  ncol = 2, nrow = 2, legend = "right")
 dev.off()
 
 rm(list=ls())
 
-# Seção 5
+# Se??o 5
 
 Dados <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S5/Mapas.xlsx")
 FE <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S5/Mapas2.xlsx")
