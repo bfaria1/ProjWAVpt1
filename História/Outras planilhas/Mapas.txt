@@ -1,0 +1,89 @@
+library("openxlsx")
+Dados <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Mapas.xlsx")
+Dados
+library(geobr)
+library(ggplot2)
+library(esquisse)
+sp <- read_state(code_state = "SP")
+mun <- read_municipality(code_muni= "SP")
+library(sf)
+library(RColorBrewer)
+cid <- merge(mun,Dados)
+cid
+cid$WEI <- cut(cid$WAVE, breaks = c(-1,0,100,200,300,400,Inf), 
+               labels=c("0","1 a 100","101 a 200","201 a 300","301 a 400","401+"))
+cid$SEI <- cut(cid$SPLE, breaks = c(-1,0,50,100,150,200,Inf),
+               labels= c("0","1 a 50","51 a 100","101 a 150","151 a 200","201+"))
+cid$WRI <- cut(cid$WAVR, breaks = c(-1,0,100,250,500,750,1000,5000,10000, Inf), 
+               labels=c("0","1 a 100","101 a 250","251 a 500","501 a 750","750 a 1000","1001 a 5000", "5001 a 10000","10001+"))
+cid$SRI <- cut(cid$SPLR, breaks = c(-1,0,50,100,500,1000,1500,2000,2500,Inf),
+               labels= c("0","1 a 50","51 a 100","101 a 500","501 a 1000","1001 a 1500","1501 a 2000","2000 a 2500","2501+"))
+cid$LWEI <- cut(cid$LWAVE, breaks = c(-2,-1,0,1.00,1.5,2.0,2.5,Inf),
+                labels = c("Sem registro","0.00","0.01 a 1.00","1.01 a 1.50","1.51 a 2.00","2.01 a 2.50","2.51 a 3.00"))
+cid$LSEI <- cut(cid$LSPLE, breaks = c(-2,-1,0,1.00,1.5,2.0,Inf),
+                labels = c("Sem registro","0.00","0.01 a 1.00","1.01 a 1.50","1.51 a 2.00","2.01 a 2.50"))
+cid$LWRI <- cut(cid$LWAVR, breaks = c(-2,-1,1.00,1.5,2.0,2.5,3.00,3.5,4,Inf),
+                labels = c("Sem registro","0.00 a 1.00","1.01 a 1.50","1.51 a 2.00","2.01 a 2.50","2.51 a 3.00","3.01 a 3.50","3.51 a 4.00","4.01+"))
+cid$LSRI <- cut(cid$LSPLR, breaks = c(-2,-1,0,1.00,1.5,2.0,2.5,3.00,3.5,Inf),
+                labels = c("Sem registro","0.00","0.01 a 1.00","1.01 a 1.50","1.51 a 2.00","2.01 a 2.50","2.51 a 3.00","3.01 a 3.50","3.51 a 4.00"))
+ggplot(cid) +
+  geom_sf(aes(fill=WEI), color = NA) +
+  labs(subtitle="Quantidade de Espécies Wikiaves", size=8)+ 
+  scale_fill_manual (values = brewer.pal(6,'OrRd'))+
+ labs(fill = " ")+
+  theme_minimal()
+ggplot(cid) +
+  geom_sf(aes(fill=WEI), color = NA) +
+  labs(subtitle="Quantidade de Espécies Wikiaves", size=8)+ 
+  scale_fill_manual (values = c('#252525','#3288bd','#abdda4','#fee08b','#f46d43','#9e0142'))+
+  labs(fill = " ")+
+  theme_minimal()
+ggplot(cid) +
+  geom_sf(aes(fill=SEI), color = NA) +
+  labs(subtitle="Quantidade de Espécies SpeciesLink", size=8)+ 
+  scale_fill_manual (values = brewer.pal(6,'OrRd'))+
+  labs(fill = " ")+
+  theme_minimal()
+ggplot(cid) +
+  geom_sf(aes(fill=SEI), color = NA) +
+  labs(subtitle="Quantidade de Espécies SpeciesLink", size=8)+ 
+  scale_fill_manual (values = c('#252525','#3288bd','#abdda4','#fee08b','#f46d43','#9e0142'))+
+  labs(fill = " ")+
+  theme_minimal()
+ggplot(cid) +
+  geom_sf(aes(fill=SRI), color = NA) +
+  labs(subtitle="Quantidade de Registros SpeciesLink", size=8)+ 
+  scale_fill_manual (values = brewer.pal(9,'OrRd'))+
+  labs(fill = " ")+
+  theme_minimal()
+ggplot(cid) +
+  geom_sf(aes(fill=WRI), color = NA) +
+  labs(subtitle="Quantidade de Registros Wikiaves", size=8)+ 
+  scale_fill_manual (values = brewer.pal(9,'OrRd'))+
+  labs(fill = " ")+
+  theme_minimal()
+ggplot(cid) +
+  geom_sf(aes(fill=LWEI), color = NA) +
+  labs(subtitle="Quantidade de Espécies Wikiaves (Log10)", size=8)+ 
+  scale_fill_manual (values = brewer.pal(7,'OrRd'))+
+  labs(fill = " ")+
+  theme_minimal()
+ggplot(cid) +
+  geom_sf(aes(fill=LSEI), color = NA) +
+  labs(subtitle="Quantidade de Espécies SpeciesLink (Log10)", size=8)+ 
+  scale_fill_manual (values = brewer.pal(6,'OrRd'))+
+  labs(fill = " ")+
+  theme_minimal()
+ggplot(cid) +
+  geom_sf(aes(fill=LSRI), color = NA) +
+  labs(subtitle="Quantidade de Registros SpeciesLink (Log10)", size=8)+ 
+  scale_fill_manual (values = brewer.pal(9,'OrRd'))+
+  labs(fill = " ")+
+  theme_minimal()
+ggplot(cid) +
+  geom_sf(aes(fill=LWRI), color = NA) +
+  labs(subtitle="Quantidade de Registros Wikiaves (Log10)", size=8)+ 
+  scale_fill_manual (values = brewer.pal(9,'OrRd'))+
+  labs(fill = " ")+
+  theme_minimal()
+
