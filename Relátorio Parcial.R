@@ -23,11 +23,11 @@ library(moments)
 
 # Seção 1
 
-WS <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S1/WAVxSPL.xlsx") 
-WAV <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S1/WAV.xlsx") 
-SPL <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S1/SPL.xlsx")
-ESP <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S1/Espécies.xlsx")
-dados <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S1/dados.xlsx")
+WS <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S1/WAVxSPL.xlsx") 
+WAV <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S1/WAV.xlsx") 
+SPL <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S1/SPL.xlsx")
+ESP <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S1/Espécies.xlsx")
+dados <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S1/dados.xlsx")
 
 A1 <- hist(WAV$WAVR, 
            plot = FALSE, 
@@ -256,17 +256,7 @@ for (i in 51:75){
 
 BZ <- c()
 
-A <- c()
-
 for (i in 1:25){
-  A[i] = "WAV (S = 790)"
-}
-for (i in 26:50){
-  A[i] = "SLI (S = 661)"
-}
-for (i in 51:75){
-  A[i] = "WAV 2 (S = 779)"
-}for (i in 1:25){
   BZ[i] = x1[i]
 }
 
@@ -310,15 +300,15 @@ text <- paste("
 Texto <- ggparagraph(text, size = 12)
 
 png("S1.png", width = 800, height = 650)
-ggarrange(G1,G2,G3, ncol = 2 , nrow = 2, legend = "top")
+ggarrange(G1,G2,G3, ncol = 2 , nrow = 2, legend = "right")
 dev.off()
 
 rm(list=ls())
 
-FE <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S2/FE.xlsx", sheet = "Geral")
-FE1 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S2/FE.xlsx", sheet = "WAV")
-FE2 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S2/FE.xlsx", sheet = "SLI")
-dados <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S2/Dados.xlsx")
+FE <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S2/FE.xlsx", sheet = "Geral")
+FE1 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S2/FE.xlsx", sheet = "WAV")
+FE2 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S2/FE.xlsx", sheet = "SLI")
+dados <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S2/Dados.xlsx")
 
 WAL <- hist(FE$WAVAL, 
             plot = FALSE, 

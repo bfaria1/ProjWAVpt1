@@ -15,7 +15,7 @@ RW2 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S4/RW2.xlsx")
 
 
 
-  gráfico <- ggplot(dados, aes(x = A2, y = A1))+
+gráfico <- ggplot(dados, aes(x = A2, y = A1))+
   geom_abline(intercept = 0, slope = 1, linetype = "dashed") + 
   expand_limits(x=0,y=0)+
   geom_point()+
