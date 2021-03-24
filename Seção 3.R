@@ -18,12 +18,12 @@ library(ggcorrplot)
 # Seção 3
 
 
-AL <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S3/Altitude.xlsx")
-AR <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S3/Area.xlsx")
-POP <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S3/Populacao.xlsx")
-LA <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S3/Latitude.xlsx")
-LO <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S3/Longitude.xlsx")
-dados <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S3/Auxiliar.xlsx")
+AL <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S3/Altitude.xlsx")
+AR <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S3/Area.xlsx")
+POP <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S3/Populacao.xlsx")
+LA <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S3/Latitude.xlsx")
+LO <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/Longitude.xlsx")
+dados <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/Auxiliar.xlsx")
 
 
 ## Estatísticas 

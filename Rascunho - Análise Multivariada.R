@@ -11,22 +11,22 @@ library(cluster)
 library(FD)
 library(ggcorrplot)
 
-WAV <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S6/WAV-E.xlsx", sheet = "10")
-WAV2 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S6/WAV-E.xlsx", sheet = "20")
-WAV3 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S6/WAV-E.xlsx", sheet = "25")
-WAV4 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S6/WAV-E.xlsx", sheet = "50")
-WAV5 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S6/WAV-E.xlsx", sheet = "100")
-WAV6 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S6/WAV-E.xlsx", sheet = "Geral")
+WAV <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/WAV-E.xlsx", sheet = "10")
+WAV2 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/WAV-E.xlsx", sheet = "20")
+WAV3 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/WAV-E.xlsx", sheet = "25")
+WAV4 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/WAV-E.xlsx", sheet = "50")
+WAV5 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/WAV-E.xlsx", sheet = "100")
+WAV6 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/WAV-E.xlsx", sheet = "Geral")
 
 
-SLI <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S6/SPL-E.xlsx", sheet = "10")
-SLI2 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S6/SPL-E.xlsx", sheet = "20")
-SLI3 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S6/SPL-E.xlsx", sheet = "25")
-SLI4 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S6/SPL-E.xlsx", sheet = "50")
-SLI5 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S6/SPL-E.xlsx", sheet = "100")
-SLI6 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S6/SPL-E.xlsx", sheet = "Geral")
+SLI <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/SPL-E.xlsx", sheet = "10")
+SLI2 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/SPL-E.xlsx", sheet = "20")
+SLI3 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/SPL-E.xlsx", sheet = "25")
+SLI4 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/SPL-E.xlsx", sheet = "50")
+SLI5 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/SPL-E.xlsx", sheet = "100")
+SLI6 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/SPL-E.xlsx", sheet = "Geral")
 
-dados <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S6/FE.xlsx")
+dados <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/FE.xlsx")
 FE <- data.frame(dados[,6:10], row.names = dados$Cidades)
 tFE <- t(FE)
 
@@ -105,10 +105,10 @@ B6 <- vegdist(SLI6, method = "jaccard", binary = TRUE)
 
 #### Wikiaves 1
 
-png("6111.png", width = 500, height = 500)
+#png("6111.png", width = 500, height = 500)
 fviz_dist(A1) + 
   scale_fill_gradient(low = "yellow", high = "red")
-dev.off()
+#dev.off()
 
 #### Wikiaves 2
 

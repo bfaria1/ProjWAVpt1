@@ -8,10 +8,10 @@ library(ggpubr)
 
 
 
-dados <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S4/WS.xlsx")
-RW <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S4/RW.xlsx")
-RS <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S4/RS.xlsx")
-RW2 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S4/RW2.xlsx")
+dados <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S4/WS.xlsx")
+RW <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S4/RW.xlsx")
+RS <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S4/RS.xlsx")
+RW2 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S4/RW2.xlsx")
 
 
 
