@@ -10,6 +10,9 @@ library(gclus)
 library(cluster)
 library(FD)
 library(ggcorrplot)
+library(sf)
+library(geobr)
+library(dendextend)
 
 WAV <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/WAV-E.xlsx", sheet = "10")
 WAV2 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/WAV-E.xlsx", sheet = "20")
@@ -27,6 +30,9 @@ SLI5 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/
 SLI6 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/SPL-E.xlsx", sheet = "Geral")
 
 dados <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/FE.xlsx")
+maps <- read_municipality(code_muni= "SP")
+
+
 FE <- data.frame(dados[,6:10], row.names = dados$Cidades)
 tFE <- t(FE)
 
@@ -103,6 +109,8 @@ B6 <- vegdist(SLI6, method = "jaccard", binary = TRUE)
 
 ### Vizualização
 
+
+
 #### Wikiaves 1
 
 #png("6111.png", width = 500, height = 500)
@@ -112,142 +120,147 @@ fviz_dist(A1) +
 
 #### Wikiaves 2
 
-png("6112.png",  width = 500, height = 500)
+#png("6112.png",  width = 500, height = 500)
 fviz_dist(A2) + 
   scale_fill_gradient(low = "yellow", high = "red")
-dev.off()
+#dev.off()
 
 #### Wikiaves 3
 
-png("6113.png",  width = 500, height = 500)
+#png("6113.png",  width = 500, height = 500)
 fviz_dist(A3) + 
   scale_fill_gradient(low = "yellow", high = "red")
-dev.off()
+#dev.off()
 
 #### Wikiaves 4
 
-png("6114.png",  width = 500, height = 500)
+#png("6114.png",  width = 500, height = 500)
 fviz_dist(A4) + 
   scale_fill_gradient(low = "yellow", high = "red")
-dev.off()
+#dev.off()
 
 #### Wikiaves 5
 
-png("6115.png",  width = 500, height = 500)
+#png("6115.png",  width = 500, height = 500)
 fviz_dist(A5) + 
   scale_fill_gradient(low = "yellow", high = "red")
-dev.off()
+#dev.off()
 
 #### Wikiaves 6
 
-png("6116.png",  width = 500, height = 500)
+#png("6116.png",  width = 500, height = 500)
 fviz_dist(A6) + 
   scale_fill_gradient(low = "yellow", high = "red")
-dev.off()
+#dev.off()
 
 #### SpeciesLink 1
 
-png("6117.png",  width = 500, height = 500)
+#png("6117.png",  width = 500, height = 500)
 fviz_dist(B1) + 
   scale_fill_gradient(low = "yellow", high = "red")
-dev.off()
+#dev.off()
 
 #### SpeciesLink 2
 
-png("6118.png",  width = 500, height = 500)
+#png("6118.png",  width = 500, height = 500)
 fviz_dist(B2) + 
   scale_fill_gradient(low = "yellow", high = "red")
-dev.off()
+#dev.off()
 
 #### SpeciesLink 3
 
-png("6119.png",  width = 500, height = 500)
+#png("6119.png",  width = 500, height = 500)
 fviz_dist(B3) + 
   scale_fill_gradient(low = "yellow", high = "red")
-dev.off()
+#dev.off()
 
 #### SpeciesLink 4
 
-png("61110.png",  width = 500, height = 500)
+#png("61110.png",  width = 500, height = 500)
 fviz_dist(B4) + 
   scale_fill_gradient(low = "yellow", high = "red")
-dev.off()
+#dev.off()
 
 #### SpeciesLink 5
 
-png("61111.png",  width = 500, height = 500)
+#png("61111.png",  width = 500, height = 500)
 fviz_dist(B5) + 
   scale_fill_gradient(low = "yellow", high = "red")
-dev.off()
+#dev.off()
 
 #### SpeciesLink 6
 
-png("61112.png",  width = 500, height = 500)
+#png("61112.png",  width = 500, height = 500)
 fviz_dist(B6) + 
   scale_fill_gradient(low = "yellow", high = "red")
-dev.off()
+#dev.off()
 
 ## Dendograma
 
-png("611.png", width = 2000, height = 1000)
+#png("611.png", width = 2000, height = 1000)
 X1 <- hclust(A1, "ward.D2")
 fviz_dend(X1)
-dev.off()
+#dev.off()
 
-png("612.png", width = 2000, height = 1000)
+#png("612.png", width = 2000, height = 1000)
 X2 <- hclust(A2, "ward.D2")
 fviz_dend(X2)
-dev.off()
+#dev.off()
 
-png("613.png", width = 2000, height = 1000)
+#png("613.png", width = 2000, height = 1000)
 X3 <- hclust(A3, "ward.D2")
 fviz_dend(X3)
-dev.off()
+#dev.off()
 
-png("614.png", width = 2000, height = 1000)
+#png("614.png", width = 2000, height = 1000)
 X4 <- hclust(A4, "ward.D2")
 fviz_dend(X4)
-dev.off()
+#dev.off()
 
-png("615.png", width = 2000, height = 1000)
+#png("615.png", width = 2000, height = 1000)
 X5 <- hclust(A5, "ward.D2")
 fviz_dend(X5)
-dev.off()
+#dev.off()
 
-png("616.png", width = 2000, height = 1000)
+#png("616.png", width = 2000, height = 1000)
 X6 <- hclust(A6, "ward.D2")
 fviz_dend(X6)
-dev.off()
+#dev.off()
 
-png("621.png", width = 2000, height = 1000)
+#png("621.png", width = 2000, height = 1000)
 Y1 <- hclust(B1, "ward.D2")
 fviz_dend(Y1)
-dev.off()
+#dev.off()
 
-png("622.png", width = 2000, height = 1000)
+#png("622.png", width = 2000, height = 1000)
 Y2 <- hclust(B2, "ward.D2")
 fviz_dend(Y2)
-dev.off()
+#dev.off()
 
-png("623.png", width = 2000, height = 1000)
+#png("623.png", width = 2000, height = 1000)
 Y3 <- hclust(B3, "ward.D2")
 fviz_dend(Y3)
-dev.off()
+#dev.off()
 
-png("624.png", width = 2000, height = 1000)
+#png("624.png", width = 2000, height = 1000)
 Y4 <- hclust(B4, "ward.D2")
 fviz_dend(Y4)
-dev.off()
+#dev.off()
 
-png("625.png", width = 2000, height = 1000)
+#png("625.png", width = 2000, height = 1000)
 Y5 <- hclust(B5, "ward.D2")
 fviz_dend(Y5)
-dev.off()
+#dev.off()
 
-png("626.png", width = 2000, height = 1000)
+#png("626.png", width = 2000, height = 1000)
 Y6 <- hclust(B6, "ward.D2")
 fviz_dend(Y6)
-dev.off()
+#dev.off()
+
+
+M1 <- as.dendrogram(X6)
+
+M2 <- as.dendrogram(Y6)
 
 ## Cophenetic Correlation
 
