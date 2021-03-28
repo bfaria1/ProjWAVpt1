@@ -1,6 +1,6 @@
-library(gclus)
 library(tidyverse)  
-library(cluster)   
+library(cluster) 
+library(gclus)
 library(factoextra) 
 library(dendextend) 
 library("openxlsx") 
@@ -25,7 +25,7 @@ is.numeric(SLI)
 A <- vegdist(WAV, method = "jaccard", binary = TRUE)
 B <- vegdist(SLI, method = "jaccard", binary = TRUE)
 
-hc1 <- hclust(A, method = "Ward.D2" )
+hc1 <- hclust(A, method = "ward.D2" )
 hc2 <- hclust(B, method = "ward.D2" )
 
 gap_stat1 <- clusGap(WAV, FUN = hcut, K.max = 25, B = 10)
@@ -34,24 +34,29 @@ gap_stat2 <- clusGap(SLI, FUN = hcut, K.max = 25, B = 10)
 fviz_gap_stat(gap_stat2)
 
 plot(hc1, cex = 0.6, hang = -1)
-rect.hclust(hc1, k = 25, border = 2:5)
+rect.hclust(hc1, k = 6, border = 2:5)
 
 plot(hc2, cex = 0.6, hang = -1)
-rect.hclust(hc2, k = 25, border = 2:5)
+rect.hclust(hc2, k = 6, border = 2:5)
 
 dend1 <- as.dendrogram (hc1)
 dend2 <- as.dendrogram (hc2)
 
-dend_list <- dendlist(dend1, dend2)
+entanglement(dend1, 
+             dend2,
+             L = 1,
+             leaves_matching_method = c("order"))
 
 
 tanglegram(dend1, dend2,
            highlight_distinct_edges = FALSE, 
-           common_subtrees_color_lines = FALSE, 
-           common_subtrees_color_branches = TRUE,
+           common_subtrees_color_lines = TRUE, 
+           common_subtrees_color_branches = FALSE,
            main_left = "Wikiaves",
            main_right = "SpeciesLink",
-           lwd = .5)
+           lwd = .5,
+           sort = TRUE,
+           k_branches = 6)
            #main = paste("entanglement =", round(entanglement(dendlist), 2))
 
 
