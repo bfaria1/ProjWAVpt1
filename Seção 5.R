@@ -15,8 +15,8 @@ library(cluster)
 library(FD)
 library(ggcorrplot)
 
-Dados <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S5/Mapas.xlsx")
-FE <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/R/S5/Mapas2.xlsx")
+Dados <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S5/Mapas.xlsx")
+FE <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/Mapas2.xlsx")
 mc <- read_municipality(code_muni= "SP")
 
 

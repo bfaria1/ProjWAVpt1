@@ -13,14 +13,15 @@ library(vegan)
 WAV <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/WAV-E.xlsx", sheet = "Geral")
 
 WAV <- t(WAV)
-WAV <- WAV[-1,]
 is.numeric(WAV)
 
 SLI <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/SPL-E.xlsx", sheet = "Geral")
 
 SLI <- t(SLI)
-SLI <- SLI[-1,]
 is.numeric(SLI)
+
+dados <- read.xlsx("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/Mapas.xlsx")
+mc <- read_municipality(code_muni= "SP")
 
 A <- vegdist(WAV, method = "jaccard", binary = TRUE)
 B <- vegdist(SLI, method = "jaccard", binary = TRUE)
@@ -55,8 +56,40 @@ tanglegram(dend1, dend2,
            main_left = "Wikiaves",
            main_right = "SpeciesLink",
            lwd = .5,
-           sort = TRUE,
+           #sort = TRUE,
            k_branches = 6)
            #main = paste("entanglement =", round(entanglement(dendlist), 2))
+
+grp1 <- cutree(hc1, k = 6)
+grp1
+
+grp2 <- cutree(hc2, k = 6)
+grp2
+
+
+maps <- merge(mc,dados)
+
+maps$WAV <- cut(maps$dendWAV, breaks = c(-2,0,1,2,3,4,5,6),
+              labels = c("N/A","Grupo 1","Grupo 2","Grupo 3","Grupo 4","Grupo 5","Grupo 6"))
+
+maps$SLI <- cut(maps$dendSLI, breaks = c(-2,0,1,2,3,4,5,6),
+                labels = c("N/A","Grupo 1","Grupo 2","Grupo 3","Grupo 4","Grupo 5","Grupo 6"))
+
+ggplot(maps) +
+  geom_sf(aes(fill=WAV), color = NA) +
+  labs(subtitle="Wikiaves", size=8)+ 
+  scale_fill_manual (values = c('#f0f0f0','#B646C7','#009681','#228B00','#9F7000','#CC476B','#0082CE'))+
+  labs(fill = " ")+
+  theme_minimal()
+
+ggplot(maps) +
+  geom_sf(aes(fill=SLI), color = NA) +
+  labs(subtitle="SpeciesLink", size=8)+ 
+  scale_fill_manual (values = c('#f0f0f0','#B646C7','#009681','#228B00','#9F7000','#CC476B','#0082CE'))+
+  labs(fill = " ")+
+  theme_minimal()
+
+
+rm(list = ls())
 
 
