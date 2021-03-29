@@ -70,22 +70,22 @@ grp2
 maps <- merge(mc,dados)
 
 maps$WAV <- cut(maps$dendWAV, breaks = c(-2,0,1,2,3,4,5,6),
-              labels = c("N/A","Grupo 1","Grupo 2","Grupo 3","Grupo 4","Grupo 5","Grupo 6"))
+              labels = c("Sem Registro","Grupo 1","Grupo 2","Grupo 3","Grupo 4","Grupo 5","Grupo 6"))
 
 maps$SLI <- cut(maps$dendSLI, breaks = c(-2,0,1,2,3,4,5,6),
-                labels = c("N/A","Grupo 1","Grupo 2","Grupo 3","Grupo 4","Grupo 5","Grupo 6"))
+                labels = c("Sem Registro","Grupo 1","Grupo 2","Grupo 3","Grupo 4","Grupo 5","Grupo 6"))
 
 ggplot(maps) +
   geom_sf(aes(fill=WAV), color = NA) +
   labs(subtitle="Wikiaves", size=8)+ 
-  scale_fill_manual (values = c('#f0f0f0','#B646C7','#009681','#228B00','#9F7000','#CC476B','#0082CE'))+
+  scale_fill_manual (values = c('#f0f0f0','#B646C7','#009681','#228B00','#CC476B','#0082CE','#9F7000'))+
   labs(fill = " ")+
   theme_minimal()
 
 ggplot(maps) +
   geom_sf(aes(fill=SLI), color = NA) +
   labs(subtitle="SpeciesLink", size=8)+ 
-  scale_fill_manual (values = c('#f0f0f0','#B646C7','#009681','#228B00','#9F7000','#CC476B','#0082CE'))+
+  scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B','#009681'))+
   labs(fill = " ")+
   theme_minimal()
 
