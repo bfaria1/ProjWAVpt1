@@ -78,7 +78,7 @@ maps$SLI <- cut(maps$dendSLI, breaks = c(-2,0,1,2,3,4,5,6),
 ggplot(maps) +
   geom_sf(aes(fill=WAV), color = NA) +
   labs(subtitle="Wikiaves", size=8)+ 
-  scale_fill_manual (values = c('#f0f0f0','#B646C7','#009681','#228B00','#CC476B','#0082CE','#9F7000'))+
+  scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B','#009681'))+
   labs(fill = " ")+
   theme_minimal()
 
