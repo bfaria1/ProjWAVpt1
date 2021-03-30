@@ -73,14 +73,14 @@ maps$SLI2 <- cut(maps$dendSLI2, breaks = c(-2,0,1,2),
 ggplot(maps) +
   geom_sf(aes(fill=WAV2), color = NA) +
   labs(subtitle="Wikiaves", size=8)+ 
-  scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B','#009681'))+
+  scale_fill_manual (values = c('#f0f0f0','#009681','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
 
 ggplot(maps) +
   geom_sf(aes(fill=SLI2), color = NA) +
   labs(subtitle="SpeciesLink", size=8)+ 
-  scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B','#009681'))+
+  scale_fill_manual (values = c('#f0f0f0','#009681','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
 
@@ -113,14 +113,14 @@ maps$SLI3 <- cut(maps$dendSLI3, breaks = c(-2,0,1,2,3),
 ggplot(maps) +
   geom_sf(aes(fill=WAV3), color = NA) +
   labs(subtitle="Wikiaves", size=8)+ 
-  scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B','#009681'))+
+  scale_fill_manual (values = c('#f0f0f0','#0082CE','#228B00','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
 
 ggplot(maps) +
   geom_sf(aes(fill=SLI3), color = NA) +
   labs(subtitle="SpeciesLink", size=8)+ 
-  scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B','#009681'))+
+  scale_fill_manual (values = c('#f0f0f0','#0082CE','#228B00','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
 
@@ -175,7 +175,7 @@ tanglegram(dend1, dend2,
 
 
 grp1 <- cutree(hc1, k = 5)
-grp112
+grp1
 
 grp2 <- cutree(hc2, k = 5)
 grp2
