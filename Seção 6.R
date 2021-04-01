@@ -48,6 +48,7 @@ entanglement(dend1,
 
 ## K = 2
 
+png("6112.png", width = 1500, height = 2000)
 tanglegram(dend1, dend2,
            highlight_distinct_edges = FALSE, 
            common_subtrees_color_lines = TRUE, 
@@ -56,7 +57,7 @@ tanglegram(dend1, dend2,
            main_right = "SpeciesLink",
            lwd = .5,
            k_branches = 2)
-
+dev.off()
 
 grp1 <- cutree(hc1, k = 2)
 grp1
@@ -70,24 +71,29 @@ maps$WAV2 <- cut(maps$dendWAV2, breaks = c(-2,0,1,2),
 maps$SLI2 <- cut(maps$dendSLI2, breaks = c(-2,0,1,2),
                  labels = c("Sem Registro","Grupo 1","Grupo 2"))
 
+png("61221.png", width = 600, height = 300)
 ggplot(maps) +
   geom_sf(aes(fill=WAV2), color = NA) +
   labs(subtitle="Wikiaves", size=8)+ 
   scale_fill_manual (values = c('#f0f0f0','#009681','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
+dev.off()
 
+
+png("61222.png", width = 600, height = 300)
 ggplot(maps) +
   geom_sf(aes(fill=SLI2), color = NA) +
   labs(subtitle="SpeciesLink", size=8)+ 
   scale_fill_manual (values = c('#f0f0f0','#009681','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
-
+dev.off()
 
 
 ## K = 3
 
+png("6113.png", width = 1500, height = 2000)
 tanglegram(dend1, dend2,
            highlight_distinct_edges = FALSE, 
            common_subtrees_color_lines = TRUE, 
@@ -96,6 +102,7 @@ tanglegram(dend1, dend2,
            main_right = "SpeciesLink",
            lwd = .5,
            k_branches = 3)
+dev.off()
 
 
 grp1 <- cutree(hc1, k = 3)
@@ -110,22 +117,27 @@ maps$WAV3 <- cut(maps$dendWAV3, breaks = c(-2,0,1,2,3),
 maps$SLI3 <- cut(maps$dendSLI3, breaks = c(-2,0,1,2,3),
                  labels = c("Sem Registro","Grupo 1","Grupo 2","Grupo 3"))
 
+png("61231.png", width = 600, height = 300)
 ggplot(maps) +
   geom_sf(aes(fill=WAV3), color = NA) +
   labs(subtitle="Wikiaves", size=8)+ 
   scale_fill_manual (values = c('#f0f0f0','#0082CE','#228B00','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
+dev.off()
 
+png("612231.png", width = 600, height = 300)
 ggplot(maps) +
   geom_sf(aes(fill=SLI3), color = NA) +
   labs(subtitle="SpeciesLink", size=8)+ 
   scale_fill_manual (values = c('#f0f0f0','#0082CE','#228B00','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
+dev.off()
 
 ## K = 4
 
+png("6114.png", width = 1500, height = 2000)
 tanglegram(dend1, dend2,
            highlight_distinct_edges = FALSE, 
            common_subtrees_color_lines = TRUE, 
@@ -134,7 +146,7 @@ tanglegram(dend1, dend2,
            main_right = "SpeciesLink",
            lwd = .5,
            k_branches = 4)
-
+dev.off()
 
 grp1 <- cutree(hc1, k = 4)
 grp1
@@ -148,22 +160,27 @@ maps$WAV4 <- cut(maps$dendWAV4, breaks = c(-2,0,1,2,3,4),
 maps$SLI4 <- cut(maps$dendSLI4, breaks = c(-2,0,1,2,3,4),
                  labels = c("Sem Registro","Grupo 1","Grupo 2","Grupo 3","Grupo 4"))
 
+png("61241.png", width = 600, height = 300)
 ggplot(maps) +
   geom_sf(aes(fill=WAV4), color = NA) +
   labs(subtitle="Wikiaves", size=8)+ 
-  scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B','#009681'))+
+  scale_fill_manual (values = c('#f0f0f0','#7866D8','#767F00','#CC476B','#009681'))+
   labs(fill = " ")+
   theme_minimal()
+dev.off()
 
+png("61242.png", width = 600, height = 300)
 ggplot(maps) +
   geom_sf(aes(fill=SLI4), color = NA) +
   labs(subtitle="SpeciesLink", size=8)+ 
-  scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B','#009681'))+
+  scale_fill_manual (values = c('#f0f0f0','#7866D8','#767F00','#CC476B','#009681'))+
   labs(fill = " ")+
   theme_minimal()
+dev.off()
 
 ## K = 5
 
+png("6115.png", width = 1500, height = 2000)
 tanglegram(dend1, dend2,
            highlight_distinct_edges = FALSE, 
            common_subtrees_color_lines = TRUE, 
@@ -172,7 +189,7 @@ tanglegram(dend1, dend2,
            main_right = "SpeciesLink",
            lwd = .5,
            k_branches = 5)
-
+dev.off()
 
 grp1 <- cutree(hc1, k = 5)
 grp1
@@ -186,22 +203,27 @@ maps$WAV5 <- cut(maps$dendWAV5, breaks = c(-2,0,1,2,3,4,5),
 maps$SLI5 <- cut(maps$dendSLI5, breaks = c(-2,0,1,2,3,4,5),
                  labels = c("Sem Registro","Grupo 1","Grupo 2","Grupo 3","Grupo 4","Grupo 5"))
 
+png("61251.png", width = 600, height = 300)
 ggplot(maps) +
   geom_sf(aes(fill=WAV5), color = NA) +
   labs(subtitle="Wikiaves", size=8)+ 
-  scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B','#009681'))+
+  scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
+dev.off()
 
+png("61252.png", width = 600, height = 300)
 ggplot(maps) +
   geom_sf(aes(fill=SLI5), color = NA) +
   labs(subtitle="SpeciesLink", size=8)+ 
-  scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B','#009681'))+
+  scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
+dev.off()
 
 ## K = 6
 
+png("6116.png", width = 1500, height = 2000)
 tanglegram(dend1, dend2,
            highlight_distinct_edges = FALSE, 
            common_subtrees_color_lines = TRUE, 
@@ -212,6 +234,7 @@ tanglegram(dend1, dend2,
            #sort = TRUE,
            k_branches = 6)
            #main = paste("entanglement =", round(entanglement(dendlist), 2))
+dev.off()
 
 grp1 <- cutree(hc1, k = 6)
 grp1
@@ -226,22 +249,27 @@ maps$WAV6 <- cut(maps$dendWAV6, breaks = c(-2,0,1,2,3,4,5,6),
 maps$SLI6 <- cut(maps$dendSLI6, breaks = c(-2,0,1,2,3,4,5,6),
                 labels = c("Sem Registro","Grupo 1","Grupo 2","Grupo 3","Grupo 4","Grupo 5","Grupo 6"))
 
+png("61261.png", width = 600, height = 300)
 ggplot(maps) +
   geom_sf(aes(fill=WAV6), color = NA) +
   labs(subtitle="Wikiaves", size=8)+ 
   scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B','#009681'))+
   labs(fill = " ")+
   theme_minimal()
+dev.off()
 
+png("61262.png", width = 600, height = 300)
 ggplot(maps) +
   geom_sf(aes(fill=SLI6), color = NA) +
   labs(subtitle="SpeciesLink", size=8)+ 
   scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B','#009681'))+
   labs(fill = " ")+
   theme_minimal()
+dev.off()
 
 ## K = 7
 
+png("6117.png", width = 600, height = 300)
 tanglegram(dend1, dend2,
            highlight_distinct_edges = FALSE, 
            common_subtrees_color_lines = TRUE, 
@@ -250,6 +278,7 @@ tanglegram(dend1, dend2,
            main_right = "SpeciesLink",
            lwd = .5,
            k_branches = 7)
+dev.off()
 
 grp1 <- cutree(hc1, k = 7)
 grp1
@@ -257,8 +286,33 @@ grp1
 grp2 <- cutree(hc2, k = 7)
 grp2
 
+maps$WAV7 <- cut(maps$dendWAV7, breaks = c(-2,0,1,2,3,4,5,6,7),
+                 labels = c("Sem Registro","Grupo 1","Grupo 2","Grupo 3","Grupo 4","Grupo 5","Grupo 6","Grupo 7"))
+
+maps$SLI7 <- cut(maps$dendSLI7, breaks = c(-2,0,1,2,3,4,5,6,7),
+                 labels = c("Sem Registro","Grupo 1","Grupo 2","Grupo 3","Grupo 4","Grupo 5","Grupo 6","Grupo 7"))
+
+png("61271.png", width = 600, height = 300)
+ggplot(maps) +
+  geom_sf(aes(fill=WAV7), color = NA) +
+  labs(subtitle="Wikiaves", size=8)+ 
+  scale_fill_manual (values = c('#f0f0f0','#C03FBE','#4473D7','#0093A9','#00944F','#5D8400','#A86B00','#CC476B'))+
+  labs(fill = " ")+
+  theme_minimal()
+dev.off()
+
+png("61272.png", width = 600, height = 300)
+ggplot(maps) +
+  geom_sf(aes(fill=SLI7), color = NA) +
+  labs(subtitle="SpeciesLink", size=8)+ 
+  scale_fill_manual (values = c('#f0f0f0','#C03FBE','#4473D7','#0093A9','#00944F','#5D8400','#A86B00','#CC476B'))+
+  labs(fill = " ")+
+  theme_minimal()
+dev.off()
+
 ## K = 8
 
+png("6118.png", width = 1500, height = 2000)
 tanglegram(dend1, dend2,
            highlight_distinct_edges = FALSE, 
            common_subtrees_color_lines = TRUE, 
@@ -267,7 +321,7 @@ tanglegram(dend1, dend2,
            main_right = "SpeciesLink",
            lwd = .5,
            k_branches = 8)
-
+dev.off()
 
 grp1 <- cutree(hc1, k = 8)
 grp1
@@ -275,8 +329,34 @@ grp1
 grp2 <- cutree(hc2, k = 8)
 grp2
 
+
+maps$WAV8 <- cut(maps$dendWAV8, breaks = c(-2,0,1,2,3,4,5,6,7,8),
+                 labels = c("Sem Registro","Grupo 1","Grupo 2","Grupo 3","Grupo 4","Grupo 5","Grupo 6","Grupo 7","Grupo 8"))
+
+maps$SLI8 <- cut(maps$dendSLI8, breaks = c(-2,0,1,2,3,4,5,6,7,8),
+                 labels = c("Sem Registro","Grupo 1","Grupo 2","Grupo 3","Grupo 4","Grupo 5","Grupo 6","Grupo 7","Grupo 8"))
+
+png("61281.png", width = 600, height = 300)
+ggplot(maps) +
+  geom_sf(aes(fill=WAV8), color = NA) +
+  labs(subtitle="Wikiaves", size=8)+ 
+  scale_fill_manual (values = c('#f0f0f0','#C03FBE','#4473D7','#0093A9','#00944F','#5D8400','#A86B00','#CC476B','#7866D8'))+
+  labs(fill = " ")+
+  theme_minimal()
+dev.off()
+
+png("61282.png", width = 600, height = 300)
+ggplot(maps) +
+  geom_sf(aes(fill=SLI8), color = NA) +
+  labs(subtitle="SpeciesLink", size=8)+ 
+  scale_fill_manual (values = c('#f0f0f0','#C03FBE','#4473D7','#0093A9','#00944F','#5D8400','#A86B00','#CC476B','#7866D8'))+
+  labs(fill = " ")+
+  theme_minimal()
+dev.off()
+
 ## K = 9
 
+png("6119.png", width = 1500, height = 2000)
 tanglegram(dend1, dend2,
            highlight_distinct_edges = FALSE, 
            common_subtrees_color_lines = TRUE, 
@@ -285,6 +365,7 @@ tanglegram(dend1, dend2,
            main_right = "SpeciesLink",
            lwd = .5,
            k_branches = 9)
+dev.off()
 
 
 grp1 <- cutree(hc1, k = 9)
@@ -293,6 +374,29 @@ grp1
 grp2 <- cutree(hc2, k = 9)
 grp2
 
+maps$WAV9 <- cut(maps$dendWAV9, breaks = c(-2,0,1,2,3,4,5,6,7,8,9),
+                 labels = c("Sem Registro","Grupo 1","Grupo 2","Grupo 3","Grupo 4","Grupo 5","Grupo 6","Grupo 7","Grupo 8", "Grupo 9"))
+
+maps$SLI9 <- cut(maps$dendSLI9, breaks = c(-2,0,1,2,3,4,5,6,7,8,9),
+                 labels = c("Sem Registro","Grupo 1","Grupo 2","Grupo 3","Grupo 4","Grupo 5","Grupo 6","Grupo 7","Grupo 8", "Grupo 9"))
+
+png("61291.png", width = 600, height = 300)
+ggplot(maps) +
+  geom_sf(aes(fill=WAV9), color = NA) +
+  labs(subtitle="Wikiaves", size=8)+ 
+  scale_fill_manual (values = c('#f0f0f0','#C03FBE','#4473D7','#0093A9','#00944F','#5D8400','#A86B00','#CC476B','#7866D8','#009681'))+
+  labs(fill = " ")+
+  theme_minimal()
+dev.off()
+
+png("61292.png", width = 600, height = 300)
+ggplot(maps) +
+  geom_sf(aes(fill=SLI9), color = NA) +
+  labs(subtitle="SpeciesLink", size=8)+ 
+  scale_fill_manual (values = c('#f0f0f0','#C03FBE','#4473D7','#0093A9','#00944F','#5D8400','#A86B00','#CC476B','#7866D8','#009681'))+
+  labs(fill = " ")+
+  theme_minimal()
+dev.off()
 
 # Top 50
 
