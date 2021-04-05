@@ -622,102 +622,106 @@ Portanto, para pesquisar a figura da seção 2.2 em sua terceira versão, o cód
 
 ## Seção 6
 
-### Wikiaves
+### Dendrogramas
 
-### Top 10
+###### 6112.
 
-###### 611.
+![6112](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/6112.png)
 
-![626](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/6111.png)
+###### 6113.
 
-![611](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/611.png)
+![6113](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/6113.png)
 
-### Top 20
+###### 6114.
 
-###### 612.
+![6114](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/6114.png)
 
-![626](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/6112.png)
+###### 6115.
 
-![612](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/612.png)
+![6115](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/6115.png)
 
-### Top 25
+###### 6116.
 
-###### 613.
+![6116](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/6116.png)
 
-![626](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/6113.png)
+###### 6117.
 
-![613](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/613.png)
+![6117](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/6117.png)
 
-### Top 50
+###### 6118.
 
-###### 614.
+![6118](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/6118.png)
 
-![626](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/6114.png)
+###### 6119.
 
-![614](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/614.png)
+![6119](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/6119.png)
 
-### Top 100
+### Mapas
 
-###### 615.
+#### Wikiaves
 
-![626](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/6115.png)
+###### 61221.
 
-![615](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/615.png)
+![61221](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/61221.png)
 
-### Geral
+###### 61231.
 
-###### 616.
+![61231](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/61231.png)
 
-![626](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/6116.png)
+###### 61241.
 
-![616](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/616.png)
+![61241](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/61241.png)
 
-### SpeciesLink
+###### 61251.
 
-### Top 10
+![61251](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/61251.png)
 
-###### 621.
+###### 61261.
 
-![626](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/6117.png)
+![61261](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/61261.png)
 
-![621](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/621.png)
+###### 61271.
 
-### Top 20
+![61271](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/61271.png)
 
-###### 622.
+###### 61281.
 
-![626](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/6118.png)
+![61281](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/61281.png)
 
-![622](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/622.png)
+###### 61291.
 
-### Top 25
+![61291](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/61291.png)
 
-###### 623.
+#### SpeciesLink
 
-![626](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/6119.png)
+###### 61222.
 
-![623](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/623.png)
+![61222](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/61222.png)
 
-### Top 50
+###### 61231.
 
-###### 624.
+![61232](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/61232.png)
 
-![626](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/61110.png)
+###### 61242.
 
-![624](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/624.png)
+![61242](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/61242.png)
 
-### Top 100
+###### 61252.
 
-###### 625.
+![61252](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/61252.png)
 
-![626](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/61111.png)
+###### 61262.
 
-![625](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/625.png)
+![61262](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/61262.png)
 
-### Geral
+###### 61272.
 
-###### 626.
+![61272](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/61272.png)
 
-![626](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/61112.png)
+###### 61281.
 
-![626](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/626.png)
+![61282](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/61282.png)
+
+###### 61292.
+
+![61292](https://github.com/bfaria1/ProjWAV/blob/master/Imagens/61292.png)
