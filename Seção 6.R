@@ -269,7 +269,7 @@ dev.off()
 
 ## K = 7
 
-png("6117.png", width = 600, height = 300)
+png("6117.png", width = 1500, height = 2000)
 tanglegram(dend1, dend2,
            highlight_distinct_edges = FALSE, 
            common_subtrees_color_lines = TRUE, 
@@ -400,9 +400,6 @@ dev.off()
 
 # Top 50
 
-# Top 20
-
-# Top 10
 
 
 rm(list = ls())
