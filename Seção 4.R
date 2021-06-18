@@ -1,11 +1,8 @@
 #Importando bibliotecas e dados
 
-library("openxlsx") 
-library(ggplot2)
-library(RColorBrewer)
-library(hrbrthemes)
-library(ggpubr)
+library(pacman)
 
+pacman::p_load(RColorBrewer, dplyr, ggplot2, openxlsx, ggpubr, tidyr, hrbrthemes, sf, geobr, factoextra, ade4, vegan, FD, ggcorrplot)
 
 
 dados <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S4/WS.xlsx")

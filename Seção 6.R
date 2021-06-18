@@ -1,14 +1,6 @@
-library(tidyverse)  
-library(cluster) 
-library(gclus)
-library(factoextra) 
-library(dendextend) 
-library("openxlsx") 
-library(sf)
-library(geobr)
-library(dendextend)
-library(ade4)
-library(vegan)
+library(pacman)
+
+pacman::p_load(tidyverse, cluster, gclus, factoextra, dendextend, sf, psych, geobr, ggplot2, openxlsx, ade4, vegan)
 
 # Todos os Municípios
 
@@ -26,6 +18,12 @@ dados <- read.xlsx("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/
 mc <- read_municipality(code_muni= "SP")
 
 maps <- merge(mc,dados)
+
+N1 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/Grupos.xlsx", sheet = "K = 2")
+N2 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/Grupos.xlsx", sheet = "K = 3")
+N3 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/Grupos.xlsx", sheet = "K = 4")
+N4 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/Grupos.xlsx", sheet = "K = 5")
+N5 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/Grupos.xlsx", sheet = "K = 6")
 
 A <- vegdist(WAV, method = "jaccard", binary = TRUE)
 B <- vegdist(SLI, method = "jaccard", binary = TRUE)

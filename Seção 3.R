@@ -1,18 +1,7 @@
-library("openxlsx") 
-library(ggplot2)
-library(RColorBrewer)
-library(dplyr)
-library(ggpubr)
-library(tidyr)
-library(hrbrthemes)
-library(sf)
-library(geobr)
-library(factoextra)
-library(ade4)
-library(vegan)
-library(FD)
-library(ggcorrplot)
 
+library(pacman)
+
+pacman::p_load(RColorBrewer, dplyr, ggplot2, openxlsx, ggpubr, tidyr, hrbrthemes, sf, geobr, factoextra, ade4, vegan, FD, ggcorrplot)
 
 
 # Seção 3

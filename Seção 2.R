@@ -1,9 +1,8 @@
 #Importando bibliotecas e dados
 
-library("openxlsx") 
-library(ggplot2)
-library(RColorBrewer)
-library(moments)
+library(pacman)
+
+pacman::p_load(RColorBrewer, moments, ggplot2, openxlsx)
 
 FE <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S2/FE.xlsx", sheet = "Geral")
 FE1 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S2/FE.xlsx", sheet = "WAV")

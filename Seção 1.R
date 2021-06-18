@@ -1,11 +1,9 @@
 #Importando bibliotecas e dados
 
-library("openxlsx") 
-library(ggplot2)
-library(RColorBrewer)
-library(esquisse)
-library(usethis)
-library(moments)
+library(pacman)
+
+pacman::p_load(RColorBrewer, esquisse, usethis, moments, ggplot2, openxlsx)
+
 
 WS <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S1/WAVxSPL.xlsx") 
 WAV <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S1/WAV.xlsx") 
