@@ -1,6 +1,6 @@
 library(pacman)
 
-pacman::p_load(tidyverse, cluster, gclus, factoextra, dendextend, sf, psych, geobr, ggplot2, openxlsx, ade4, vegan)
+pacman::p_load(tidyverse, cluster, gclus, factoextra, dendextend, sf, psych, geobr, ggplot2, openxlsx, ade4, vegan, car, rstatix, multcomp, emmeans, RVAideMemoire, psych, DescTools)
 
 # Todos os Municípios
 
@@ -89,6 +89,67 @@ ggplot(maps) +
 dev.off()
 
 
+
+byf.shapiro(WAL ~ Grupo.W, N1)
+byf.shapiro(WAR ~ Grupo.W, N1)
+byf.shapiro(WP ~ Grupo.W, N1)
+byf.shapiro(WLA ~ Grupo.W, N1)
+byf.shapiro(WLO ~ Grupo.W, N1)
+
+byf.shapiro(SAL ~ Grupo.S, N1)
+byf.shapiro(SAR ~ Grupo.S, N1)
+byf.shapiro(SP ~ Grupo.S, N1)
+byf.shapiro(SLA ~ Grupo.S, N1)
+byf.shapiro(SLO ~ Grupo.S, N1)
+
+leveneTest(WAL ~ Grupo.W, N1, mean)
+leveneTest(WAR ~ Grupo.W, N1, mean)
+leveneTest(WP ~ Grupo.W, N1, mean)
+leveneTest(WLA ~ Grupo.W, N1, mean)
+leveneTest(WLO ~ Grupo.W, N1, mean)
+
+leveneTest(SAL ~ Grupo.S, N1, mean)
+leveneTest(SAR ~ Grupo.S, N1, mean)
+leveneTest(SP ~ Grupo.S, N1, mean)
+leveneTest(SLA ~ Grupo.S, N1, mean)
+leveneTest(SLO ~ Grupo.S, N1, mean)
+
+
+oneway.test(WAL ~ Grupo.W, data = N1, var.equal=FALSE)
+oneway.test(WAR ~ Grupo.W, data = N1, var.equal=TRUE)
+oneway.test(WP ~ Grupo.W, data = N1, var.equal=TRUE)
+oneway.test(WLA ~ Grupo.W, data = N1, var.equal=FALSE)
+oneway.test(WLO ~ Grupo.W, data = N1, var.equal=TRUE)
+
+oneway.test(SAL ~ Grupo.W, data = N1, var.equal=FALSE)
+oneway.test(SAR ~ Grupo.W, data = N1, var.equal=TRUE)
+oneway.test(SP ~ Grupo.W, data = N1, var.equal=TRUE)
+oneway.test(SLA ~ Grupo.W, data = N1, var.equal=TRUE)
+oneway.test(SLO ~ Grupo.W, data = N1, var.equal=FALSE)
+
+
+mod <- aov(WAL ~ Grupo.W, N1)
+PostHocTest(mod, method = "hsd")
+mod <- aov(WAR ~ Grupo.W, N1)
+PostHocTest(mod, method = "hsd")
+mod <- aov(WP ~ Grupo.W, N1)
+PostHocTest(mod, method = "hsd")
+mod <- aov(WLA ~ Grupo.W, N1)
+PostHocTest(mod, method = "hsd")
+mod <- aov(WLO ~ Grupo.W, N1)
+PostHocTest(mod, method = "hsd")
+
+mod <- aov(SAL ~ Grupo.S, N1)
+PostHocTest(mod, method = "hsd")
+mod <- aov(SAR ~ Grupo.S, N1)
+PostHocTest(mod, method = "hsd")
+mod <- aov(SP ~ Grupo.S, N1)
+PostHocTest(mod, method = "hsd")
+mod <- aov(SLA ~ Grupo.S, N1)
+PostHocTest(mod, method = "hsd")
+mod <- aov(SLO ~ Grupo.S, N1)
+PostHocTest(mod, method = "hsd")
+
 ## K = 3
 
 png("6113.png", width = 1500, height = 2000)
@@ -133,6 +194,66 @@ ggplot(maps) +
   theme_minimal()
 dev.off()
 
+byf.shapiro(WAL ~ Grupo.W, N2)
+byf.shapiro(WAR ~ Grupo.W, N2)
+byf.shapiro(WP ~ Grupo.W, N2)
+byf.shapiro(WLA ~ Grupo.W, N2)
+byf.shapiro(WLO ~ Grupo.W, N2)
+
+byf.shapiro(SAL ~ Grupo.S, N2)
+byf.shapiro(SAR ~ Grupo.S, N2)
+byf.shapiro(SP ~ Grupo.S, N2)
+byf.shapiro(SLA ~ Grupo.S, N2)
+byf.shapiro(SLO ~ Grupo.S, N2)
+
+leveneTest(WAL ~ Grupo.W, N2, mean)
+leveneTest(WAR ~ Grupo.W, N2, mean)
+leveneTest(WP ~ Grupo.W, N2, mean)
+leveneTest(WLA ~ Grupo.W, N2, mean)
+leveneTest(WLO ~ Grupo.W, N2, mean)
+
+leveneTest(SAL ~ Grupo.S, N2, mean)
+leveneTest(SAR ~ Grupo.S, N2, mean)
+leveneTest(SP ~ Grupo.S, N2, mean)
+leveneTest(SLA ~ Grupo.S, N2, mean)
+leveneTest(SLO ~ Grupo.S, N2, mean)
+
+oneway.test(WAL ~ Grupo.W, data = N2, var.equal=FALSE)
+oneway.test(WAR ~ Grupo.W, data = N2, var.equal=TRUE)
+oneway.test(WP ~ Grupo.W, data = N2, var.equal=TRUE)
+oneway.test(WLA ~ Grupo.W, data = N2, var.equal=FALSE)
+oneway.test(WLO ~ Grupo.W, data = N2, var.equal=TRUE)
+
+oneway.test(SAL ~ Grupo.W, data = N2, var.equal=FALSE)
+oneway.test(SAR ~ Grupo.W, data = N2, var.equal=TRUE)
+oneway.test(SP ~ Grupo.W, data = N2, var.equal=TRUE)
+oneway.test(SLA ~ Grupo.W, data = N2, var.equal=TRUE)
+oneway.test(SLO ~ Grupo.W, data = N2, var.equal=FALSE)
+
+
+mod <- aov(WAL ~ Grupo.W, N2)
+PostHocTest(mod, method = "hsd")
+mod <- aov(WAR ~ Grupo.W, N2)
+PostHocTest(mod, method = "hsd")
+mod <- aov(WP ~ Grupo.W, N2)
+PostHocTest(mod, method = "hsd")
+mod <- aov(WLA ~ Grupo.W, N2)
+PostHocTest(mod, method = "hsd")
+mod <- aov(WLO ~ Grupo.W, N2)
+PostHocTest(mod, method = "hsd")
+
+mod <- aov(SAL ~ Grupo.S, N2)
+PostHocTest(mod, method = "hsd")
+mod <- aov(SAR ~ Grupo.S, N2)
+PostHocTest(mod, method = "hsd")
+mod <- aov(SP ~ Grupo.S, N2)
+PostHocTest(mod, method = "hsd")
+mod <- aov(SLA ~ Grupo.S, N2)
+PostHocTest(mod, method = "hsd")
+mod <- aov(SLO ~ Grupo.S, N2)
+PostHocTest(mod, method = "hsd")
+
+
 ## K = 4
 
 png("6114.png", width = 1500, height = 2000)
@@ -176,6 +297,66 @@ ggplot(maps) +
   theme_minimal()
 dev.off()
 
+byf.shapiro(WAL ~ Grupo.W, N3)
+byf.shapiro(WAR ~ Grupo.W, N3)
+byf.shapiro(WP ~ Grupo.W, N3)
+byf.shapiro(WLA ~ Grupo.W, N3)
+byf.shapiro(WLO ~ Grupo.W, N3)
+
+byf.shapiro(SAL ~ Grupo.S, N3)
+byf.shapiro(SAR ~ Grupo.S, N3)
+byf.shapiro(SP ~ Grupo.S, N3)
+byf.shapiro(SLA ~ Grupo.S, N3)
+byf.shapiro(SLO ~ Grupo.S, N3)
+
+leveneTest(WAL ~ Grupo.W, N3, mean)
+leveneTest(WAR ~ Grupo.W, N3, mean)
+leveneTest(WP ~ Grupo.W, N3, mean)
+leveneTest(WLA ~ Grupo.W, N3, mean)
+leveneTest(WLO ~ Grupo.W, N3, mean)
+
+leveneTest(SAL ~ Grupo.S, N3, mean)
+leveneTest(SAR ~ Grupo.S, N3, mean)
+leveneTest(SP ~ Grupo.S, N3, mean)
+leveneTest(SLA ~ Grupo.S, N3, mean)
+leveneTest(SLO ~ Grupo.S, N3, mean)
+
+oneway.test(WAL ~ Grupo.W, data = N3, var.equal=FALSE)
+oneway.test(WAR ~ Grupo.W, data = N3, var.equal=TRUE)
+oneway.test(WP ~ Grupo.W, data = N3, var.equal=TRUE)
+oneway.test(WLA ~ Grupo.W, data = N3, var.equal=FALSE)
+oneway.test(WLO ~ Grupo.W, data = N3, var.equal=TRUE)
+
+oneway.test(SAL ~ Grupo.W, data = N3, var.equal=FALSE)
+oneway.test(SAR ~ Grupo.W, data = N3, var.equal=TRUE)
+oneway.test(SP ~ Grupo.W, data = N3, var.equal=TRUE)
+oneway.test(SLA ~ Grupo.W, data = N3, var.equal=TRUE)
+oneway.test(SLO ~ Grupo.W, data = N3, var.equal=FALSE)
+
+
+mod <- aov(WAL ~ Grupo.W, N3)
+PostHocTest(mod, method = "hsd")
+mod <- aov(WAR ~ Grupo.W, N3)
+PostHocTest(mod, method = "hsd")
+mod <- aov(WP ~ Grupo.W, N3)
+PostHocTest(mod, method = "hsd")
+mod <- aov(WLA ~ Grupo.W, N3)
+PostHocTest(mod, method = "hsd")
+mod <- aov(WLO ~ Grupo.W, N3)
+PostHocTest(mod, method = "hsd")
+
+mod <- aov(SAL ~ Grupo.S, N3)
+PostHocTest(mod, method = "hsd")
+mod <- aov(SAR ~ Grupo.S, N3)
+PostHocTest(mod, method = "hsd")
+mod <- aov(SP ~ Grupo.S, N3)
+PostHocTest(mod, method = "hsd")
+mod <- aov(SLA ~ Grupo.S, N3)
+PostHocTest(mod, method = "hsd")
+mod <- aov(SLO ~ Grupo.S, N3)
+PostHocTest(mod, method = "hsd")
+
+
 ## K = 5
 
 png("6115.png", width = 1500, height = 2000)
@@ -218,6 +399,65 @@ ggplot(maps) +
   labs(fill = " ")+
   theme_minimal()
 dev.off()
+
+byf.shapiro(WAL ~ Grupo.W, N4)
+byf.shapiro(WAR ~ Grupo.W, N4)
+byf.shapiro(WP ~ Grupo.W, N4)
+byf.shapiro(WLA ~ Grupo.W, N4)
+byf.shapiro(WLO ~ Grupo.W, N4)
+
+byf.shapiro(SAL ~ Grupo.S, N4)
+byf.shapiro(SAR ~ Grupo.S, N4)
+byf.shapiro(SP ~ Grupo.S, N4)
+byf.shapiro(SLA ~ Grupo.S, N4)
+byf.shapiro(SLO ~ Grupo.S, N4)
+
+leveneTest(WAL ~ Grupo.W, N4, mean)
+leveneTest(WAR ~ Grupo.W, N4, mean)
+leveneTest(WP ~ Grupo.W, N4, mean)
+leveneTest(WLA ~ Grupo.W, N4, mean)
+leveneTest(WLO ~ Grupo.W, N4, mean)
+
+leveneTest(SAL ~ Grupo.S, N4, mean)
+leveneTest(SAR ~ Grupo.S, N4, mean)
+leveneTest(SP ~ Grupo.S, N4, mean)
+leveneTest(SLA ~ Grupo.S, N4, mean)
+leveneTest(SLO ~ Grupo.S, N4, mean)
+
+oneway.test(WAL ~ Grupo.W, data = N4, var.equal=FALSE)
+oneway.test(WAR ~ Grupo.W, data = N4, var.equal=TRUE)
+oneway.test(WP ~ Grupo.W, data = N4, var.equal=TRUE)
+oneway.test(WLA ~ Grupo.W, data = N4, var.equal=FALSE)
+oneway.test(WLO ~ Grupo.W, data = N4, var.equal=TRUE)
+
+oneway.test(SAL ~ Grupo.W, data = N4, var.equal=FALSE)
+oneway.test(SAR ~ Grupo.W, data = N4, var.equal=TRUE)
+oneway.test(SP ~ Grupo.W, data = N4, var.equal=TRUE)
+oneway.test(SLA ~ Grupo.W, data = N4, var.equal=TRUE)
+oneway.test(SLO ~ Grupo.W, data = N4, var.equal=FALSE)
+
+
+mod <- aov(WAL ~ Grupo.W, N4)
+PostHocTest(mod, method = "hsd")
+mod <- aov(WAR ~ Grupo.W, N4)
+PostHocTest(mod, method = "hsd")
+mod <- aov(WP ~ Grupo.W, N4)
+PostHocTest(mod, method = "hsd")
+mod <- aov(WLA ~ Grupo.W, N4)
+PostHocTest(mod, method = "hsd")
+mod <- aov(WLO ~ Grupo.W, N4)
+PostHocTest(mod, method = "hsd")
+
+mod <- aov(SAL ~ Grupo.S, N4)
+PostHocTest(mod, method = "hsd")
+mod <- aov(SAR ~ Grupo.S, N4)
+PostHocTest(mod, method = "hsd")
+mod <- aov(SP ~ Grupo.S, N4)
+PostHocTest(mod, method = "hsd")
+mod <- aov(SLA ~ Grupo.S, N4)
+PostHocTest(mod, method = "hsd")
+mod <- aov(SLO ~ Grupo.S, N4)
+PostHocTest(mod, method = "hsd")
 
 ## K = 6
 
@@ -264,6 +504,65 @@ ggplot(maps) +
   labs(fill = " ")+
   theme_minimal()
 dev.off()
+
+byf.shapiro(WAL ~ Grupo.W, N5)
+byf.shapiro(WAR ~ Grupo.W, N5)
+byf.shapiro(WP ~ Grupo.W, N5)
+byf.shapiro(WLA ~ Grupo.W, N5)
+byf.shapiro(WLO ~ Grupo.W, N5)
+
+byf.shapiro(SAL ~ Grupo.S, N5)
+byf.shapiro(SAR ~ Grupo.S, N5)
+byf.shapiro(SP ~ Grupo.S, N5)
+byf.shapiro(SLA ~ Grupo.S, N5)
+byf.shapiro(SLO ~ Grupo.S, N5)
+
+leveneTest(WAL ~ Grupo.W, N5, mean)
+leveneTest(WAR ~ Grupo.W, N5, mean)
+leveneTest(WP ~ Grupo.W, N5, mean)
+leveneTest(WLA ~ Grupo.W, N5, mean)
+leveneTest(WLO ~ Grupo.W, N5, mean)
+
+leveneTest(SAL ~ Grupo.S, N5, mean)
+leveneTest(SAR ~ Grupo.S, N5, mean)
+leveneTest(SP ~ Grupo.S, N5, mean)
+leveneTest(SLA ~ Grupo.S, N5, mean)
+leveneTest(SLO ~ Grupo.S, N5, mean)
+
+oneway.test(WAL ~ Grupo.W, data = N5, var.equal=FALSE)
+oneway.test(WAR ~ Grupo.W, data = N5, var.equal=TRUE)
+oneway.test(WP ~ Grupo.W, data = N5, var.equal=TRUE)
+oneway.test(WLA ~ Grupo.W, data = N5, var.equal=FALSE)
+oneway.test(WLO ~ Grupo.W, data = N5, var.equal=TRUE)
+
+oneway.test(SAL ~ Grupo.W, data = N5, var.equal=FALSE)
+oneway.test(SAR ~ Grupo.W, data = N5, var.equal=TRUE)
+oneway.test(SP ~ Grupo.W, data = N5, var.equal=TRUE)
+oneway.test(SLA ~ Grupo.W, data = N5, var.equal=TRUE)
+oneway.test(SLO ~ Grupo.W, data = N5, var.equal=FALSE)
+
+
+mod <- aov(WAL ~ Grupo.W, N5)
+PostHocTest(mod, method = "hsd")
+mod <- aov(WAR ~ Grupo.W, N5)
+PostHocTest(mod, method = "hsd")
+mod <- aov(WP ~ Grupo.W, N5)
+PostHocTest(mod, method = "hsd")
+mod <- aov(WLA ~ Grupo.W, N5)
+PostHocTest(mod, method = "hsd")
+mod <- aov(WLO ~ Grupo.W, N5)
+PostHocTest(mod, method = "hsd")
+
+mod <- aov(SAL ~ Grupo.S, N5)
+PostHocTest(mod, method = "hsd")
+mod <- aov(SAR ~ Grupo.S, N5)
+PostHocTest(mod, method = "hsd")
+mod <- aov(SP ~ Grupo.S, N5)
+PostHocTest(mod, method = "hsd")
+mod <- aov(SLA ~ Grupo.S, N5)
+PostHocTest(mod, method = "hsd")
+mod <- aov(SLO ~ Grupo.S, N5)
+PostHocTest(mod, method = "hsd")
 
 ## K = 7
 
