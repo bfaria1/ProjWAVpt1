@@ -40,6 +40,7 @@ vif(modMS2)
 vif(modMW2)
 vif(modMW21)
 vif(modMW22)
+
 # não há multicolinearidade
 
 summary(modMW1)

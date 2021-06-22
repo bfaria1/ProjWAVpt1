@@ -222,13 +222,13 @@ oneway.test(WAL ~ Grupo.W, data = N2, var.equal=FALSE)
 oneway.test(WAR ~ Grupo.W, data = N2, var.equal=TRUE)
 oneway.test(WP ~ Grupo.W, data = N2, var.equal=TRUE)
 oneway.test(WLA ~ Grupo.W, data = N2, var.equal=FALSE)
-oneway.test(WLO ~ Grupo.W, data = N2, var.equal=TRUE)
+oneway.test(WLO ~ Grupo.W, data = N2, var.equal=FALSE)
 
 oneway.test(SAL ~ Grupo.W, data = N2, var.equal=FALSE)
-oneway.test(SAR ~ Grupo.W, data = N2, var.equal=TRUE)
-oneway.test(SP ~ Grupo.W, data = N2, var.equal=TRUE)
-oneway.test(SLA ~ Grupo.W, data = N2, var.equal=TRUE)
-oneway.test(SLO ~ Grupo.W, data = N2, var.equal=FALSE)
+oneway.test(SAR ~ Grupo.W, data = N2, var.equal=FALSE)
+oneway.test(SP ~ Grupo.W, data = N2, var.equal= FALSE)
+oneway.test(SLA ~ Grupo.W, data = N2, var.equal=FALSE)
+oneway.test(SLO ~ Grupo.W, data = N2, var.equal=TRUE)
 
 
 mod <- aov(WAL ~ Grupo.W, N2)
@@ -322,16 +322,16 @@ leveneTest(SLA ~ Grupo.S, N3, mean)
 leveneTest(SLO ~ Grupo.S, N3, mean)
 
 oneway.test(WAL ~ Grupo.W, data = N3, var.equal=FALSE)
-oneway.test(WAR ~ Grupo.W, data = N3, var.equal=TRUE)
-oneway.test(WP ~ Grupo.W, data = N3, var.equal=TRUE)
+oneway.test(WAR ~ Grupo.W, data = N3, var.equal= TRUE)
+oneway.test(WP ~ Grupo.W, data = N3, var.equal= FALSE)
 oneway.test(WLA ~ Grupo.W, data = N3, var.equal=FALSE)
-oneway.test(WLO ~ Grupo.W, data = N3, var.equal=TRUE)
+oneway.test(WLO ~ Grupo.W, data = N3, var.equal=FALSE)
 
 oneway.test(SAL ~ Grupo.W, data = N3, var.equal=FALSE)
 oneway.test(SAR ~ Grupo.W, data = N3, var.equal=TRUE)
 oneway.test(SP ~ Grupo.W, data = N3, var.equal=TRUE)
-oneway.test(SLA ~ Grupo.W, data = N3, var.equal=TRUE)
-oneway.test(SLO ~ Grupo.W, data = N3, var.equal=FALSE)
+oneway.test(SLA ~ Grupo.W, data = N3, var.equal=FALSE)
+oneway.test(SLO ~ Grupo.W, data = N3, var.equal=TRUE)
 
 
 mod <- aov(WAL ~ Grupo.W, N3)
@@ -426,15 +426,15 @@ leveneTest(SLO ~ Grupo.S, N4, mean)
 
 oneway.test(WAL ~ Grupo.W, data = N4, var.equal=FALSE)
 oneway.test(WAR ~ Grupo.W, data = N4, var.equal=TRUE)
-oneway.test(WP ~ Grupo.W, data = N4, var.equal=TRUE)
+oneway.test(WP ~ Grupo.W, data = N4, var.equal=FALSE)
 oneway.test(WLA ~ Grupo.W, data = N4, var.equal=FALSE)
-oneway.test(WLO ~ Grupo.W, data = N4, var.equal=TRUE)
+oneway.test(WLO ~ Grupo.W, data = N4, var.equal=FALSE)
 
 oneway.test(SAL ~ Grupo.W, data = N4, var.equal=FALSE)
 oneway.test(SAR ~ Grupo.W, data = N4, var.equal=TRUE)
 oneway.test(SP ~ Grupo.W, data = N4, var.equal=TRUE)
-oneway.test(SLA ~ Grupo.W, data = N4, var.equal=TRUE)
-oneway.test(SLO ~ Grupo.W, data = N4, var.equal=FALSE)
+oneway.test(SLA ~ Grupo.W, data = N4, var.equal=FALSE)
+oneway.test(SLO ~ Grupo.W, data = N4, var.equal=TRUE)
 
 
 mod <- aov(WAL ~ Grupo.W, N4)
@@ -530,16 +530,16 @@ leveneTest(SLA ~ Grupo.S, N5, mean)
 leveneTest(SLO ~ Grupo.S, N5, mean)
 
 oneway.test(WAL ~ Grupo.W, data = N5, var.equal=FALSE)
-oneway.test(WAR ~ Grupo.W, data = N5, var.equal=TRUE)
-oneway.test(WP ~ Grupo.W, data = N5, var.equal=TRUE)
+oneway.test(WAR ~ Grupo.W, data = N5, var.equal=FALSE)
+oneway.test(WP ~ Grupo.W, data = N5, var.equal=FALSE)
 oneway.test(WLA ~ Grupo.W, data = N5, var.equal=FALSE)
-oneway.test(WLO ~ Grupo.W, data = N5, var.equal=TRUE)
+oneway.test(WLO ~ Grupo.W, data = N5, var.equal=FALSE)
 
 oneway.test(SAL ~ Grupo.W, data = N5, var.equal=FALSE)
 oneway.test(SAR ~ Grupo.W, data = N5, var.equal=TRUE)
 oneway.test(SP ~ Grupo.W, data = N5, var.equal=TRUE)
-oneway.test(SLA ~ Grupo.W, data = N5, var.equal=TRUE)
-oneway.test(SLO ~ Grupo.W, data = N5, var.equal=FALSE)
+oneway.test(SLA ~ Grupo.W, data = N5, var.equal=FALSE)
+oneway.test(SLO ~ Grupo.W, data = N5, var.equal=TRUE)
 
 
 mod <- aov(WAL ~ Grupo.W, N5)
@@ -691,7 +691,8 @@ ggplot(maps) +
   geom_sf(aes(fill=SLI9), color = NA) +
   labs(subtitle="SpeciesLink", size=8)+ 
   scale_fill_manual (values = c('#f0f0f0','#C03FBE','#4473D7','#0093A9','#00944F','#5D8400','#A86B00','#CC476B','#7866D8','#009681'))+
-  labs(fill = " ")+
+  labs(fill = " ")+9
+
   theme_minimal()
 dev.off()
 
