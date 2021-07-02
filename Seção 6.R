@@ -14,6 +14,16 @@ SLI <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/S
 SLI <- t(SLI)
 is.numeric(SLI)
 
+WAV2 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/Grupos2.xlsx", sheet = "WAVE")
+
+WAV2 <- t(WAV2)
+is.numeric(WAV2)
+
+SLI2 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/Grupos2.xlsx", sheet = "SLIE")
+
+SLI2 <- t(SLI2)
+is.numeric(SLI2)
+
 dados <- read.xlsx("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/Mapas.xlsx")
 mc <- read_municipality(code_muni= "SP")
 
@@ -697,6 +707,91 @@ ggplot(maps) +
 dev.off()
 
 # Top 50
+
+
+WJ <- vegdist(WAV2, method = "jaccard", binary = TRUE)
+SJ <- vegdist(SLI2, method = "jaccard", binary = TRUE)
+
+hc3 <- hclust(WJ, method = "ward.D2" )
+hc4 <- hclust(SJ, method = "ward.D2" )
+
+
+dend3 <- as.dendrogram (hc3)
+dend4 <- as.dendrogram (hc4)
+
+# k = 2
+
+tanglegram(dend3, dend4,
+           highlight_distinct_edges = FALSE, 
+           common_subtrees_color_lines = TRUE, 
+           common_subtrees_color_branches = FALSE,
+           main_left = "Wikiaves",
+           main_right = "SpeciesLink",
+           lwd = .5,
+           k_branches = 2)
+
+
+grp1 <- cutree(hc3, k = 2)
+grp1
+
+grp2 <- cutree(hc4, k = 2)
+grp2
+
+
+# k = 3
+
+tanglegram(dend3, dend4,
+           highlight_distinct_edges = FALSE, 
+           common_subtrees_color_lines = TRUE, 
+           common_subtrees_color_branches = FALSE,
+           main_left = "Wikiaves",
+           main_right = "SpeciesLink",
+           lwd = .5,
+           k_branches = 3)
+
+
+grp1 <- cutree(hc3, k = 3)
+grp1
+
+grp2 <- cutree(hc4, k = 3)
+grp2
+
+# k = 4
+
+
+tanglegram(dend3, dend4,
+           highlight_distinct_edges = FALSE, 
+           common_subtrees_color_lines = TRUE, 
+           common_subtrees_color_branches = FALSE,
+           main_left = "Wikiaves",
+           main_right = "SpeciesLink",
+           lwd = .5,
+           k_branches = 4)
+
+
+grp1 <- cutree(hc3, k = 4)
+grp1
+
+grp2 <- cutree(hc4, k = 4)
+grp2
+
+# k = 5
+
+tanglegram(dend3, dend4,
+           highlight_distinct_edges = FALSE, 
+           common_subtrees_color_lines = TRUE, 
+           common_subtrees_color_branches = FALSE,
+           main_left = "Wikiaves",
+           main_right = "SpeciesLink",
+           lwd = .5,
+           k_branches = 5)
+
+
+grp1 <- cutree(hc3, k = 5)
+grp1
+
+grp2 <- cutree(hc4, k = 5)
+grp2
 
 
 
