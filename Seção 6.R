@@ -724,6 +724,7 @@ dend4 <- as.dendrogram (hc4)
 
 # k = 2
 
+png("6112.png", width = 1500, height = 2000)
 tanglegram(dend3, dend4,
            highlight_distinct_edges = FALSE, 
            common_subtrees_color_lines = TRUE, 
@@ -732,26 +733,29 @@ tanglegram(dend3, dend4,
            main_right = "SpeciesLink",
            lwd = .5,
            k_branches = 2)
+dev.off()
 
 maps2$WK2 <- factor(maps2$WK2, levels=c("Sem Registro", "Grupo 1", "Grupo 2"))
 
 maps2$SK2 <- factor(maps2$SK2, levels=c("Sem Registro", "Grupo 1", "Grupo 2"))
 
-
+png("62221.png", width = 600, height = 300)
 ggplot(maps2) +
   geom_sf(aes(fill=WK2), color = NA) +
   labs(subtitle="Wikiaves", size=8)+ 
   scale_fill_manual (values = c('#f0f0f0','#009681','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
+dev.off()
 
+png("62222.png", width = 600, height = 300)
 ggplot(maps2) +
   geom_sf(aes(fill=SK2), color = NA) +
   labs(subtitle="SpeciesLink", size=8)+ 
   scale_fill_manual (values = c('#f0f0f0','#009681','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
-
+dev.off()
 
 grp1 <- cutree(hc3, k = 2)
 grp1
@@ -822,6 +826,10 @@ PostHocTest(mod, method = "hsd")
 
 # k = 3
 
+
+
+
+png("6213.png", width = 1500, height = 2000)
 tanglegram(dend3, dend4,
            highlight_distinct_edges = FALSE, 
            common_subtrees_color_lines = TRUE, 
@@ -830,28 +838,29 @@ tanglegram(dend3, dend4,
            main_right = "SpeciesLink",
            lwd = .5,
            k_branches = 3)
+dev.off()
 
 maps2$WK3 <- factor(maps2$WK3, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3"))
 
 maps2$SK3 <- factor(maps2$SK3, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3"))
 
-
+png("62231.png", width = 600, height = 300)
 ggplot(maps2) +
   geom_sf(aes(fill=WK3), color = NA) +
   labs(subtitle="Wikiaves", size=8)+ 
   scale_fill_manual (values = c('#f0f0f0','#0082CE','#228B00','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
+dev.off()
 
-
-
+png("62232.png", width = 600, height = 300)
 ggplot(maps2) +
   geom_sf(aes(fill=SK3), color = NA) +
   labs(subtitle="SpeciesLink", size=8)+ 
   scale_fill_manual (values = c('#f0f0f0','#0082CE','#228B00','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
-
+dev.off()
 
 grp1 <- cutree(hc3, k = 3)
 grp1
@@ -922,7 +931,7 @@ PostHocTest(mod, method = "hsd")
 
 # k = 4
 
-
+png("6214.png", width = 1500, height = 2000)
 tanglegram(dend3, dend4,
            highlight_distinct_edges = FALSE, 
            common_subtrees_color_lines = TRUE, 
@@ -931,24 +940,29 @@ tanglegram(dend3, dend4,
            main_right = "SpeciesLink",
            lwd = .5,
            k_branches = 4)
+dev.off()
 
 maps2$WK4 <- factor(maps2$WK4, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3", "Grupo 4"))
 
 maps2$SK4 <- factor(maps2$SK4, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3", "Grupo 4"))
 
+png("62241.png", width = 600, height = 300)
 ggplot(maps2) +
   geom_sf(aes(fill=WK4), color = NA) +
   labs(subtitle="Wikiaves", size=8)+ 
   scale_fill_manual (values = c('#f0f0f0','#7866D8','#767F00','#CC476B','#009681'))+
   labs(fill = " ")+
   theme_minimal()
+dev.off()
 
+png("62242.png", width = 600, height = 300)
 ggplot(maps2) +
   geom_sf(aes(fill=SK4), color = NA) +
   labs(subtitle="SpeciesLink", size=8)+ 
   scale_fill_manual (values = c('#f0f0f0','#7866D8','#767F00','#CC476B','#009681'))+
   labs(fill = " ")+
   theme_minimal()
+dev.off()
 
 
 grp1 <- cutree(hc3, k = 4)
@@ -1019,6 +1033,7 @@ PostHocTest(mod, method = "hsd")
 
 # k = 5
 
+png("6215.png", width = 1500, height = 2000)
 tanglegram(dend3, dend4,
            highlight_distinct_edges = FALSE, 
            common_subtrees_color_lines = TRUE, 
@@ -1027,25 +1042,29 @@ tanglegram(dend3, dend4,
            main_right = "SpeciesLink",
            lwd = .5,
            k_branches = 5)
+dev.off()
 
 maps2$WK5 <- factor(maps2$WK5, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3", "Grupo 4", "Grupo 5"))
 
 maps2$SK5 <- factor(maps2$SK5, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3", "Grupo 4", "Grupo 5"))
 
+png("62251.png", width = 600, height = 300)
 ggplot(maps2) +
   geom_sf(aes(fill=WK5), color = NA) +
   labs(subtitle="Wikiaves", size=8)+ 
   scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
+dev.off()
 
+png("62252.png", width = 600, height = 300)
 ggplot(maps2) +
   geom_sf(aes(fill=SK5), color = NA) +
   labs(subtitle="SpeciesLink", size=8)+ 
   scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
-
+dev.off()
 
 grp1 <- cutree(hc3, k = 5)
 grp1
