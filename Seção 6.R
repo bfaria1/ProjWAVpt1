@@ -705,8 +705,7 @@ ggplot(maps) +
   geom_sf(aes(fill=SLI9), color = NA) +
   labs(subtitle="SpeciesLink", size=8)+ 
   scale_fill_manual (values = c('#f0f0f0','#C03FBE','#4473D7','#0093A9','#00944F','#5D8400','#A86B00','#CC476B','#7866D8','#009681'))+
-  labs(fill = " ")+9
-
+  labs(fill = " ")+
   theme_minimal()
 dev.off()
 
@@ -733,6 +732,25 @@ tanglegram(dend3, dend4,
            main_right = "SpeciesLink",
            lwd = .5,
            k_branches = 2)
+
+maps2$WK2 <- factor(maps2$WK2, levels=c("Sem Registro", "Grupo 1", "Grupo 2"))
+
+maps2$SK2 <- factor(maps2$SK2, levels=c("Sem Registro", "Grupo 1", "Grupo 2"))
+
+
+ggplot(maps2) +
+  geom_sf(aes(fill=WK2), color = NA) +
+  labs(subtitle="Wikiaves", size=8)+ 
+  scale_fill_manual (values = c('#f0f0f0','#009681','#CC476B'))+
+  labs(fill = " ")+
+  theme_minimal()
+
+ggplot(maps2) +
+  geom_sf(aes(fill=SK2), color = NA) +
+  labs(subtitle="SpeciesLink", size=8)+ 
+  scale_fill_manual (values = c('#f0f0f0','#009681','#CC476B'))+
+  labs(fill = " ")+
+  theme_minimal()
 
 
 grp1 <- cutree(hc3, k = 2)
@@ -767,16 +785,16 @@ leveneTest(LA ~ GS2, N, mean)
 leveneTest(LO ~ GS2, N, mean)
 
 oneway.test(AL ~ GW2, data = N, var.equal=FALSE)
-oneway.test(AR ~ GW2, data = N, var.equal=FALSE)
-oneway.test(POP ~ GW2, data = N, var.equal=FALSE)
-oneway.test(LA ~ GW2, data = N, var.equal=FALSE)
-oneway.test(LO ~ GW2, data = N, var.equal=FALSE)
+oneway.test(AR ~ GW2, data = N, var.equal=TRUE)
+oneway.test(POP ~ GW2, data = N, var.equal=TRUE)
+oneway.test(LA ~ GW2, data = N, var.equal=TRUE)
+oneway.test(LO ~ GW2, data = N, var.equal=TRUE)
 
-oneway.test(AL ~ GS2, data = N, var.equal=FALSE)
+oneway.test(AL ~ GS2, data = N, var.equal=TRUE)
 oneway.test(AR ~ GS2, data = N, var.equal=TRUE)
 oneway.test(POP ~ GS2, data = N, var.equal=TRUE)
 oneway.test(LA ~ GS2, data = N, var.equal=FALSE)
-oneway.test(LO ~ GS2, data = N, var.equal=TRUE)
+oneway.test(LO ~ GS2, data = N, var.equal=FALSE)
 
 
 mod <- aov(AL ~ GW2, N)
@@ -813,6 +831,27 @@ tanglegram(dend3, dend4,
            lwd = .5,
            k_branches = 3)
 
+maps2$WK3 <- factor(maps2$WK3, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3"))
+
+maps2$SK3 <- factor(maps2$SK3, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3"))
+
+
+ggplot(maps2) +
+  geom_sf(aes(fill=WK3), color = NA) +
+  labs(subtitle="Wikiaves", size=8)+ 
+  scale_fill_manual (values = c('#f0f0f0','#0082CE','#228B00','#CC476B'))+
+  labs(fill = " ")+
+  theme_minimal()
+
+
+
+ggplot(maps2) +
+  geom_sf(aes(fill=SK3), color = NA) +
+  labs(subtitle="SpeciesLink", size=8)+ 
+  scale_fill_manual (values = c('#f0f0f0','#0082CE','#228B00','#CC476B'))+
+  labs(fill = " ")+
+  theme_minimal()
+
 
 grp1 <- cutree(hc3, k = 3)
 grp1
@@ -846,17 +885,17 @@ leveneTest(POP ~ GS3, N, mean)
 leveneTest(LA ~ GS3, N, mean)
 leveneTest(LO ~ GS3, N, mean)
 
-oneway.test(AL ~ GW3, data = N, var.equal=FALSE)
-oneway.test(AR ~ GW3, data = N, var.equal=FALSE)
+oneway.test(AL ~ GW3, data = N, var.equal=TRUE)
+oneway.test(AR ~ GW3, data = N, var.equal=TRUE)
 oneway.test(POP ~ GW3, data = N, var.equal=FALSE)
-oneway.test(LA ~ GW3, data = N, var.equal=FALSE)
-oneway.test(LO ~ GW3, data = N, var.equal=FALSE)
+oneway.test(LA ~ GW3, data = N, var.equal=TRUE)
+oneway.test(LO ~ GW3, data = N, var.equal=TRUE)
 
 oneway.test(AL ~ GS3, data = N, var.equal=FALSE)
 oneway.test(AR ~ GS3, data = N, var.equal=TRUE)
 oneway.test(POP ~ GS3, data = N, var.equal=TRUE)
 oneway.test(LA ~ GS3, data = N, var.equal=FALSE)
-oneway.test(LO ~ GS3, data = N, var.equal=TRUE)
+oneway.test(LO ~ GS3, data = N, var.equal=FALSE)
 
 
 mod <- aov(AL ~ GW3, N)
@@ -893,6 +932,24 @@ tanglegram(dend3, dend4,
            lwd = .5,
            k_branches = 4)
 
+maps2$WK4 <- factor(maps2$WK4, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3", "Grupo 4"))
+
+maps2$SK4 <- factor(maps2$SK4, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3", "Grupo 4"))
+
+ggplot(maps2) +
+  geom_sf(aes(fill=WK4), color = NA) +
+  labs(subtitle="Wikiaves", size=8)+ 
+  scale_fill_manual (values = c('#f0f0f0','#7866D8','#767F00','#CC476B','#009681'))+
+  labs(fill = " ")+
+  theme_minimal()
+
+ggplot(maps2) +
+  geom_sf(aes(fill=SK4), color = NA) +
+  labs(subtitle="SpeciesLink", size=8)+ 
+  scale_fill_manual (values = c('#f0f0f0','#7866D8','#767F00','#CC476B','#009681'))+
+  labs(fill = " ")+
+  theme_minimal()
+
 
 grp1 <- cutree(hc3, k = 4)
 grp1
@@ -926,10 +983,10 @@ leveneTest(LA ~ GS4, N, mean)
 leveneTest(LO ~ GS4, N, mean)
 
 oneway.test(AL ~ GW4, data = N, var.equal=FALSE)
-oneway.test(AR ~ GW4, data = N, var.equal=FALSE)
+oneway.test(AR ~ GW4, data = N, var.equal=TRUE)
 oneway.test(POP ~ GW4, data = N, var.equal=FALSE)
-oneway.test(LA ~ GW4, data = N, var.equal=FALSE)
-oneway.test(LO ~ GW4, data = N, var.equal=FALSE)
+oneway.test(LA ~ GW4, data = N, var.equal=TRUE)
+oneway.test(LO ~ GW4, data = N, var.equal=TRUE)
 
 oneway.test(AL ~ GS4, data = N, var.equal=FALSE)
 oneway.test(AR ~ GS4, data = N, var.equal=TRUE)
@@ -971,6 +1028,24 @@ tanglegram(dend3, dend4,
            lwd = .5,
            k_branches = 5)
 
+maps2$WK5 <- factor(maps2$WK5, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3", "Grupo 4", "Grupo 5"))
+
+maps2$SK5 <- factor(maps2$SK5, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3", "Grupo 4", "Grupo 5"))
+
+ggplot(maps2) +
+  geom_sf(aes(fill=WK5), color = NA) +
+  labs(subtitle="Wikiaves", size=8)+ 
+  scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B'))+
+  labs(fill = " ")+
+  theme_minimal()
+
+ggplot(maps2) +
+  geom_sf(aes(fill=SK5), color = NA) +
+  labs(subtitle="SpeciesLink", size=8)+ 
+  scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B'))+
+  labs(fill = " ")+
+  theme_minimal()
+
 
 grp1 <- cutree(hc3, k = 5)
 grp1
@@ -1003,15 +1078,15 @@ leveneTest(POP ~ GS5, N, mean)
 leveneTest(LA ~ GS5, N, mean)
 leveneTest(LO ~ GS5, N, mean)
 
-oneway.test(AL ~ GW5, data = N, var.equal=FALSE)
-oneway.test(AR ~ GW5, data = N, var.equal=FALSE)
+oneway.test(AL ~ GW5, data = N, var.equal=TRUE)
+oneway.test(AR ~ GW5, data = N, var.equal=TRUE)
 oneway.test(POP ~ GW5, data = N, var.equal=FALSE)
 oneway.test(LA ~ GW5, data = N, var.equal=FALSE)
-oneway.test(LO ~ GW5, data = N, var.equal=FALSE)
+oneway.test(LO ~ GW5, data = N, var.equal=TRUE)
 
-oneway.test(AL ~ GS5, data = N, var.equal=FALSE)
+oneway.test(AL ~ GS5, data = N, var.equal=TRUE)
 oneway.test(AR ~ GS5, data = N, var.equal=TRUE)
-oneway.test(POP ~ GS5, data = N, var.equal=TRUE)
+oneway.test(POP ~ GS5, data = N, var.equal=FALSE)
 oneway.test(LA ~ GS5, data = N, var.equal=FALSE)
 oneway.test(LO ~ GS5, data = N, var.equal=TRUE)
 
