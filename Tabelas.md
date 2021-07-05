@@ -53,6 +53,4 @@
 
 ## Seção 6
 
-#### Tabela 12.
 
-![Tabela 12](https://github.com/bfaria1/ProjWAV/blob/master/Tabelas/12.png)
