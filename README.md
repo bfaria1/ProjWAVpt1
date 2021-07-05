@@ -37,6 +37,8 @@ Janeiro, 2021
 
 [Seção 6](https://github.com/bfaria1/ProjWAV/tree/master/Excel/S6)
 
+[Seção 7](https://github.com/bfaria1/ProjWAV/tree/master/Excel/S7)
+
 ## Código R por seção:
 
 [Seção 1](https://github.com/bfaria1/ProjWAV/blob/master/Seção%201.R)
@@ -49,7 +51,9 @@ Janeiro, 2021
 
 [Seção 5](https://github.com/bfaria1/ProjWAV/blob/master/Seção%205.R)
 
-[Rascunho - Analise Multivariada](https://github.com/bfaria1/ProjWAV/blob/master/Rascunho%20-%20Análise%20Multivariada.R)
+[Seção 6](https://github.com/bfaria1/ProjWAV/blob/master/Seção%206.R)
+
+[Seção 7](https://github.com/bfaria1/ProjWAV/blob/master/Seção%207R)
 
 [Arquivo Completo (.Rmd)](https://github.com/bfaria1/ProjWAV/blob/master/ProjWAV.Rmd)
 
