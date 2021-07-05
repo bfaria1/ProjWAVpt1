@@ -53,7 +53,7 @@ Janeiro, 2021
 
 [Seção 6](https://github.com/bfaria1/ProjWAV/blob/master/Seção%206.R)
 
-[Seção 7](https://github.com/bfaria1/ProjWAV/blob/master/Seção%207R)
+[Seção 7](https://github.com/bfaria1/ProjWAV/blob/master/Seção%207.R)
 
 [Arquivo Completo (.Rmd)](https://github.com/bfaria1/ProjWAV/blob/master/ProjWAV.Rmd)
 
