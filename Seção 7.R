@@ -118,6 +118,9 @@ modloW2 <- lm(EW2 ~ LOW2, dados)
 modAW2 <- lm(EW2 ~ AW2, dados)
 modRW2 <- lm(EW2 ~ RW2, dados)
 
+
+
+
 par(mfrow =c(2,2))
 
 plot(modMW1)
