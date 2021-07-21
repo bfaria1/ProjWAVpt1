@@ -24,6 +24,20 @@ dados2 <-read.xlsx("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/
 mapas<-read.xlsx("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/Dados.xlsx", sheet = "Mapas")
 mc <- read_municipality(code_muni= "SP")
 
+FE1 <- dados1[,12:16]
+ALX <- dados1[,12:12]
+ARX <- dados1[,13:13]
+POPX <- dados1[,14:14]
+LAX <- dados1[,15:15]
+LOX <- dados1[,16:16]
+
+FE2 <- dados2[,12:16]
+ALY <- dados2[,12:12]
+ARY <- dados2[,13:13]
+POPY <- dados2[,14:14]
+LAY <- dados2[,15:15]
+LOY <- dados2[,16:16]
+
 mapas <- merge(mc,mapas)
 
 A1 <- vegdist(WAV1, method = "jaccard", binary = TRUE)
@@ -31,6 +45,21 @@ B1 <- vegdist(SLI1, method = "jaccard", binary = TRUE)
 A2 <- vegdist(WAV2, method = "jaccard", binary = TRUE)
 B2 <- vegdist(SLI2, method = "jaccard", binary = TRUE)
 
+ambiente1 <- decostand(FE1, method = "standardize")
+dist.amb1 <- vegdist(ambiente1, method = "euclid")
+AL1 <- vegdist(ALX, method = "euclid")
+AR1 <- vegdist(ARX, method = "euclid")
+POP1 <- vegdist(POPX, method = "euclid")
+LA1 <- vegdist(LAX, method = "euclid")
+LO1 <- vegdist(LOX, method = "euclid")
+
+ambiente2 <- decostand(FE2, method = "standardize")
+dist.amb2 <- vegdist(ambiente2, method = "euclid")
+AL2 <- vegdist(ALY, method = "euclid")
+AR2 <- vegdist(ARY, method = "euclid")
+POP2 <- vegdist(POPY, method = "euclid")
+LA2 <- vegdist(LAY, method = "euclid")
+LO2 <- vegdist(LOY, method = "euclid")
 
 CA1 <- hclust(A1, method = "ward.D2")
 CB1 <- hclust(B1, method = "ward.D2")
@@ -43,6 +72,27 @@ dendB1 <- as.dendrogram (CB1)
 dendB2 <- as.dendrogram (CB2)
 
 # N = 71
+
+
+mantel(A1, B1, permutations = 10000)
+
+mantel(dist.amb1, A1, permutations = 10000)
+mantel(dist.amb1, B1, permutations = 10000)
+
+mantel(AL1, A1, permutations = 10000)
+mantel(AL1, B1, permutations = 10000)
+
+mantel(AR1, A1, permutations = 10000)
+mantel(AR1, B1, permutations = 10000)
+
+mantel(POP1, A1, permutations = 10000)
+mantel(POP1, B1, permutations = 10000)
+
+mantel(LA1, A1, permutations = 10000)
+mantel(LA1, B1, permutations = 10000)
+
+mantel(LO1, A1, permutations = 10000)
+mantel(LO1, B1, permutations = 10000)
 
 ## K = 2
 
@@ -242,6 +292,26 @@ ggplot(mapas) +
   theme_minimal()
 
 # N = 46
+
+mantel(A2, B2, permutations = 10000)
+
+mantel(dist.amb2, A2, permutations = 10000)
+mantel(dist.amb2, B2, permutations = 10000)
+
+mantel(AL2, A2, permutations = 10000)
+mantel(AL2, B2, permutations = 10000)
+
+mantel(AR2, A2, permutations = 10000)
+mantel(AR2, B2, permutations = 10000)
+
+mantel(POP2, A2, permutations = 10000)
+mantel(POP2, B2, permutations = 10000)
+
+mantel(LA2, A2, permutations = 10000)
+mantel(LA2, B2, permutations = 10000)
+
+mantel(LO2, A2, permutations = 10000)
+mantel(LO2, B2, permutations = 10000)
 
 ## K = 2
 
