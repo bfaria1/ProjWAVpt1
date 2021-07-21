@@ -45,7 +45,9 @@ B1 <- vegdist(SLI1, method = "jaccard", binary = TRUE)
 A2 <- vegdist(WAV2, method = "jaccard", binary = TRUE)
 B2 <- vegdist(SLI2, method = "jaccard", binary = TRUE)
 
+
 dist.amb1 <- vegdist(FE1, method = "euclid")
+
 AL1 <- vegdist(ALX, method = "euclid")
 AR1 <- vegdist(ARX, method = "euclid")
 POP1 <- vegdist(POPX, method = "euclid")
@@ -53,6 +55,7 @@ LA1 <- vegdist(LAX, method = "euclid")
 LO1 <- vegdist(LOX, method = "euclid")
 
 dist.amb2 <- vegdist(FE2, method = "euclid")
+
 AL2 <- vegdist(ALY, method = "euclid")
 AR2 <- vegdist(ARY, method = "euclid")
 POP2 <- vegdist(POPY, method = "euclid")
