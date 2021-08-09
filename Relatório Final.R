@@ -2,7 +2,7 @@
 
 library(pacman)
 
-pacman::p_load(dplyr, car, rstatix, lmtest, ggpubr, QuantPsyc, psych, ggplot2, openxlsx, permute, lattice, vegan,geosphere,tidyverse, cluster, gclus, factoextra, dendextend, sf,geobr, ade4,multcomp, emmeans, RVAideMemoire, DescTools,RColorBrewer, tidyr, hrbrthemes,  FD, ggcorrplot, moments,  usethis)
+pacman::p_load(ggthemes, dplyr, car, rstatix, lmtest, ggpubr, QuantPsyc, psych, ggplot2, openxlsx, permute, lattice, vegan,geosphere,tidyverse, cluster, gclus, factoextra, dendextend, sf,geobr, ade4,multcomp, emmeans, RVAideMemoire, DescTools,RColorBrewer, tidyr, hrbrthemes,  FD, ggcorrplot, moments,  usethis)
 
 WS <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S1/WAVxSPL.xlsx") 
 WAV <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S1/WAV.xlsx") 
@@ -1097,34 +1097,34 @@ mapas<-read.xlsx("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/Da
 mc <- read_municipality(code_muni= "SP")
 mapas <- merge(mc,mapas)
 
-mapas$N1WK2 <- factor(mapas$N1WK2, levels=c("Sem Registro", "Grupo 1", "Grupo 2"))
-mapas$N1SK2 <- factor(mapas$N1SK2, levels=c("Sem Registro", "Grupo 1", "Grupo 2"))
-mapas$N1WK3 <- factor(mapas$N1WK3, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3"))
-mapas$N1SK3 <- factor(mapas$N1SK3, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3"))
-mapas$N1WK4 <- factor(mapas$N1WK4, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3", "Grupo 4"))
-mapas$N1SK4 <- factor(mapas$N1SK4, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3", "Grupo 4"))
-mapas$N1WK5 <- factor(mapas$N1WK5, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3", "Grupo 4", "Grupo 5"))
-mapas$N1SK5 <- factor(mapas$N1SK5, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3", "Grupo 4", "Grupo 5"))
-mapas$N2WK2 <- factor(mapas$N2WK2, levels=c("Sem Registro", "Grupo 1", "Grupo 2"))
-mapas$N2SK2 <- factor(mapas$N2SK2, levels=c("Sem Registro", "Grupo 1", "Grupo 2"))
-mapas$N2WK3 <- factor(mapas$N2WK3, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3"))
-mapas$N2SK3 <- factor(mapas$N2SK3, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3"))
-mapas$N2WK4 <- factor(mapas$N2WK4, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3", "Grupo 4"))
-mapas$N2SK4 <- factor(mapas$N2SK4, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3", "Grupo 4"))
-mapas$N2WK5 <- factor(mapas$N2WK5, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3", "Grupo 4", "Grupo 5"))
-mapas$N2SK5 <- factor(mapas$N2SK5, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3", "Grupo 4", "Grupo 5"))
+mapas$N1WK2 <- factor(mapas$N1WK2, levels=c("Sem Registro", "Grupo 1", "Grupo 2"), labels = c("Sem Registro", "Grupo 1 (N = 34)", "Grupo 2 (N = 37)"))
+mapas$N1SK2 <- factor(mapas$N1SK2, levels=c("Sem Registro", "Grupo 1", "Grupo 2"), labels = c("Sem Registro", "Grupo 1 (N = 34)", "Grupo 2 (N = 37)"))
+mapas$N1WK3 <- factor(mapas$N1WK3, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3"), labels = c("Sem Registro", "Grupo 1 (N = 28)", "Grupo 2 (N = 37)", "Grupo 3 (N = 6)"))
+mapas$N1SK3 <- factor(mapas$N1SK3, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3"), labels = c("Sem Registro", "Grupo 1 (N = 24)", "Grupo 2 (N = 36)", "Grupo 3 (N = 11)"))
+mapas$N1WK4 <- factor(mapas$N1WK4, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3", "Grupo 4"), labels = c("Sem Registro", "Grupo 1 (N = 28)", "Grupo 2 (N = 17)", "Grupo 3 (N = 20)", "Grupo 4 (N = 6)"))
+mapas$N1SK4 <- factor(mapas$N1SK4, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3", "Grupo 4"), labels = c("Sem Registro", "Grupo 1 (N = 24)", "Grupo 2 (N = 18)", "Grupo 3 (N = 21)", "Grupo 4 (N = 11)"))
+mapas$N1WK5 <- factor(mapas$N1WK5, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3", "Grupo 4", "Grupo 5"), labels = c("Sem Registro", "Grupo 1 (N = 17)", "Grupo 2 (N = 11)","Grupo 3 (N = 17)", "Grupo 4 (N = 20)", "Grupo 5 (N = 6)"))
+mapas$N1SK5 <- factor(mapas$N1SK5, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3", "Grupo 4", "Grupo 5"), labels = c("Sem Registro", "Grupo 1 (N = 21)", "Grupo 2 (N = 17)","Grupo 3 (N = 20)", "Grupo 4 (N = 10)", "Grupo 5 (N = 3)"))
+mapas$N2WK2 <- factor(mapas$N2WK2, levels=c("Sem Registro", "Grupo 1", "Grupo 2"), labels = c("Sem Registro", "Grupo 1 (N = 21)", "Grupo 2 (N = 25)"))
+mapas$N2SK2 <- factor(mapas$N2SK2, levels=c("Sem Registro", "Grupo 1", "Grupo 2"), labels = c("Sem Registro", "Grupo 1 (N = 30)", "Grupo 2 (N = 16)"))
+mapas$N2WK3 <- factor(mapas$N2WK3, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3"), labels = c("Sem Registro", "Grupo 1 (N = 21)", "Grupo 2 (N = 12)","Grupo 3 (N = 13)"))
+mapas$N2SK3 <- factor(mapas$N2SK3, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3"), labels = c("Sem Registro", "Grupo 1 (N = 16)", "Grupo 2 (N = 14)","Grupo 3 (N = 16)"))
+mapas$N2WK4 <- factor(mapas$N2WK4, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3", "Grupo 4"), labels = c("Sem Registro", "Grupo 1 (N = 7)", "Grupo 2 (N = 14)","Grupo 3 (N = 12)", "Grupo 4 (N = 13)"))
+mapas$N2SK4 <- factor(mapas$N2SK4, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3", "Grupo 4"), labels = c("Sem Registro", "Grupo 1 (N = 10)", "Grupo 2 (N = 6)","Grupo 3 (N = 14)", "Grupo 4 (N = 16)"))
+mapas$N2WK5 <- factor(mapas$N2WK5, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3", "Grupo 4", "Grupo 5"), labels = c("Sem Registro", "Grupo 1 (N = 7)", "Grupo 2 (N = 14)","Grupo 3 (N = 7)", "Grupo 4 (N = 13)", "Grupo 5 (N = 5)"))
+mapas$N2SK5 <- factor(mapas$N2SK5, levels=c("Sem Registro", "Grupo 1", "Grupo 2","Grupo 3", "Grupo 4", "Grupo 5"), labels = c("Sem Registro", "Grupo 1 (N = 10)", "Grupo 2 (N = 6)","Grupo 3 (N = 14)", "Grupo 4 (N = 11)", "Grupo 5 (N = 5)"))
 
 
 AW1 <- ggplot(mapas) +
     geom_sf(aes(fill=N1WK2), color = NA) +
-    labs(subtitle="Wikiaves", size=8)+ 
+    labs(title="AW1")+ 
     scale_fill_manual (values = c('#f0f0f0','#009681','#CC476B'))+
     labs(fill = " ")+
     theme_minimal()
 
 AS1 <- ggplot(mapas) +
     geom_sf(aes(fill=N1SK2), color = NA) +
-    labs(subtitle="SpeciesLink", size=8)+ 
+    labs(title="AS1")+ 
     scale_fill_manual (values = c('#f0f0f0','#009681','#CC476B'))+
     labs(fill = " ")+
     theme_minimal()
@@ -1132,28 +1132,28 @@ AS1 <- ggplot(mapas) +
 
 AW2 <- ggplot(mapas) +
   geom_sf(aes(fill=N1WK3), color = NA) +
-  labs(subtitle="Wikiaves", size=8)+ 
+  labs(subtitle="Aw2")+ 
   scale_fill_manual (values = c('#f0f0f0','#0082CE','#228B00','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
 
 AS2 <- ggplot(mapas) +
   geom_sf(aes(fill=N1SK3), color = NA) +
-  labs(subtitle="SpeciesLink", size=8)+ 
+  labs(subtitle="AS2")+ 
   scale_fill_manual (values = c('#f0f0f0','#0082CE','#228B00','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
 
 AW3 <- ggplot(mapas) +
   geom_sf(aes(fill=N1WK4), color = NA) +
-  labs(subtitle="Wikiaves", size=8)+ 
+  labs(subtitle="AW3")+ 
   scale_fill_manual (values = c('#f0f0f0','#7866D8','#767F00','#CC476B','#009681'))+
   labs(fill = " ")+
   theme_minimal()
 
 AS3 <- ggplot(mapas) +
   geom_sf(aes(fill=N1SK4), color = NA) +
-  labs(subtitle="SpeciesLink", size=8)+ 
+  labs(subtitle="AS3")+ 
   scale_fill_manual (values = c('#f0f0f0','#7866D8','#767F00','#CC476B','#009681'))+
   labs(fill = " ")+
   theme_minimal()
@@ -1161,7 +1161,7 @@ AS3 <- ggplot(mapas) +
 
 AW4 <- ggplot(mapas) +
   geom_sf(aes(fill=N1WK5), color = NA) +
-  labs(subtitle="Wikiaves", size=8)+ 
+  labs(subtitle="AW4")+ 
   scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
@@ -1169,21 +1169,21 @@ AW4 <- ggplot(mapas) +
 
 AS4 <- ggplot(mapas) +
   geom_sf(aes(fill=N1SK5), color = NA) +
-  labs(subtitle="SpeciesLink", size=8)+ 
+  labs(subtitle="AS4")+ 
   scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
 
 BW1 <- ggplot(mapas) +
   geom_sf(aes(fill=N2WK2), color = NA) +
-  labs(subtitle="Wikiaves", size=8)+ 
+  labs(subtitle="BW1")+ 
   scale_fill_manual (values = c('#f0f0f0','#009681','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
 
 BS1 <- ggplot(mapas) +
   geom_sf(aes(fill=N2SK2), color = NA) +
-  labs(subtitle="SpeciesLink", size=8)+ 
+  labs(subtitle="BS1")+ 
   scale_fill_manual (values = c('#f0f0f0','#009681','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
@@ -1191,28 +1191,28 @@ BS1 <- ggplot(mapas) +
 
 BW2 <- ggplot(mapas) +
   geom_sf(aes(fill=N2WK3), color = NA) +
-  labs(subtitle="Wikiaves", size=8)+ 
+  labs(subtitle="BW2")+ 
   scale_fill_manual (values = c('#f0f0f0','#0082CE','#228B00','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
 
 BS2 <- ggplot(mapas) +
   geom_sf(aes(fill=N2SK3), color = NA) +
-  labs(subtitle="SpeciesLink", size=8)+ 
+  labs(subtitle="BS2")+ 
   scale_fill_manual (values = c('#f0f0f0','#0082CE','#228B00','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
 
 BW3 <- ggplot(mapas) +
   geom_sf(aes(fill=N2WK4), color = NA) +
-  labs(subtitle="Wikiaves", size=8)+ 
+  labs(subtitle="BW3")+ 
   scale_fill_manual (values = c('#f0f0f0','#7866D8','#767F00','#CC476B','#009681'))+
   labs(fill = " ")+
   theme_minimal()
 
 BS3 <- ggplot(mapas) +
   geom_sf(aes(fill=N2SK4), color = NA) +
-  labs(subtitle="SpeciesLink", size=8)+ 
+  labs(subtitle="BS3")+ 
   scale_fill_manual (values = c('#f0f0f0','#7866D8','#767F00','#CC476B','#009681'))+
   labs(fill = " ")+
   theme_minimal()
@@ -1220,7 +1220,7 @@ BS3 <- ggplot(mapas) +
 
 BW4 <- ggplot(mapas) +
   geom_sf(aes(fill=N2WK5), color = NA) +
-  labs(subtitle="Wikiaves", size=8)+ 
+  labs(subtitle="Bw4")+ 
   scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
@@ -1228,7 +1228,7 @@ BW4 <- ggplot(mapas) +
 
 BS4 <- ggplot(mapas) +
   geom_sf(aes(fill=N2SK5), color = NA) +
-  labs(subtitle="SpeciesLink", size=8)+ 
+  labs(subtitle="BS4")+ 
   scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
