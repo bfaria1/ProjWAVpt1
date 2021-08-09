@@ -123,7 +123,8 @@ dados$L <- factor(dados$L, levels = c("WAV (N = 631)", "SLI (N = 174)", "WAV 2 (
 G1 <- ggplot(dados, aes(x = xi, y = yi, group = Li, colour = Li))+
   geom_line()+
   scale_colour_manual(values = c("blue", "red", "green")) +
-  labs(x = "Número de Registros (Log10)",
+  labs(title = "(B)",
+       x = "Número de Registros (Log10)",
        y = "Frequência Relativa (%)",
        colour = " ")+
   theme_classic()
@@ -194,7 +195,8 @@ dados$L <- factor(dados$L, levels = c("WAV (N = 631)", "SLI (N = 174)", "WAV 2 (
 G2 <- ggplot(dados, aes(x = xj, y = yj, group = Lj, colour = Lj))+
   geom_line()+
   scale_colour_manual(values = c("blue", "red", "green")) +
-  labs(x = "Número de Espécies (Log10)",
+  labs(title= "(A)",
+       x = "Número de Espécies (Log10)",
        y = "Frequência Relativa (%)",
        colour = " ")+
   theme_classic()
@@ -266,12 +268,13 @@ dados$L <- factor(dados$L, levels = c("WAV (S = 790)", "SLI (S = 661)", "WAV 2 (
 G3 <- ggplot(dados, aes(x = xk, y = yk, group = Lk, colour = Lk))+
   geom_line()+
   scale_colour_manual(values = c("blue", "red", "green")) +
-  labs(x = "Número de Registros por Espécie (Log10)",
+  labs(title = "(C)",
+       x = "Número de Registros por Espécie (Log10)",
        y = "Frequência Relativa (%)",
        colour = " ")+
   theme_classic()
 
-ggarrange(G1,G2,G3, ncol = 2, nrow = 2)
+ggarrange(G2,G1,G3, ncol = 2, nrow = 2)
 
 rm(list=ls())
 
@@ -376,7 +379,8 @@ grafico1 <- ggplot(dados, aes(x = A2, y = A1))+
               fullrange = TRUE,
               col = "red",
               size = 1)+
-  labs( x ="Número de Registros SpeciesLink (Log10)",
+  labs( title = "(B)",
+        x ="Número de Registros SpeciesLink (Log10)",
         y =  "Número de Registros Wikiaves (Log10)")+
   theme_classic()
 
@@ -390,7 +394,8 @@ grafico2 <- ggplot(dados, aes(x = B2, y = B1))+
               fullrange = TRUE,
               col = "red",
               size = 1)+
-  labs( x ="Número de Espécies SpeciesLink (Log10)",
+  labs( title = "(C)",
+        x ="Número de Espécies SpeciesLink (Log10)",
         y =  "Número de Espécies Wikiaves (Log10)")+
   theme_classic()
 
@@ -409,7 +414,8 @@ grafico3 <- ggplot(dados, aes(x = C1, y = C2, color = L1))+
               se = FALSE,
               fullrange = TRUE,
               size = 1)+
-  labs( x ="Número de Registros (Log10)",
+  labs( title = "(A)",
+        x ="Número de Registros (Log10)",
         y =  "Número de Espécies (Log10)",
         colour = " ")+
   theme_classic()
@@ -527,7 +533,8 @@ dados1$Legenda <- factor(dados1$Legenda, levels = c("WAV (N = 631)", "SLI (N = 1
 A <- ggplot(dados1, aes(x = x, y = C1, group = Legenda, colour = Legenda))+
   geom_line()+
   scale_colour_manual(values = c("blue", "red")) +
-  labs(x = "Altitude (m)",
+  labs(title = "(A)",
+       x = "Altitude (m)",
        y = "Frequência Relativa %",
        colour = " ")+
   theme_classic()
@@ -585,7 +592,8 @@ dados2$Legenda <- factor(dados2$Legenda, levels = c("WAV (N = 631)", "SLI (N = 1
 B <- ggplot(dados2, aes(x = x, y = C2, group = Legenda, colour = Legenda))+
   geom_line()+
   scale_colour_manual(values = c("blue", "red")) +
-  labs(x = "Área (Log10(km^2))",
+  labs(title = "(B)",
+       x = "Área (Log10(km^2))",
        y = "Frequência Relativa (%)",
        colour = " ")+
   theme_classic()
@@ -644,7 +652,8 @@ dados3$Legenda <- factor(dados3$Legenda, levels = c("WAV (N = 631)", "SLI (N = 1
 C <- ggplot(dados3, aes(x = x, y = C3, group = Legenda, colour = Legenda))+
   geom_line()+
   scale_colour_manual(values = c("blue", "red")) +
-  labs(x = "Número de habitantes (Log10)",
+  labs(title = "(C)",
+       x = "Número de habitantes (Log10)",
        y = "Frequência Relativa (%)",
        colour = " ")+
   theme_classic()
@@ -700,7 +709,8 @@ dados4$Legenda <- factor(dados4$Legenda, levels = c("WAV (N = 631)", "SLI (N = 1
 D <- ggplot(dados4, aes(x = x, y = C4, group = Legenda, colour = Legenda))+
   geom_line()+
   scale_colour_manual(values = c("blue", "red")) +
-  labs(x = "Latitude (º)",
+  labs(title = "(D)",
+       x = "Latitude (º)",
        y = "Frequência Relativa (%)",
        colour = " ")+
   theme_classic()
@@ -757,7 +767,8 @@ dados5$Legenda <- factor(dados5$Legenda, levels = c("WAV (N = 631)", "SLI (N = 1
 E <- ggplot(dados5, aes(x = x, y = C5, group = Legenda, colour = Legenda))+
   geom_line()+
   scale_colour_manual(values = c("blue", "red")) +
-  labs(x = "Longitude (º)",
+  labs(title = "(E)",
+       x = "Longitude (º)",
        y = "Frequência Relativa (%)",
        colour = " ")+
   theme_classic()
@@ -838,7 +849,8 @@ A1 <- ggplot(AL, aes(x = FR, y = R, colour = L1))+
               se = FALSE,
               fullrange = TRUE,
               size = 1)+
-  labs( x ="Altitude (m)",
+  labs( title = "(B1)",
+        x ="Altitude (m)",
         y =  "Número de Registros (Log10)",
         colour = " ")+
   theme_classic()
@@ -856,7 +868,8 @@ A2 <- ggplot(AL, aes(x = FE, y = E, color = L2))+
               se = FALSE,
               fullrange = TRUE,
               size = 1)+
-  labs( x = "Altitude (m)",
+  labs( title = "(A1)",
+        x = "Altitude (m)",
         y = "Número de Espécies (Log10)",
         colour = " ")+
   theme_classic()
@@ -875,7 +888,8 @@ B1 <- ggplot(AR, aes(x = FR, y = R, color = L1))+
               se = FALSE,
               fullrange = TRUE,
               size = 1)+
-  labs( x ="Área (Log10(Km^2))",
+  labs( title = "(B2)",
+        x ="Área (Log10(Km^2))",
         y =  "Número de Registros (Log10)",
         colour = " ")+
   theme_classic()
@@ -892,7 +906,8 @@ B2 <- ggplot(AR, aes(x = FE, y = E, color = L2))+
               se = FALSE,
               fullrange = TRUE,
               size = 1)+
-  labs( x = "Área (Log10(Km^2))",
+  labs( title = "(A2)",
+        x = "Área (Log10(Km^2))",
         y = "Número de Espécies (Log10)",
         colour = " ")+
   theme_classic()
@@ -912,7 +927,8 @@ C1 <- ggplot(POP, aes(x = FR, y = R, color = L1))+
               se = FALSE,
               fullrange = TRUE,
               size = 1)+
-  labs( x ="População (Log10)",
+  labs( title = "(B3)",
+        x ="População (Log10)",
         y =  "Número de Registros (Log10)",
         colour = " ")+
   theme_classic()
@@ -930,7 +946,8 @@ C2 <- ggplot(POP, aes(x = FE, y = E, color = L2))+
               se = FALSE,
               fullrange = TRUE,
               size = 1)+
-  labs( x = "População (Log10)",
+  labs( title = "(A3)",
+        x = "População (Log10)",
         y = "Número de Espécies (Log10)",
         color = " ")+
   theme_classic()
@@ -950,7 +967,8 @@ D1 <- ggplot(LA, aes(x = FR, y = R, color = L1))+
               se = FALSE,
               fullrange = TRUE,
               size = 1)+
-  labs( x ="Latitude (º)",
+  labs( title = "(B4)",
+        x ="Latitude (º)",
         y =  "Número de Registros (Log10)",
         colour = " ")+
   theme_classic()
@@ -968,7 +986,8 @@ D2 <- ggplot(LA, aes(x = FE, y = E, color = L2))+
               se = FALSE,
               fullrange = TRUE,
               size = 1)+
-  labs( x ="Latitude (º)",
+  labs( title = "(A4)",
+        x ="Latitude (º)",
         y = "Número de Espécies (Log10)",
         colour = " ")+
   theme_classic()
@@ -988,7 +1007,8 @@ E1 <- ggplot(LO, aes(x = FR, y = R, color = L1))+
               se = FALSE,
               fullrange = TRUE,
               size = 1)+
-  labs( x ="Longitude (º)",
+  labs( title = "(B5)",
+        x ="Longitude (º)",
         y =  "Número de Registros (Log10)",
         colour = " ")+
   theme_classic()
@@ -1005,7 +1025,8 @@ E2 <- ggplot(LO, aes(x = FE, y = E, color = L2))+
               se = FALSE,
               fullrange = TRUE,
               size = 1)+
-  labs( x ="Longitude (º)",
+  labs( title = "(A5)",
+        x ="Longitude (º)",
         y = "Número de Espécies (Log10)",
         colour = " ")+
   theme_classic()
@@ -1018,10 +1039,10 @@ rm(list=ls())
 
 # Figura 7
 
-WAV1 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/Dados.xlsx", sheet = "WAV1")
+WAV1 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/Dados2.xlsx", sheet = "WAV1")
 WAV1 <- t(WAV1)
 
-SLI1 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/Dados.xlsx", sheet = "SLI1")
+SLI1 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/Dados2.xlsx", sheet = "SLI1")
 SLI1 <- t(SLI1)
 
 A1 <- vegdist(WAV1, method = "jaccard", binary = TRUE)
@@ -1045,10 +1066,10 @@ tanglegram(dendA1, dendB1,
 
 # Figura 8
 
-WAV2 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/Dados.xlsx", sheet = "WAV2")
+WAV2 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/Dados2.xlsx", sheet = "WAV2")
 WAV2 <- t(WAV2)
 
-SLI2 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/Dados.xlsx", sheet = "SLI2")
+SLI2 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/Dados2.xlsx", sheet = "SLI2")
 SLI2 <- t(SLI2)
 
 A2 <- vegdist(WAV2, method = "jaccard", binary = TRUE)
