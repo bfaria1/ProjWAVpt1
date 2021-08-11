@@ -1132,28 +1132,28 @@ AS1 <- ggplot(mapas) +
 
 AW2 <- ggplot(mapas) +
   geom_sf(aes(fill=N1WK3), color = NA) +
-  labs(subtitle="Aw2")+ 
+  labs(title="AW2")+ 
   scale_fill_manual (values = c('#f0f0f0','#0082CE','#228B00','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
 
 AS2 <- ggplot(mapas) +
   geom_sf(aes(fill=N1SK3), color = NA) +
-  labs(subtitle="AS2")+ 
+  labs(title="AS2")+ 
   scale_fill_manual (values = c('#f0f0f0','#0082CE','#228B00','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
 
 AW3 <- ggplot(mapas) +
   geom_sf(aes(fill=N1WK4), color = NA) +
-  labs(subtitle="AW3")+ 
+  labs(title="AW3")+ 
   scale_fill_manual (values = c('#f0f0f0','#7866D8','#767F00','#CC476B','#009681'))+
   labs(fill = " ")+
   theme_minimal()
 
 AS3 <- ggplot(mapas) +
   geom_sf(aes(fill=N1SK4), color = NA) +
-  labs(subtitle="AS3")+ 
+  labs(title="AS3")+ 
   scale_fill_manual (values = c('#f0f0f0','#7866D8','#767F00','#CC476B','#009681'))+
   labs(fill = " ")+
   theme_minimal()
@@ -1161,7 +1161,7 @@ AS3 <- ggplot(mapas) +
 
 AW4 <- ggplot(mapas) +
   geom_sf(aes(fill=N1WK5), color = NA) +
-  labs(subtitle="AW4")+ 
+  labs(title="AW4")+ 
   scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
@@ -1169,21 +1169,21 @@ AW4 <- ggplot(mapas) +
 
 AS4 <- ggplot(mapas) +
   geom_sf(aes(fill=N1SK5), color = NA) +
-  labs(subtitle="AS4")+ 
+  labs(title="AS4")+ 
   scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
 
 BW1 <- ggplot(mapas) +
   geom_sf(aes(fill=N2WK2), color = NA) +
-  labs(subtitle="BW1")+ 
+  labs(title="BW1")+ 
   scale_fill_manual (values = c('#f0f0f0','#009681','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
 
 BS1 <- ggplot(mapas) +
   geom_sf(aes(fill=N2SK2), color = NA) +
-  labs(subtitle="BS1")+ 
+  labs(title="BS1")+ 
   scale_fill_manual (values = c('#f0f0f0','#009681','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
@@ -1191,28 +1191,28 @@ BS1 <- ggplot(mapas) +
 
 BW2 <- ggplot(mapas) +
   geom_sf(aes(fill=N2WK3), color = NA) +
-  labs(subtitle="BW2")+ 
+  labs(title="BW2")+ 
   scale_fill_manual (values = c('#f0f0f0','#0082CE','#228B00','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
 
 BS2 <- ggplot(mapas) +
   geom_sf(aes(fill=N2SK3), color = NA) +
-  labs(subtitle="BS2")+ 
+  labs(title="BS2")+ 
   scale_fill_manual (values = c('#f0f0f0','#0082CE','#228B00','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
 
 BW3 <- ggplot(mapas) +
   geom_sf(aes(fill=N2WK4), color = NA) +
-  labs(subtitle="BW3")+ 
+  labs(title="BW3")+ 
   scale_fill_manual (values = c('#f0f0f0','#7866D8','#767F00','#CC476B','#009681'))+
   labs(fill = " ")+
   theme_minimal()
 
 BS3 <- ggplot(mapas) +
   geom_sf(aes(fill=N2SK4), color = NA) +
-  labs(subtitle="BS3")+ 
+  labs(title="BS3")+ 
   scale_fill_manual (values = c('#f0f0f0','#7866D8','#767F00','#CC476B','#009681'))+
   labs(fill = " ")+
   theme_minimal()
@@ -1220,7 +1220,7 @@ BS3 <- ggplot(mapas) +
 
 BW4 <- ggplot(mapas) +
   geom_sf(aes(fill=N2WK5), color = NA) +
-  labs(subtitle="Bw4")+ 
+  labs(title="BW4")+ 
   scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
@@ -1228,7 +1228,7 @@ BW4 <- ggplot(mapas) +
 
 BS4 <- ggplot(mapas) +
   geom_sf(aes(fill=N2SK5), color = NA) +
-  labs(subtitle="BS4")+ 
+  labs(title="BS4")+ 
   scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
