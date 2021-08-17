@@ -33,4 +33,30 @@ summary(modSR)
 modSE <- lm(SLIE ~ SLIR + AL + PO + AR + LA + LO, dados2)
 summary(modSE)
 
+cor.test(dados2$AL, dados2$AR,  method = "spearman")
+cor.test(dados2$AL, dados2$PO,  method = "spearman")
+cor.test(dados2$AL, dados2$LA,  method = "spearman")
+cor.test(dados2$AL, dados2$LO,  method = "spearman")
+cor.test(dados2$AL, dados2$WAVR,  method = "spearman")
+cor.test(dados2$AL, dados2$SLIR,  method = "spearman")
+
+cor.test(dados2$AR, dados2$PO,  method = "spearman")
+cor.test(dados2$AR, dados2$LA,  method = "spearman")
+cor.test(dados2$AR, dados2$LO,  method = "spearman")
+cor.test(dados2$AR, dados2$WAVR,  method = "spearman")
+cor.test(dados2$AR, dados2$SLIR,  method = "spearman")
+
+cor.test(dados2$PO, dados2$LA,  method = "spearman")
+cor.test(dados2$PO, dados2$LO,  method = "spearman")
+cor.test(dados2$PO, dados2$WAVR,  method = "spearman")
+cor.test(dados2$PO, dados2$SLIR,  method = "spearman")
+
+cor.test(dados2$LA, dados2$LO,  method = "spearman")
+cor.test(dados2$LA, dados2$WAVR,  method = "spearman")
+cor.test(dados2$LA, dados2$SLIR,  method = "spearman")
+
+cor.test(dados2$LO, dados2$WAVR,  method = "spearman")
+cor.test(dados2$LO, dados2$SLIR,  method = "spearman")
+
+
 rm(list = ls())

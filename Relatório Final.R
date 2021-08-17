@@ -276,6 +276,7 @@ G3 <- ggplot(dados, aes(x = xk, y = yk, group = Lk, colour = Lk))+
 
 ggarrange(G2,G1,G3, ncol = 2, nrow = 2)
 
+
 rm(list=ls())
 
 # Figura 2
@@ -780,38 +781,62 @@ rm(list=ls())
 
 # Figura 5
 
-FE <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S5/Mapas2.xlsx")
+FE <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S5/Mapas3.xlsx")
 mc <- read_municipality(code_muni= "SP")
 FAT <- merge(mc,FE)
 
-FAT$AL <- cut(FAT$Altitude, breaks = c(0,200,400,600,800,1000,1200,1400,1600,Inf),
-              labels = c("0-200","200-400","400-600","600-800","800-1000","1000-1200","1200-1400","1400-1600","1600+"))
+FAT$WAL <- cut(FAT$ALWAV, breaks = c(-2,0,200,400,600,800,1000,1200,1400,1600,Inf),
+              labels = c("Sem Registro","0-200","200-400","400-600","600-800","800-1000","1000-1200","1200-1400","1400-1600","1600+"))
 
-FAT$LAR <- cut(FAT$AreaL, breaks = c(0,0.5,1,1.5,2,2.5,3,3.5,4),
-               labels = c("0 - 0.5","0.5 - 1", "1 - 1.5", "1.5 - 2", "2 - 2.5", "2.5 - 3", "3 - 3.5","3.5 - 4"))
+FAT$WAR <- cut(FAT$ARWAV, breaks = c(-2,0,0.5,1,1.5,2,2.5,3,3.5,4),
+               labels = c("Sem Registro","0 - 0.5","0.5 - 1", "1 - 1.5", "1.5 - 2", "2 - 2.5", "2.5 - 3", "3 - 3.5","3.5 - 4"))
 
-FAT$LPOP <- cut (FAT$PopulacaoL, breaks = c(2,3,4,5,6,7,8), 
-                 labels = c("2 - 3", "3 - 4", "4 - 5", "5 - 6", "6 - 7", "7+"))
+FAT$WPOP <- cut (FAT$POWAV, breaks = c(-2,2,3,4,5,6,7,8), 
+                 labels = c("Sem Registro","2 - 3", "3 - 4", "4 - 5", "5 - 6", "6 - 7", "7+"))
+
+FAT$SAL <- cut(FAT$ALSLI, breaks = c(-2,0,200,400,600,800,1000,1200,1400,1600,Inf),
+              labels = c("Sem Registro","0-200","200-400","400-600","600-800","800-1000","1000-1200","1200-1400","1400-1600","1600+"))
+
+FAT$SAR <- cut(FAT$ARSLI, breaks = c(-2,0,0.5,1,1.5,2,2.5,3,3.5,4),
+               labels = c("Sem Registro","0 - 0.5","0.5 - 1", "1 - 1.5", "1.5 - 2", "2 - 2.5", "2.5 - 3", "3 - 3.5","3.5 - 4"))
+
+FAT$SPOP <- cut (FAT$POSLI, breaks = c(-2,2,3,4,5,6,7,8), 
+                 labels = c("Sem Registro","2 - 3", "3 - 4", "4 - 5", "5 - 6", "6 - 7", "7+"))
 
 
 ## Altitude
 
 
-A <- ggplot(FAT) +  
-  geom_sf(aes(fill=AL), color = NA) + 
+A1 <- ggplot(FAT) +  
+  geom_sf(aes(fill=WAL), color = NA) + 
+  labs(subtitle="", size=8)+ 
+  scale_fill_manual (values = brewer.pal(9,'OrRd'))+  
+  labs(fill = "Altitude (m) ")+  
+  theme_minimal()
+
+A2 <- ggplot(FAT) +  
+  geom_sf(aes(fill=SAL), color = NA) + 
   labs(subtitle="", size=8)+ 
   scale_fill_manual (values = brewer.pal(9,'OrRd'))+  
   labs(fill = "Altitude (m) ")+  
   theme_minimal()
 
 
+
 ## Área
 
 
-B <- ggplot(FAT) +
-  geom_sf(aes(fill=LAR), color = NA) +
+B1 <- ggplot(FAT) +
+  geom_sf(aes(fill=WAR), color = NA) +
   labs(subtitle=" ", size=8)+  
-  scale_fill_manual (values = brewer.pal(7,'OrRd'))+  
+  scale_fill_manual (values = brewer.pal(8,'OrRd'))+  
+  labs(fill = "Área (Log10(km^2))")+  
+  theme_minimal()
+
+B2 <- ggplot(FAT) +
+  geom_sf(aes(fill=SAR), color = NA) +
+  labs(subtitle=" ", size=8)+  
+  scale_fill_manual (values = brewer.pal(8,'OrRd'))+  
   labs(fill = "Área (Log10(km^2))")+  
   theme_minimal()
 
@@ -819,14 +844,37 @@ B <- ggplot(FAT) +
 ## População
 
 
-C <- ggplot(FAT) + 
-  geom_sf(aes(fill=LPOP), color = NA) + 
+C1 <- ggplot(FAT) + 
+  geom_sf(aes(fill=WPOP), color = NA) + 
   labs(subtitle="", size=8)+   
   scale_fill_manual (values = brewer.pal(9,'OrRd'))+  
   labs(fill = "População (Log10)")+ 
   theme_minimal()
 
-ggarrange(A,B,C, ncol = 2, nrow = 2)
+C2 <- ggplot(FAT) + 
+  geom_sf(aes(fill=SPOP), color = NA) + 
+  labs(subtitle="", size=8)+   
+  scale_fill_manual (values = brewer.pal(9,'OrRd'))+  
+  labs(fill = "População (Log10)")+ 
+  theme_minimal()
+
+text <- "Wikiaves (N = 631)"
+
+tgrob <- text_grob(text,size = 15)
+
+plot_1 <- as_ggplot(tgrob) + theme(plot.margin = margin(0,3,0,0, "cm"))
+
+WAV <- ggarrange(plot_1,A1,B1,C1,ncol = 1, nrow =4, heights = c(1,5,5,5))
+
+text <- "SpeciesLink (N = 174)"
+
+tgrob <- text_grob(text,size = 15)
+
+plot_2 <- as_ggplot(tgrob) + theme(plot.margin = margin(0,3,0,0, "cm"))
+
+SLI <- ggarrange(plot_2,A2,B2,C2,ncol = 1, nrow =4, heights = c(1,5,5,5))
+
+ggarrange(WAV,SLI, ncol = 2, nrow = 1)
 
 rm(list=ls())
 
@@ -1117,14 +1165,12 @@ mapas$N2SK5 <- factor(mapas$N2SK5, levels=c("Sem Registro", "Grupo 1", "Grupo 2"
 
 AW1 <- ggplot(mapas) +
     geom_sf(aes(fill=N1WK2), color = NA) +
-    labs(title="AW1")+ 
     scale_fill_manual (values = c('#f0f0f0','#009681','#CC476B'))+
     labs(fill = " ")+
     theme_minimal()
 
 AS1 <- ggplot(mapas) +
     geom_sf(aes(fill=N1SK2), color = NA) +
-    labs(title="AS1")+ 
     scale_fill_manual (values = c('#f0f0f0','#009681','#CC476B'))+
     labs(fill = " ")+
     theme_minimal()
@@ -1132,28 +1178,24 @@ AS1 <- ggplot(mapas) +
 
 AW2 <- ggplot(mapas) +
   geom_sf(aes(fill=N1WK3), color = NA) +
-  labs(title="AW2")+ 
   scale_fill_manual (values = c('#f0f0f0','#0082CE','#228B00','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
 
 AS2 <- ggplot(mapas) +
   geom_sf(aes(fill=N1SK3), color = NA) +
-  labs(title="AS2")+ 
   scale_fill_manual (values = c('#f0f0f0','#0082CE','#228B00','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
 
 AW3 <- ggplot(mapas) +
   geom_sf(aes(fill=N1WK4), color = NA) +
-  labs(title="AW3")+ 
   scale_fill_manual (values = c('#f0f0f0','#7866D8','#767F00','#CC476B','#009681'))+
   labs(fill = " ")+
   theme_minimal()
 
 AS3 <- ggplot(mapas) +
   geom_sf(aes(fill=N1SK4), color = NA) +
-  labs(title="AS3")+ 
   scale_fill_manual (values = c('#f0f0f0','#7866D8','#767F00','#CC476B','#009681'))+
   labs(fill = " ")+
   theme_minimal()
@@ -1161,7 +1203,6 @@ AS3 <- ggplot(mapas) +
 
 AW4 <- ggplot(mapas) +
   geom_sf(aes(fill=N1WK5), color = NA) +
-  labs(title="AW4")+ 
   scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
@@ -1169,10 +1210,26 @@ AW4 <- ggplot(mapas) +
 
 AS4 <- ggplot(mapas) +
   geom_sf(aes(fill=N1SK5), color = NA) +
-  labs(title="AS4")+ 
   scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
+
+text <- "SLI (N = 71)"
+
+tgrob <- text_grob(text,size = 15)
+
+plot_0 <- as_ggplot(tgrob) + theme(plot.margin = margin(0,3,0,0, "cm"))
+
+A1 <- ggarrange(plot_0,AS1,AS2,AS3,AS4,ncol = 1, nrow =5, heights = c(1,5,5,5,5))
+
+text <- "WAV (N = 71)"
+
+tgrob <- text_grob(text,size = 15)
+
+plot_1 <- as_ggplot(tgrob) + theme(plot.margin = margin(0,3,0,0, "cm"))
+
+A2 <- ggarrange(plot_1,AW1,AW2,AW3,AW4,ncol = 1, nrow =5, heights = c(1,5,5,5,5))
+
 
 BW1 <- ggplot(mapas) +
   geom_sf(aes(fill=N2WK2), color = NA) +
@@ -1233,6 +1290,22 @@ BS4 <- ggplot(mapas) +
   labs(fill = " ")+
   theme_minimal()
 
-ggarrange(AS1,AW1,BS1,BW1,AS2,AW2,BS2,BW2,AS3,AW3,BS3,BW3,AS4,AW4,BS4,BW4, ncol = 4, nrow= 4)
+text <- "SLI (N = 46)"
+
+tgrob <- text_grob(text,size = 15)
+
+plot_2 <- as_ggplot(tgrob) + theme(plot.margin = margin(0,3,0,0, "cm"))
+
+B1 <- ggarrange(plot_2,BS1,BS2,BS3,BS4,ncol = 1, nrow =5, heights = c(1,5,5,5,5))
+
+text <- "WAV (N = 46)"
+
+tgrob <- text_grob(text,size = 15)
+
+plot_3 <- as_ggplot(tgrob) + theme(plot.margin = margin(0,3,0,0, "cm"))
+
+B2 <- ggarrange(plot_3,BW1,BW2,BW3,BW4,ncol = 1, nrow =5, heights = c(1,5,5,5,5))
+
+ggarrange(A1,A2,B1,B2, ncol = 4, nrow= 1)
 
 rm(list = ls())
