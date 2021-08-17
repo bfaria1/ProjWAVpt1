@@ -1087,10 +1087,10 @@ rm(list=ls())
 
 # Figura 7
 
-WAV1 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/Dados2.xlsx", sheet = "WAV1")
+WAV1 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/Dados.xlsx", sheet = "WAV1")
 WAV1 <- t(WAV1)
 
-SLI1 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/Dados2.xlsx", sheet = "SLI1")
+SLI1 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/Dados.xlsx", sheet = "SLI1")
 SLI1 <- t(SLI1)
 
 A1 <- vegdist(WAV1, method = "jaccard", binary = TRUE)
@@ -1114,10 +1114,10 @@ tanglegram(dendA1, dendB1,
 
 # Figura 8
 
-WAV2 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/Dados2.xlsx", sheet = "WAV2")
+WAV2 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/Dados.xlsx", sheet = "WAV2")
 WAV2 <- t(WAV2)
 
-SLI2 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/Dados2.xlsx", sheet = "SLI2")
+SLI2 <- read.xlsx ("C:/Users/bia99/OneDrive/Documents/Wikiaves/ProjWAV/Excel/S6/Dados.xlsx", sheet = "SLI2")
 SLI2 <- t(SLI2)
 
 A2 <- vegdist(WAV2, method = "jaccard", binary = TRUE)
