@@ -120,7 +120,7 @@ dados <- data.frame(Li = A, xi = B, yi = C)
 dados$L <- factor(dados$L, levels = c("WAV (N = 631)", "SLI (N = 174)", "WAV 2 (N = 173)"))
 
 
-G1 <- ggplot(dados, aes(x = xi, y = yi, group = Li, colour = Li))+
+G1 <- ggplot(dados, aes(x = xi, y = yi, group = L, colour = L))+
   geom_line()+
   scale_colour_manual(values = c("blue", "red", "green")) +
   labs(title = "(B)",
@@ -192,7 +192,7 @@ for(i  in 51:75){
 dados <- data.frame(Lj = A, xj = B, yj = C)
 dados$L <- factor(dados$L, levels = c("WAV (N = 631)", "SLI (N = 174)", "WAV 2 (N = 173)"))
 
-G2 <- ggplot(dados, aes(x = xj, y = yj, group = Lj, colour = Lj))+
+G2 <- ggplot(dados, aes(x = xj, y = yj, group = L, colour = L))+
   geom_line()+
   scale_colour_manual(values = c("blue", "red", "green")) +
   labs(title= "(A)",
@@ -265,7 +265,7 @@ for(i  in 51:75){
 dados <- data.frame(Lk = A, xk = B, yk = C)
 dados$L <- factor(dados$L, levels = c("WAV (S = 790)", "SLI (S = 661)", "WAV 2 (S = 779)"))
 
-G3 <- ggplot(dados, aes(x = xk, y = yk, group = Lk, colour = Lk))+
+G3 <- ggplot(dados, aes(x = xk, y = yk, group = L, colour = L))+
   geom_line()+
   scale_colour_manual(values = c("blue", "red", "green")) +
   labs(title = "(C)",
@@ -411,7 +411,7 @@ grafico3 <- ggplot(dados, aes(x = C1, y = C2, color = L1))+
   geom_point()+
   scale_colour_manual(values = c("blue","red", "green")) +
   stat_smooth(method = "lm",
-              formula = y~poly(x,2),
+              #formula = y~poly(x,2),
               se = FALSE,
               fullrange = TRUE,
               size = 1)+
@@ -810,14 +810,14 @@ FAT$SPOP <- cut (FAT$POSLI, breaks = c(-2,2,3,4,5,6,7,8),
 A1 <- ggplot(FAT) +  
   geom_sf(aes(fill=WAL), color = NA) + 
   labs(subtitle="", size=8)+ 
-  scale_fill_manual (values = brewer.pal(9,'OrRd'))+  
+  scale_fill_manual (values = c('#f0f0f0','#fdd49e','#fdbb84','#fe944c','#fc8d59','#ef6548','#d7301f','#b30000','#7f0000'))+  
   labs(fill = "Altitude (m) ")+  
   theme_minimal()
 
 A2 <- ggplot(FAT) +  
   geom_sf(aes(fill=SAL), color = NA) + 
   labs(subtitle="", size=8)+ 
-  scale_fill_manual (values = brewer.pal(9,'OrRd'))+  
+  scale_fill_manual (values = c('#f0f0f0','#fdd49e','#fdbb84','#fe944c','#fc8d59','#ef6548','#d7301f','#b30000','#7f0000'))+  
   labs(fill = "Altitude (m) ")+  
   theme_minimal()
 
@@ -829,14 +829,14 @@ A2 <- ggplot(FAT) +
 B1 <- ggplot(FAT) +
   geom_sf(aes(fill=WAR), color = NA) +
   labs(subtitle=" ", size=8)+  
-  scale_fill_manual (values = brewer.pal(8,'OrRd'))+  
+  scale_fill_manual (values = c('#f0f0f0','#fdd49e','#fdbb84','#fe944c','#fc8d59','#ef6548','#d7301f','#b30000','#7f0000'))+ 
   labs(fill = "Área (Log10(km^2))")+  
   theme_minimal()
 
 B2 <- ggplot(FAT) +
   geom_sf(aes(fill=SAR), color = NA) +
   labs(subtitle=" ", size=8)+  
-  scale_fill_manual (values = brewer.pal(8,'OrRd'))+  
+  scale_fill_manual (values = c('#f0f0f0','#fdd49e','#fdbb84','#fe944c','#fc8d59','#ef6548','#d7301f','#b30000','#7f0000'))+ 
   labs(fill = "Área (Log10(km^2))")+  
   theme_minimal()
 
@@ -847,14 +847,14 @@ B2 <- ggplot(FAT) +
 C1 <- ggplot(FAT) + 
   geom_sf(aes(fill=WPOP), color = NA) + 
   labs(subtitle="", size=8)+   
-  scale_fill_manual (values = brewer.pal(9,'OrRd'))+  
+  scale_fill_manual (values = c('#f0f0f0','#fdd49e','#fdbb84','#fe944c','#fc8d59','#ef6548','#d7301f','#b30000','#7f0000'))+  
   labs(fill = "População (Log10)")+ 
   theme_minimal()
 
 C2 <- ggplot(FAT) + 
   geom_sf(aes(fill=SPOP), color = NA) + 
   labs(subtitle="", size=8)+   
-  scale_fill_manual (values = brewer.pal(9,'OrRd'))+  
+  scale_fill_manual (values = c('#f0f0f0','#fdd49e','#fdbb84','#fe944c','#fc8d59','#ef6548','#d7301f','#b30000','#7f0000'))+ 
   labs(fill = "População (Log10)")+ 
   theme_minimal()
 
@@ -1107,6 +1107,7 @@ tanglegram(dendA1, dendB1,
            highlight_distinct_edges = FALSE, 
            common_subtrees_color_lines = TRUE, 
            common_subtrees_color_branches = FALSE,
+           sort = FALSE,
            main_left = "Wikiaves",
            main_right = "SpeciesLink",
            lwd = .5,
@@ -1135,6 +1136,7 @@ tanglegram(dendA2, dendB2,
            common_subtrees_color_branches = FALSE,
            main_left = "Wikiaves",
            main_right = "SpeciesLink",
+           sort = TRUE,
            lwd = .5,
            k_branches = 5)
 
@@ -1233,14 +1235,14 @@ A2 <- ggarrange(plot_1,AW1,AW2,AW3,AW4,ncol = 1, nrow =5, heights = c(1,5,5,5,5)
 
 BW1 <- ggplot(mapas) +
   geom_sf(aes(fill=N2WK2), color = NA) +
-  labs(title="BW1")+ 
+  #labs(title="BW1")+ 
   scale_fill_manual (values = c('#f0f0f0','#009681','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
 
 BS1 <- ggplot(mapas) +
   geom_sf(aes(fill=N2SK2), color = NA) +
-  labs(title="BS1")+ 
+  #labs(title="BS1")+ 
   scale_fill_manual (values = c('#f0f0f0','#009681','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
@@ -1248,28 +1250,28 @@ BS1 <- ggplot(mapas) +
 
 BW2 <- ggplot(mapas) +
   geom_sf(aes(fill=N2WK3), color = NA) +
-  labs(title="BW2")+ 
+  #labs(title="BW2")+ 
   scale_fill_manual (values = c('#f0f0f0','#0082CE','#228B00','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
 
 BS2 <- ggplot(mapas) +
   geom_sf(aes(fill=N2SK3), color = NA) +
-  labs(title="BS2")+ 
+  #labs(title="BS2")+ 
   scale_fill_manual (values = c('#f0f0f0','#0082CE','#228B00','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
 
 BW3 <- ggplot(mapas) +
   geom_sf(aes(fill=N2WK4), color = NA) +
-  labs(title="BW3")+ 
+  #labs(title="BW3")+ 
   scale_fill_manual (values = c('#f0f0f0','#7866D8','#767F00','#CC476B','#009681'))+
   labs(fill = " ")+
   theme_minimal()
 
 BS3 <- ggplot(mapas) +
   geom_sf(aes(fill=N2SK4), color = NA) +
-  labs(title="BS3")+ 
+  #labs(title="BS3")+ 
   scale_fill_manual (values = c('#f0f0f0','#7866D8','#767F00','#CC476B','#009681'))+
   labs(fill = " ")+
   theme_minimal()
@@ -1277,7 +1279,7 @@ BS3 <- ggplot(mapas) +
 
 BW4 <- ggplot(mapas) +
   geom_sf(aes(fill=N2WK5), color = NA) +
-  labs(title="BW4")+ 
+  #labs(title="BW4")+ 
   scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
@@ -1285,12 +1287,12 @@ BW4 <- ggplot(mapas) +
 
 BS4 <- ggplot(mapas) +
   geom_sf(aes(fill=N2SK5), color = NA) +
-  labs(title="BS4")+ 
+  #labs(title="BS4")+ 
   scale_fill_manual (values = c('#f0f0f0','#B646C7','#228B00','#9F7000','#0082CE','#CC476B'))+
   labs(fill = " ")+
   theme_minimal()
 
-text <- "SLI (N = 46)"
+text <- "SpeciesLink"
 
 tgrob <- text_grob(text,size = 15)
 
@@ -1298,7 +1300,7 @@ plot_2 <- as_ggplot(tgrob) + theme(plot.margin = margin(0,3,0,0, "cm"))
 
 B1 <- ggarrange(plot_2,BS1,BS2,BS3,BS4,ncol = 1, nrow =5, heights = c(1,5,5,5,5))
 
-text <- "WAV (N = 46)"
+text <- "Wikiaves"
 
 tgrob <- text_grob(text,size = 15)
 
@@ -1306,6 +1308,6 @@ plot_3 <- as_ggplot(tgrob) + theme(plot.margin = margin(0,3,0,0, "cm"))
 
 B2 <- ggarrange(plot_3,BW1,BW2,BW3,BW4,ncol = 1, nrow =5, heights = c(1,5,5,5,5))
 
-ggarrange(A1,A2,B1,B2, ncol = 4, nrow= 1)
+ggarrange(B1,B2, ncol = 2, nrow= 1)
 
 rm(list = ls())
