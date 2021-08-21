@@ -30,6 +30,7 @@ ARX <- dados1[,13:13]
 POPX <- dados1[,14:14]
 LAX <- dados1[,15:15]
 LOX <- dados1[,16:16]
+LALOX <- dados1[,15:16]
 
 FE2 <- dados2[,12:16]
 ALY <- dados2[,12:12]
@@ -37,6 +38,7 @@ ARY <- dados2[,13:13]
 POPY <- dados2[,14:14]
 LAY <- dados2[,15:15]
 LOY <- dados2[,16:16]
+LALOY <- dados2[,15:16]
 
 mapas <- merge(mc,mapas)
 
@@ -47,6 +49,7 @@ B2 <- vegdist(SLI2, method = "jaccard", binary = TRUE)
 
 
 dist.amb1 <- vegdist(FE1, method = "euclid")
+dist.geo1 <- vegdist(LALOX, method = "euclid")
 
 AL1 <- vegdist(ALX, method = "euclid")
 AR1 <- vegdist(ARX, method = "euclid")
@@ -55,6 +58,7 @@ LA1 <- vegdist(LAX, method = "euclid")
 LO1 <- vegdist(LOX, method = "euclid")
 
 dist.amb2 <- vegdist(FE2, method = "euclid")
+dist.geo2 <- vegdist(LALOY, method = "euclid")
 
 AL2 <- vegdist(ALY, method = "euclid")
 AR2 <- vegdist(ARY, method = "euclid")
@@ -79,6 +83,9 @@ mantel(A1, B1, permutations = 10000)
 
 mantel(dist.amb1, A1, permutations = 10000)
 mantel(dist.amb1, B1, permutations = 10000)
+
+mantel(dist.geo1, A1, permutations = 10000)
+mantel(dist.geo1, B1, permutations = 10000)
 
 mantel(AL1, A1, permutations = 10000)
 mantel(AL1, B1, permutations = 10000)
@@ -314,6 +321,9 @@ mantel(A2, B2, permutations = 10000)
 
 mantel(dist.amb2, A2, permutations = 10000)
 mantel(dist.amb2, B2, permutations = 10000)
+
+mantel(dist.geo2, A2, permutations = 10000)
+mantel(dist.geo2, B2, permutations = 10000)
 
 mantel(AL2, A2, permutations = 10000)
 mantel(AL2, B2, permutations = 10000)
